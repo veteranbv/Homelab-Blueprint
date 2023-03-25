@@ -115,6 +115,7 @@ Happy homelabbing, folks!
   * Kubernetes
     * K3S, Rancher
     * Kubernetes Storage (Longhorn, NFS)
+    * MetalLB: Load balancer for bare metal Kubernetes clusters
 
 ### Implement Security Best Practices
 
@@ -204,7 +205,7 @@ Happy homelabbing, folks!
   * Link Page (LittleLink)
 
 ### Establish a Monitoring and Maintenance Routine
-
+[![Monitoring Diagram](https://mermaid.ink/img/pako:eNqNk8tuwjAQRX_F8iqVYAHZsaiEWtRKQFWVtqtshmQIVvyIHAeJAv_esQnhVVQ2scc-nusZ32x4ajLkA55bKJds8pFoxqp6vg8T_moUSpizGdqVSLFioDM2LEspUnDC6Crh_gRjUJa9iDZ6D23c93H_GMc-jkOMOkv0hdTUaOGMFTpnn8bINjPtL0BD9LIfm3ylpZu5JdZV9N5Om726dEJh9BUGNq4V3BSdmJxNKWuOCrU7SEpTiGhCnxMxB0IGKT9p1lEW0WgyZjMHaXFTYyjROl-W792bcWJx1TxPqNxGAVXhPrbVgMoFIBr5aUDOtXzvWbf7uH1BjRYcsik6K9Jqe9KmBuzfC8b3ghfS1NGG8o36W_VPJr6D2Ws9LTEt2HBF6zAXUrj1tnnzM7l_sfgO7FhugL9FVYMUPycNafzpYe-bC2xfxglzqChwMzL8gfGHr4ChBrlu05DfPNFkC0DwE934YKFgDFmc7R0tlGje4QqtApHRT7_xdMKpPCqWD2iagS28K3fEQe3MbK1TPnC2xg6vy4we5lkA6Ss-WICscPcL2Y95Mw?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNk8tuwjAQRX_F8iqVYAHZsaiEWtRKQFWVtqtshmQIVvyIHAeJAv_esQnhVVQ2scc-nusZ32x4ajLkA55bKJds8pFoxqp6vg8T_moUSpizGdqVSLFioDM2LEspUnDC6Crh_gRjUJa9iDZ6D23c93H_GMc-jkOMOkv0hdTUaOGMFTpnn8bINjPtL0BD9LIfm3ylpZu5JdZV9N5Om726dEJh9BUGNq4V3BSdmJxNKWuOCrU7SEpTiGhCnxMxB0IGKT9p1lEW0WgyZjMHaXFTYyjROl-W792bcWJx1TxPqNxGAVXhPrbVgMoFIBr5aUDOtXzvWbf7uH1BjRYcsik6K9Jqe9KmBuzfC8b3ghfS1NGG8o36W_VPJr6D2Ws9LTEt2HBF6zAXUrj1tnnzM7l_sfgO7FhugL9FVYMUPycNafzpYe-bC2xfxglzqChwMzL8gfGHr4ChBrlu05DfPNFkC0DwE934YKFgDFmc7R0tlGje4QqtApHRT7_xdMKpPCqWD2iagS28K3fEQe3MbK1TPnC2xg6vy4we5lkA6Ss-WICscPcL2Y95Mw)
 * Set Up Monitoring Tools and Dashboards
   * Uptime Kuma
   * Grafana
