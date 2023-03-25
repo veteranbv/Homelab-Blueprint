@@ -160,7 +160,7 @@ Happy homelabbing, folks!
   * Load Balancing and Failover (keepalived)
   * Gravity Sync (PiHole Synchronization)
 * Implement GitOps
-  * FLUX
+  * FLUX / Argo CD
   * Git
   * Ansible
 * Configure CI/CD
