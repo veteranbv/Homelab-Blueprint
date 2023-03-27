@@ -313,6 +313,8 @@ Happy homelabbing, folks!
 ## Tools Used
 
 * [Mermaid](https://mermaid-js.github.io/mermaid/#/)
-* [Bing Image Create](https://www.bing.com/images/create)
+* [PlantText](https://www.planttext.com/)
+* [Chart.js](https://www.chartjs.org/)
 * [Xmind](https://www.xmind.net/)
+* [Bing Image Create](https://www.bing.com/images/create)
 * [ChatGPT](https://chat.openai.com/chat/)
