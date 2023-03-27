@@ -53,7 +53,7 @@ Happy homelabbing, folks!
 
 ### Plan and Design the Homelab
 
-![Matrix - Homelab Plan](./visualizations/homelab_plan_matrix.jpeg)
+![Matrix - Homelab Plan](./visualizations/homelab_plan_matrix.jpg)
 
 * Develop a Documentation and Note-Taking Routine
   * Common documentation tools
