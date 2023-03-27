@@ -79,6 +79,8 @@ Happy homelabbing, folks!
 
 ### Select and Acquire Hardware
 
+![Hardware Selection](./visualizations/hardware_selection.png)
+
 * Servers and Workstations
 * Networking Equipment (Switches, Routers, Access Points)
 * Storage Solutions (NAS, SAN, Cloud)
