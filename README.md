@@ -47,6 +47,7 @@ Happy homelabbing, folks!
 
 ![Radar Chart - Assess Current Knowledge and Skills](./visualizations/skill_assessment_radar_chart.jpeg)
 
+![Radar Chart - Assess Current Knowledge and Skills](./visualizations/skill_assessment_radar_chart.jpeg)
 * Identifying strengths and weaknesses
 * Creating a learning plan
 * Sourcing learning resources and tutorials
