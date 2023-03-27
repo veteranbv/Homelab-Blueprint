@@ -1,0 +1,56 @@
+- Install & Configure Homelab Services & Applications
+  - Automation & Configuration Management Tools
+    - Ansible
+    - Puppet
+    - Chef
+  - DNS & DHCP Servers
+    - bind9
+    - PiHole
+    - AdGuard
+    - Load Balancing & Failover (keepalived)
+    - Gravity Sync (PiHole Synchronization)
+  - GitOps
+    - FLUX / Argo CD
+    - Git
+    - Ansible
+  - CI/CD
+    - GitHub Actions
+    - GitHub Runner Actions
+  - Network Attached Storage
+    - TrueNAS Scale
+  - Dashboard
+    - Heimdall
+  - Content Management Systems
+    - WordPress
+    - Ghost Blog
+    - WikiJS
+  - Web Servers
+    - Apache
+    - Nginx
+    - IIS
+  - Database Servers
+    - MySQL
+    - PostgreSQL
+    - SQL Server
+  - Media Servers
+    - Plex
+    - Emby
+    - Jellyfin
+  - Home Automation
+    - HomeKit
+    - HomeBridge
+    - Home Assistant
+  - Data Synchronization
+    - Sync Thing
+  - Deploy Static Sites & Custom Code
+    - Hugo
+    - Jekyll
+  - File-Sharing & Collaboration Tools
+    - Nextcloud
+    - Syncthing
+    - ownCloud
+  - Links
+    - Link Shortener
+      - Shlink
+    - Link Page
+      - LittleLink

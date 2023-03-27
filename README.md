@@ -8,6 +8,8 @@ I'm open to any feedback or suggestions you might have.
 
 Happy homelabbing, folks!
 
+![HomeLab Blueprint](./visualizations/homelab_blueprint_realistic.jpg)
+
 ## High-Level Roadmap
 
 1. Determine Goals and Purpose
@@ -90,12 +92,16 @@ Happy homelabbing, folks!
 
 ### Install and Configure Hardware
 
+![HomeLab Install](./visualizations/homelab_install.jpeg)
+
 * Assemble and Organize Hardware Components
 * Test Hardware Components for Functionality
 * Establish Proper Cable Management Practices
 * Configure BIOS/UEFI Settings
 
 ### Set Up Networking
+
+![Networking](./visualizations/homelab_networking.jpeg)
 
 * Network Topology and Design
 * Configure Routers and Switches
@@ -108,6 +114,8 @@ Happy homelabbing, folks!
 * Establish Remote Access
 
 ### Install and Configure Software
+
+![Install and Configure Software](./visualizations/homelab_software_install.jpeg)
 
 * Create a Bootable USB Drive for Multiple ISO Files (Ventoy)
 * Choose Operating Systems
@@ -127,6 +135,8 @@ Happy homelabbing, folks!
     * MetalLB: Load balancer for bare metal Kubernetes clusters
 
 ### Implement Security Best Practices
+
+[![Homelab Security Best Practices](https://mermaid.ink/img/pako:eNp9k01P4zAQhv9K5AOnUqVO048IIfVztVKLEN3dw7o9mGRarCZ25DhAqfrfGccxgkXaXJyJn7zzznh8JqnKgCTkoHn5FKwetjLAZ8IWrwa05HnwS_P9XqS74Pr6Npj22E9pdF0JJW8e9e29hmeQpo02p8pAsWsl3A-U_bm_s5s_uIEXfmp3pxH7XYGu2nDZwLMeuwPzovSxUYNDgdrcqrfYrOc4yiZpClVlsZlCQyoPVqIyXm5GHeeSWGpSmydrNP0iFzXYnM254cFVw5Vl3kJebOqSLpnVUFq8QdaQqRHPwnwU5FIufXmfo4WLFn02yUE3Lt1GVT-6vi-Fxubkuc_oNb2aL9-X5_27dd428ZssnpU7xA2ktUaz_9cBmXmJuXMcsbWSwmDV8hBcBSt1OODbzjM3DYSnIW0vcCyQWcisVEKaj5z_0D025emxLhF9gFQ9gz5978cky4Q9g0_WgzXwqtZQtT1ta1hQ3-N27X-pBRfSIQXogosMx_xsd7cEh6GALUnwNeP6uCVbeUGO10ZtTjIlCc44dEhdZji1c8HRVUGSPc8r_FpySZIzeSVJHHcHvWhEw3BE-3QU9jvkRBI6iLvhsD-kYRRH8WAcXzrkTSkUCLvjOIxG45AO43Ec0w6BzHZ37e5gcxUb_b8Nbk1c3gHayBdT?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNp9k01P4zAQhv9K5AOnUqVO048IIfVztVKLEN3dw7o9mGRarCZ25DhAqfrfGccxgkXaXJyJn7zzznh8JqnKgCTkoHn5FKwetjLAZ8IWrwa05HnwS_P9XqS74Pr6Npj22E9pdF0JJW8e9e29hmeQpo02p8pAsWsl3A-U_bm_s5s_uIEXfmp3pxH7XYGu2nDZwLMeuwPzovSxUYNDgdrcqrfYrOc4yiZpClVlsZlCQyoPVqIyXm5GHeeSWGpSmydrNP0iFzXYnM254cFVw5Vl3kJebOqSLpnVUFq8QdaQqRHPwnwU5FIufXmfo4WLFn02yUE3Lt1GVT-6vi-Fxubkuc_oNb2aL9-X5_27dd428ZssnpU7xA2ktUaz_9cBmXmJuXMcsbWSwmDV8hBcBSt1OODbzjM3DYSnIW0vcCyQWcisVEKaj5z_0D025emxLhF9gFQ9gz5978cky4Q9g0_WgzXwqtZQtT1ta1hQ3-N27X-pBRfSIQXogosMx_xsd7cEh6GALUnwNeP6uCVbeUGO10ZtTjIlCc44dEhdZji1c8HRVUGSPc8r_FpySZIzeSVJHHcHvWhEw3BE-3QU9jvkRBI6iLvhsD-kYRRH8WAcXzrkTSkUCLvjOIxG45AO43Ec0w6BzHZ37e5gcxUb_b8Nbk1c3gHayBdT)
 
 * Implement Password and Access Management
   * Authelia: Single sign-on and two-factor authentication server
@@ -158,6 +168,8 @@ Happy homelabbing, folks!
   * BorgBackup
 
 ### Install and Configure Homelab Services and Applications
+
+![Homelab Services and Applications](./visualizations/homelab_install_configure_services_appsSML.png)
 
 * Utilize Automation and Configuration Management Tools
   * Ansible
