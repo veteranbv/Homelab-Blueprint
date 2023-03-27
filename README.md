@@ -252,6 +252,8 @@ Happy homelabbing, folks!
 
 ### Learn and Experiment
 
+![Learn and Experiment](./visualizations/homelab_learning.jpeg)
+
 * Access Study Materials and Resources
 * Pursue Certifications and Online Courses
 * Attend Meetups and Conferences
@@ -263,6 +265,8 @@ Happy homelabbing, folks!
 * Stay Informed on Industry Trends and Technologies
 
 ### Share Your Experience with the Community
+
+![Share Your Experience](./visualizations/homelab_share_experience.jpeg)
 
 * Engage in Online Forums and Discussion Groups
   * Reddit
@@ -276,6 +280,8 @@ Happy homelabbing, folks!
 * Provide Support and Advice to Newcomers
 
 ### Expanding and Upgrading Your Homelab
+
+![Expand!](./visualizations/homelab_expansion.jpeg)
 
 * Identify Areas for Improvement
 * Invest in New Hardware or Software
