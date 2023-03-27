@@ -37,6 +37,7 @@ Happy homelabbing, folks!
 ### Determine Goals and Purpose
 
 [![Homelab Goals and Purposes](https://mermaid.ink/img/pako:eNp9U8Fu2zAM_RVDpxbwgtpp7NQYBnRp0R7aIViKFRhyoW0mEWKJhix3SYP8eyl7WWonmE4S-chHPZI7kVGOIhFK6lxBOdeeZ4jsxcUjKSwg_Zqabw8EReWBzt1jWpuSKqwuLx3W86ZoKtJQtC93HilNJVZHgzsPoNCFz9C8cUTX-ROtoYYJuI7l0XmvLRoLUivUthvzjLmEJqM12Atrq2gJX1YInMSbTlr_E4LRHfSEKeRCZmAl6V5lP9D-IbN2iW5zJpGVNQ2uC5ttK4vqf6jZWhaFA9zhGxZUnn5oamhpQJ3-5BXTs4EvWNmuWpsSjXSAMyX-ksbWUMj3M74JaScyB_e9XBQtPFq4AhiVYdmr-jtk67ps-kBFfUbBSUF1fui8zA5zcWjPbW1J9UiPrW2GpSdTgZuu5V6l209CKzD2r15HuhPvk1yu7InU_9w8NUZRxUJyAuELxU-QOS_KzkXMhV2hwrlI-JqDWc_FXO8ZB_yd2VZnIrGmRl_UZc7TdyfBtVYkC14ktpagRbITG5F8GYXjwc1VHIZhFEfxMPDFlq1BPB4Mg-s4jEbR6CaIR3tfvBNxhnAQXjXnOo7GwziIfMFqWTLP7R4369ww_G7wDeP-AwexKag?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNp9U8Fu2zAM_RVDpxbwgtpp7NQYBnRp0R7aIViKFRhyoW0mEWKJhix3SYP8eyl7WWonmE4S-chHPZI7kVGOIhFK6lxBOdeeZ4jsxcUjKSwg_Zqabw8EReWBzt1jWpuSKqwuLx3W86ZoKtJQtC93HilNJVZHgzsPoNCFz9C8cUTX-ROtoYYJuI7l0XmvLRoLUivUthvzjLmEJqM12Atrq2gJX1YInMSbTlr_E4LRHfSEKeRCZmAl6V5lP9D-IbN2iW5zJpGVNQ2uC5ttK4vqf6jZWhaFA9zhGxZUnn5oamhpQJ3-5BXTs4EvWNmuWpsSjXSAMyX-ksbWUMj3M74JaScyB_e9XBQtPFq4AhiVYdmr-jtk67ps-kBFfUbBSUF1fui8zA5zcWjPbW1J9UiPrW2GpSdTgZuu5V6l209CKzD2r15HuhPvk1yu7InU_9w8NUZRxUJyAuELxU-QOS_KzkXMhV2hwrlI-JqDWc_FXO8ZB_yd2VZnIrGmRl_UZc7TdyfBtVYkC14ktpagRbITG5F8GYXjwc1VHIZhFEfxMPDFlq1BPB4Mg-s4jEbR6CaIR3tfvBNxhnAQXjXnOo7GwziIfMFqWTLP7R4369ww_G7wDeP-AwexKag)
+
 * Personal interests and hobbies
 * Learning and skill development
 * Testing and experimentation
@@ -44,11 +45,15 @@ Happy homelabbing, folks!
 
 ### Assess Current Knowledge and Skills
 
+![Radar Chart - Assess Current Knowledge and Skills](./visualizations/skill_assessment_radar_chart.jpeg)
+
 * Identifying strengths and weaknesses
 * Creating a learning plan
 * Sourcing learning resources and tutorials
 
 ### Plan and Design the Homelab
+
+![Matrix - Homelab Plan](./visualizations/homelab_plan_matrix.jpeg)
 
 * Develop a Documentation and Note-Taking Routine
   * Common documentation tools
