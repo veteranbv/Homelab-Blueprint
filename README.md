@@ -133,6 +133,7 @@ Happy homelabbing, folks!
     * K3S, Rancher
     * Kubernetes Storage (Longhorn, NFS)
     * MetalLB: Load balancer for bare metal Kubernetes clusters
+    * Kubeapps: Kubernetes Application Manager
 
 ### Implement Security Best Practices
 
@@ -190,8 +191,12 @@ Happy homelabbing, folks!
   * GitHub Runner Actions
 * Deploy Network Attached Storage
   * TrueNAS Scale
+  * FreeNAS
+  * OpenMediaVault
 * Implement Dashboard
   * Heimdall
+  * Organizr
+  * Homer
 * Deploy Content Management Systems
   * WordPress
   * Ghost Blog
@@ -202,6 +207,7 @@ Happy homelabbing, folks!
   * IIS
 * Configure Database Servers
   * MySQL
+  * MariaDB
   * PostgreSQL
   * SQL Server
 * Deploy Media Servers
@@ -212,15 +218,13 @@ Happy homelabbing, folks!
   * HomeKit
   * HomeBridge
   * Home Assistant
-* Set Up Data Synchronization
-  * Sync Thing
+* Set Up File Synchronization, Sharing, and Collaboration Tools
+  * Syncthing
+  * Nextcloud
+  * ownCloud
 * Deploy Static Sites and Custom Code
   * Hugo
   * Jekyll
-* Implement File-Sharing and Collaboration Tools
-  * Nextcloud
-  * Syncthing
-  * ownCloud
 * Manage Links
   * Link Shortener (Shlink)
   * Link Page (LittleLink)
@@ -286,3 +290,29 @@ Happy homelabbing, folks!
 * Identify Areas for Improvement
 * Invest in New Hardware or Software
 * Integrate New Services and Technologies
+
+<!-- insert link -->
+
+## Conclusion
+
+ I will continue to update this document as I learn more and as the homelab ecosystem evolves. I hope you found it useful and that it helps you on your homelab journey. If you have any questions or comments, please feel free to reach out to me on [Twitter](https://twitter.com/veteranbv) or [Reddit](https://www.reddit.com/user/veteranbv/).
+
+## Special Thanks
+
+* [Homelab Reddit Community](https://www.reddit.com/r/homelab/wiki/index)
+* [TechnoTim YouTube](https://www.youtube.com/@TechnoTim) / [TechnoTim GitHub](https://github.com/techno-tim)
+* [Christian Lempa YouTube](https://www.youtube.com/@christianlempa) / [Christian Lempa GitHub](https://github.com/ChristianLempa)
+* [DB Tech](https://www.youtube.com/@DBTechYT)
+* [Wolfgang](https://www.youtube.com/@WolfgangsChannel)
+* [Jeff Geerling](https://www.youtube.com/@JeffGeerling)
+* [VirtualizationHowTo](https://www.youtube.com/@VirtualizationHowto)
+* [NetworkChuck](https://www.youtube.com/@NetworkChuck)
+* [Mactelecom Networks](https://www.youtube.com/@MactelecomNetworks)
+* [Crosstalk Solutions](https://www.youtube.com/@CrosstalkSolutions)
+
+## Tools Used
+
+* [Mermaid](https://mermaid-js.github.io/mermaid/#/)
+* [Bing Image Create](https://www.bing.com/images/create)
+* [Xmind](https://www.xmind.net/)
+* [ChatGPT](https://chat.openai.com/chat/)
