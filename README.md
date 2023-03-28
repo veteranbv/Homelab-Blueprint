@@ -7,6 +7,7 @@ Also, I received some great feedback on this guide. First and foremost, it's you
 I'm open to any feedback or suggestions you might have.
 
 Happy homelabbing, folks!
+___
 
 ![HomeLab Blueprint](./visualizations/homelab_blueprint_realistic.jpg)
 
@@ -26,6 +27,8 @@ Happy homelabbing, folks!
 12. Share Your Experience with the Community
 13. Expand and Upgrade Your Homelab
 
+___
+
 ## Detailed Outline
 
 ### Introduction
@@ -36,26 +39,42 @@ Happy homelabbing, folks!
 * Homelab community and resources
 * Have fun and just get started
 
-### Determine Goals and Purpose
+___
 
 [![Homelab Goals and Purposes](https://mermaid.ink/img/pako:eNp9U8Fu2zAM_RVDpxbwgtpp7NQYBnRp0R7aIViKFRhyoW0mEWKJhix3SYP8eyl7WWonmE4S-chHPZI7kVGOIhFK6lxBOdeeZ4jsxcUjKSwg_Zqabw8EReWBzt1jWpuSKqwuLx3W86ZoKtJQtC93HilNJVZHgzsPoNCFz9C8cUTX-ROtoYYJuI7l0XmvLRoLUivUthvzjLmEJqM12Atrq2gJX1YInMSbTlr_E4LRHfSEKeRCZmAl6V5lP9D-IbN2iW5zJpGVNQ2uC5ttK4vqf6jZWhaFA9zhGxZUnn5oamhpQJ3-5BXTs4EvWNmuWpsSjXSAMyX-ksbWUMj3M74JaScyB_e9XBQtPFq4AhiVYdmr-jtk67ps-kBFfUbBSUF1fui8zA5zcWjPbW1J9UiPrW2GpSdTgZuu5V6l209CKzD2r15HuhPvk1yu7InU_9w8NUZRxUJyAuELxU-QOS_KzkXMhV2hwrlI-JqDWc_FXO8ZB_yd2VZnIrGmRl_UZc7TdyfBtVYkC14ktpagRbITG5F8GYXjwc1VHIZhFEfxMPDFlq1BPB4Mg-s4jEbR6CaIR3tfvBNxhnAQXjXnOo7GwziIfMFqWTLP7R4369ww_G7wDeP-AwexKag?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNp9U8Fu2zAM_RVDpxbwgtpp7NQYBnRp0R7aIViKFRhyoW0mEWKJhix3SYP8eyl7WWonmE4S-chHPZI7kVGOIhFK6lxBOdeeZ4jsxcUjKSwg_Zqabw8EReWBzt1jWpuSKqwuLx3W86ZoKtJQtC93HilNJVZHgzsPoNCFz9C8cUTX-ROtoYYJuI7l0XmvLRoLUivUthvzjLmEJqM12Atrq2gJX1YInMSbTlr_E4LRHfSEKeRCZmAl6V5lP9D-IbN2iW5zJpGVNQ2uC5ttK4vqf6jZWhaFA9zhGxZUnn5oamhpQJ3-5BXTs4EvWNmuWpsSjXSAMyX-ksbWUMj3M74JaScyB_e9XBQtPFq4AhiVYdmr-jtk67ps-kBFfUbBSUF1fui8zA5zcWjPbW1J9UiPrW2GpSdTgZuu5V6l209CKzD2r15HuhPvk1yu7InU_9w8NUZRxUJyAuELxU-QOS_KzkXMhV2hwrlI-JqDWc_FXO8ZB_yd2VZnIrGmRl_UZc7TdyfBtVYkC14ktpagRbITG5F8GYXjwc1VHIZhFEfxMPDFlq1BPB4Mg-s4jEbR6CaIR3tfvBNxhnAQXjXnOo7GwziIfMFqWTLP7R4369ww_G7wDeP-AwexKag)
+
+### Determine Goals and Purpose
 
 * Personal interests and hobbies
 * Learning and skill development
 * Testing and experimentation
 * Home automation and media server
+* Remote work and collaboration
+* Business and professional development
+* Security and privacy
+* Data storage and backup
+* Networking and infrastructure
+* Cloud computing and virtualization
+* Gaming and entertainment
+* Other
 
-### Assess Current Knowledge and Skills
+___
 
 ![Radar Chart - Assess Current Knowledge and Skills](./visualizations/skill_assessment_radar_chart.jpeg)
 
-* Identifying strengths and weaknesses
-* Creating a learning plan
-* Sourcing learning resources and tutorials
+### Assess Current Knowledge and Skills
 
-### Plan and Design the Homelab
+* Identifying strengths and weaknesses
+* Identifying learning gaps
+* Identifying learning objectives
+* Creating a learning plan
+* Identifying learning resources and tutorials
+
+___
 
 ![Matrix - Homelab Plan](./visualizations/homelab_plan_matrix.jpg)
+
+### Plan and Design the Homelab
 
 * Develop a Documentation and Note-Taking Routine
   * Common documentation tools
@@ -79,107 +98,129 @@ Happy homelabbing, folks!
 * Plan and Design Security Approach
 * Considerations for Scalability and Future Expansion
 
-### Select and Acquire Hardware
+___
 
 ![Hardware Selection](./visualizations/hardware_selection.png)
+
+### Select and Acquire Hardware
 
 * Servers and Workstations
 * Networking Equipment (Switches, Routers, Access Points)
 * Storage Solutions (NAS, SAN, Cloud)
 * Power and Cooling Components (UPS, Fans)
-* Hardware Recommendations and Resources
-* Hardware recommendations and resources
+* Hardware Recommendations and Resources (PCPartPicker, Newegg, Amazon, eBay, Micro Center, etc.)
 
-### Install and Configure Hardware
+___
 
 ![HomeLab Install](./visualizations/homelab_install.jpeg)
 
-* Assemble and Organize Hardware Components
-* Test Hardware Components for Functionality
-* Establish Proper Cable Management Practices
-* Configure BIOS/UEFI Settings
+### Install and Configure Hardware
 
-### Set Up Networking
+* Assemble and Organize Hardware Components (Rack, Cable Management, etc.)
+* Test Hardware Components for Functionality (Power, Network, Storage, etc.)
+* Establish Proper Cable Management Practices (Cable Ties, Velcro, etc.)
+* Configure BIOS/UEFI Settings (Boot Order, RAID, etc.)
+
+___
 
 ![Networking](./visualizations/homelab_networking.jpeg)
 
+### Set Up Networking
+
 * Network Topology and Design
-* Configure Routers and Switches
-* Set Up Wi-Fi and Access Points
+* Configure Routers and Switches (DHCP, DNS, VLANs, etc.)
+* Configure Network Interfaces (Static IP, etc.)
+* Set Up Wi-Fi and Access Points (Guest Networks, Isolation, etc.)
 * Implement Network Security
   * Wi-Fi Encryption (WPA2/WPA3)
-  * Guest Networks and Isolation
-  * Device and Service Hardening
-* Implement Network Segmentation and VLANs
-* Establish Remote Access
+  * Guest Networks and Isolation (Separate SSIDs, VLANs, etc.)
+  * Device and Service Hardening (Firewalls, Intrusion Detection, etc.)
+* Implement Network Segmentation and VLANs (LAN, WAN, DMZ, etc.)
+* Establish Remote Access (VPN, SSH, RDP, etc.)
 
-### Install and Configure Software
+___
 
 ![Install and Configure Software](./visualizations/homelab_software_install.jpeg)
 
+### Install and Configure Software
+
 * Create a Bootable USB Drive for Multiple ISO Files (Ventoy)
-* Choose Operating Systems
+* Choose and Install Operating Systems
   * Linux (Ubuntu, RHEL, Debian)
   * Windows
   * MacOS
-* Choose Hypervisors
+* Choose and Install Hypervisors
   * Proxmox
   * Microsoft Hyper-V
   * VMware ESXi
+  * Post Hypervisor Configuration, Install and Configure Virtual Machines
 * Implement Containerization
   * Docker / Docker Compose
     * Portainer
   * Kubernetes
-    * K3S, Rancher
+    * K3S, Rancher, MicroK8s, etc.
     * Kubernetes Storage (Longhorn, NFS)
     * MetalLB: Load balancer for bare metal Kubernetes clusters
     * Kubeapps: Kubernetes Application Manager
 
-### Implement Security Best Practices
+___
 
 [![Homelab Security Best Practices](https://mermaid.ink/img/pako:eNp9k01P4zAQhv9K5AOnUqVO048IIfVztVKLEN3dw7o9mGRarCZ25DhAqfrfGccxgkXaXJyJn7zzznh8JqnKgCTkoHn5FKwetjLAZ8IWrwa05HnwS_P9XqS74Pr6Npj22E9pdF0JJW8e9e29hmeQpo02p8pAsWsl3A-U_bm_s5s_uIEXfmp3pxH7XYGu2nDZwLMeuwPzovSxUYNDgdrcqrfYrOc4yiZpClVlsZlCQyoPVqIyXm5GHeeSWGpSmydrNP0iFzXYnM254cFVw5Vl3kJebOqSLpnVUFq8QdaQqRHPwnwU5FIufXmfo4WLFn02yUE3Lt1GVT-6vi-Fxubkuc_oNb2aL9-X5_27dd428ZssnpU7xA2ktUaz_9cBmXmJuXMcsbWSwmDV8hBcBSt1OODbzjM3DYSnIW0vcCyQWcisVEKaj5z_0D025emxLhF9gFQ9gz5978cky4Q9g0_WgzXwqtZQtT1ta1hQ3-N27X-pBRfSIQXogosMx_xsd7cEh6GALUnwNeP6uCVbeUGO10ZtTjIlCc44dEhdZji1c8HRVUGSPc8r_FpySZIzeSVJHHcHvWhEw3BE-3QU9jvkRBI6iLvhsD-kYRRH8WAcXzrkTSkUCLvjOIxG45AO43Ec0w6BzHZ37e5gcxUb_b8Nbk1c3gHayBdT?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNp9k01P4zAQhv9K5AOnUqVO048IIfVztVKLEN3dw7o9mGRarCZ25DhAqfrfGccxgkXaXJyJn7zzznh8JqnKgCTkoHn5FKwetjLAZ8IWrwa05HnwS_P9XqS74Pr6Npj22E9pdF0JJW8e9e29hmeQpo02p8pAsWsl3A-U_bm_s5s_uIEXfmp3pxH7XYGu2nDZwLMeuwPzovSxUYNDgdrcqrfYrOc4yiZpClVlsZlCQyoPVqIyXm5GHeeSWGpSmydrNP0iFzXYnM254cFVw5Vl3kJebOqSLpnVUFq8QdaQqRHPwnwU5FIufXmfo4WLFn02yUE3Lt1GVT-6vi-Fxubkuc_oNb2aL9-X5_27dd428ZssnpU7xA2ktUaz_9cBmXmJuXMcsbWSwmDV8hBcBSt1OODbzjM3DYSnIW0vcCyQWcisVEKaj5z_0D025emxLhF9gFQ9gz5978cky4Q9g0_WgzXwqtZQtT1ta1hQ3-N27X-pBRfSIQXogosMx_xsd7cEh6GALUnwNeP6uCVbeUGO10ZtTjIlCc44dEhdZji1c8HRVUGSPc8r_FpySZIzeSVJHHcHvWhEw3BE-3QU9jvkRBI6iLvhsD-kYRRH8WAcXzrkTSkUCLvjOIxG45AO43Ec0w6BzHZ37e5gcxUb_b8Nbk1c3gHayBdT)
 
-* Implement Password and Access Management
+### Implement Security Best Practices
+
+* Implement Password and Access Management Systems
   * Authelia: Single sign-on and two-factor authentication server
   * Authentik: Self-hosted identity and access management platform
   * Teleport: Secure access management for SSH, Kubernetes, and web applications
-* Set Up Firewalls and Intrusion Prevention Systems
+  * Vault: Secure, store, and tightly control access to tokens, passwords, certificates, API keys, and other secrets in modern computing
+  * Bitwarden: Open source password management solutions for individuals, teams, and business organizations
+* Set Up Firewalls and Intrusion Prevention Systems (IPS)
 * Configure Reverse Proxies and Traffic Management
-  * Traefik
+  * Traefik: Reverse proxy and load balancer
   * Cloudflare Reverse Proxy
   * SSL/TLS Termination and Certificate Management
-  * Load Balancing and Failover
+  * Load Balancing and Failover (HAProxy)
   * Access Control and Rate Limiting
   * DDoS Protection (Cloudflare)
+  * Implement DNS Over HTTPS (DoH)
+  * Implement DNS Over TLS (DoT)
 * Implement Virtual Private Networks (VPNs)
-  * Site-to-Site VPNs
-  * Remote Access VPNs
   * VPN Protocols and Software (OpenVPN, WireGuard, IPsec)
-  * Configure and Manage VPN Clients and Servers
+    * Configure and Manage VPN Clients and Servers
+    * Site-to-Site VPNs (OpenVPN, WireGuard, IPsec)
+    * Remote Access VPNs
+  * VPN Gateways (AWS, Azure, GCP)
+  * VPN Services (Mullvad, ProtonVPN, NordVPN, ExpressVPN)
 * Implement Security Overlay Networks
-  * Tailscale
-  * ZeroTier
-  * Integration with Existing Homelab Infrastructure
+  * Tailscale: Secure, zero-config, mesh VPN
+  * ZeroTier: Secure, scalable, and simple virtual networking
+  * Integration with Existing Homelab Infrastructure (DNS, DHCP, VPNs)
   * Secure and Manage Overlay Networks
-* Apply Encryption and Secure Communications
-* Perform Regular Updates and Patching
-* Implement Backup Solutions
-  * Veeam
-  * Duplicati
-  * BorgBackup
+  * Implement Zero Trust Networks
+* Apply Encryption and Secure Communications (TLS/SSL)
+  * Let's Encrypt: Free, automated, and open certificate authority
+  * Certbot: Free, automated, and open certificate authority
+* Perform Regular Updates and Patching (OS, Applications, Firmware)
+* Implement Backup Solutions (Local and Cloud)
+  * Veeam: Backup and replication software
+  * Duplicati: Backup software
+  * BorgBackup: Deduplicating backup program
 
-### Install and Configure Homelab Services and Applications
+___
 
 ![Homelab Services and Applications](./visualizations/homelab_install_configure_services_appsSML.png)
 
+### Install and Configure Homelab Services and Applications
+
 * Utilize Automation and Configuration Management Tools
-  * Ansible
-  * Puppet
-  * Chef
+  * Ansible: IT automation tool
+  * Puppet: Configuration management tool
+  * Chef: Configuration management tool
 * Set Up DNS and DHCP Servers
-  * bind9
-  * PiHole
-  * AdGuard
+  * bind9: DNS server
+  * PiHole: Network-wide ad blocker and DNS server
+  * AdGuard: Network-wide ad blocker and DNS server
   * Load Balancing and Failover (keepalived)
   * Gravity Sync (PiHole Synchronization)
 * Implement GitOps
@@ -194,13 +235,13 @@ Happy homelabbing, folks!
   * FreeNAS
   * OpenMediaVault
 * Implement Dashboard
-  * Heimdall
-  * Organizr
-  * Homer
+  * Heimdall: Dashboard for all your web apps
+  * Organizr: HTPC/Homelab Services Organizer
+  * Homer: Dashboard for all your web apps
 * Deploy Content Management Systems
-  * WordPress
-  * Ghost Blog
-  * WikiJS
+  * WordPress: Blogging platform
+  * Ghost Blog: Blogging platform
+  * WikiJS: Wiki software
 * Set Up Web Servers
   * Apache
   * Nginx
@@ -226,22 +267,24 @@ Happy homelabbing, folks!
   * Hugo
   * Jekyll
 * Manage Links
-  * Link Shortener (Shlink)
-  * Link Page (LittleLink)
+  * Shlink: Link Shortener and QR Code Generator
+  * LittleLink: Link Page
 
-### Establish a Monitoring and Maintenance Routine
+___
 
 [![Monitoring Diagram](https://mermaid.ink/img/pako:eNqNk8tuwjAQRX_F8iqVYAHZsaiEWtRKQFWVtqtshmQIVvyIHAeJAv_esQnhVVQ2scc-nusZ32x4ajLkA55bKJds8pFoxqp6vg8T_moUSpizGdqVSLFioDM2LEspUnDC6Crh_gRjUJa9iDZ6D23c93H_GMc-jkOMOkv0hdTUaOGMFTpnn8bINjPtL0BD9LIfm3ylpZu5JdZV9N5Om726dEJh9BUGNq4V3BSdmJxNKWuOCrU7SEpTiGhCnxMxB0IGKT9p1lEW0WgyZjMHaXFTYyjROl-W792bcWJx1TxPqNxGAVXhPrbVgMoFIBr5aUDOtXzvWbf7uH1BjRYcsik6K9Jqe9KmBuzfC8b3ghfS1NGG8o36W_VPJr6D2Ws9LTEt2HBF6zAXUrj1tnnzM7l_sfgO7FhugL9FVYMUPycNafzpYe-bC2xfxglzqChwMzL8gfGHr4ChBrlu05DfPNFkC0DwE934YKFgDFmc7R0tlGje4QqtApHRT7_xdMKpPCqWD2iagS28K3fEQe3MbK1TPnC2xg6vy4we5lkA6Ss-WICscPcL2Y95Mw?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNk8tuwjAQRX_F8iqVYAHZsaiEWtRKQFWVtqtshmQIVvyIHAeJAv_esQnhVVQ2scc-nusZ32x4ajLkA55bKJds8pFoxqp6vg8T_moUSpizGdqVSLFioDM2LEspUnDC6Crh_gRjUJa9iDZ6D23c93H_GMc-jkOMOkv0hdTUaOGMFTpnn8bINjPtL0BD9LIfm3ylpZu5JdZV9N5Om726dEJh9BUGNq4V3BSdmJxNKWuOCrU7SEpTiGhCnxMxB0IGKT9p1lEW0WgyZjMHaXFTYyjROl-W792bcWJx1TxPqNxGAVXhPrbVgMoFIBr5aUDOtXzvWbf7uH1BjRYcsik6K9Jqe9KmBuzfC8b3ghfS1NGG8o36W_VPJr6D2Ws9LTEt2HBF6zAXUrj1tnnzM7l_sfgO7FhugL9FVYMUPycNafzpYe-bC2xfxglzqChwMzL8gfGHr4ChBrlu05DfPNFkC0DwE934YKFgDFmc7R0tlGje4QqtApHRT7_xdMKpPCqWD2iagS28K3fEQe3MbK1TPnC2xg6vy4we5lkA6Ss-WICscPcL2Y95Mw)
 
+### Establish a Monitoring and Maintenance Routine
+
 * Set Up Monitoring Tools and Dashboards
-  * Uptime Kuma
-  * Grafana
-  * Prometheus
+  * Uptime Kuma: Monitor your servers and websites
+  * Grafana: Data visualization and monitoring
+  * Prometheus: Monitoring and alerting
 * Implement Log Management and Analysis
-  * Loki
-  * Promtail
-  * ELK Stack
-  * Graylog
+  * Loki: Log aggregation
+  * Promtail: Log collection
+  * ELK Stack: Log management and analysis
+  * Graylog: Log management and analysis
 * Configure Alerting and Notification Tools
   * Alertmanager (Prometheus)
   * ElastAlert (ELK Stack)
@@ -249,28 +292,79 @@ Happy homelabbing, folks!
 * Monitor UPS Battery
   * NUPS Server - Network UPS Tools
 * Perform Regular Maintenance Tasks
-  * Updates
-  * Cleaning
-  * Backups
-* Troubleshoot and Resolve Problems
+  * Updates and Patches (OS, Applications, Firmware)
+  * Cleaning and Maintenance (Fans, Cables, Drives)
+  * Backups and Data Recovery (Data, Configuration, Images)
+* Troubleshoot and Resolve Problems Quickly and Efficiently
+  * Identify and Diagnose Issues with Monitoring Tools and Dashboards
+  * Resolve Issues with Minimal Downtime and Data Loss
 
-### Learn and Experiment
+___
 
 ![Learn and Experiment](./visualizations/homelab_learning.jpeg)
 
-* Access Study Materials and Resources
+### Learn and Experiment
+
+* Access Study Materials and Resources Online
+  * Cisco Learning Labs
+  * Microsoft Learn
+  * Pluralsight
+  * Udemy
+  * YouTube
+  * Reddit
+  * GitHub
+  * Stack Overflow
+  * Cisco DevNet
+  * Microsoft Learn
+  * Katacoda
 * Pursue Certifications and Online Courses
+  * Cisco
+  * Microsoft
+  * CompTIA
+  * Linux Foundation
+  * Google
+  * Amazon
+  * VMware
+  * Red Hat
+  * IBM
+  * Juniper
+  * Palo Alto Networks
+  * Check Point
 * Attend Meetups and Conferences
-* Challenge Yourself with Projects and Experiments
-* Utilize Online Labs and Sandboxes
+  * Meetup Groups
+  * Conferences
+* Challenge Yourself with Projects and Experiments (Homelab Projects)
+  * Build a Home Server
+  * Build a NAS
+* Utilize Online Labs and Sandboxes for Hands-On Practice
   * Cisco DevNet
   * Microsoft Learn
   * Katacoda
 * Stay Informed on Industry Trends and Technologies
+  * Blogs
+  * Podcasts
+  * YouTube Channels
+  * Twitter
+  * Reddit
+  * GitHub
+  * Stack Overflow
+  * LinkedIn
+  * Hacker News
+  * TechMeme
+  * TechCrunch
+  * Ars Technica
+  * Slashdot
+  * TechRepublic
+  * TechRadar
+  * CNET
+  * The Verge
+  * Wired  
 
-### Share Your Experience with the Community
+___
 
 ![Share Your Experience](./visualizations/homelab_share_experience.jpeg)
+
+### Share Your Experience with the Community
 
 * Engage in Online Forums and Discussion Groups
   * Reddit
@@ -283,19 +377,26 @@ Happy homelabbing, folks!
 * Collaborate on Projects with Others
 * Provide Support and Advice to Newcomers
 
-### Expanding and Upgrading Your Homelab
+___
 
 ![Expand!](./visualizations/homelab_expansion.jpeg)
+
+### Expanding and Upgrading Your Homelab
 
 * Identify Areas for Improvement
 * Invest in New Hardware or Software
 * Integrate New Services and Technologies
+* Automate Tasks and Processes
+* Improve Efficiency and Performance
+* Increase Reliability and Availability
 
-<!-- insert link -->
+___
 
 ## Conclusion
 
  I will continue to update this document as I learn more and as the homelab ecosystem evolves. I hope you found it useful and that it helps you on your homelab journey. If you have any questions or comments, please feel free to reach out to me on [Twitter](https://twitter.com/veteranbv) or [Reddit](https://www.reddit.com/user/veteranbv/).
+
+___
 
 ## Special Thanks
 
@@ -309,6 +410,8 @@ Happy homelabbing, folks!
 * [NetworkChuck](https://www.youtube.com/@NetworkChuck)
 * [Mactelecom Networks](https://www.youtube.com/@MactelecomNetworks)
 * [Crosstalk Solutions](https://www.youtube.com/@CrosstalkSolutions)
+
+___
 
 ## Tools Used
 
