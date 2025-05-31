@@ -9,7 +9,7 @@ I'm open to any feedback or suggestions you might have.
 Happy homelabbing, folks!
 ___
 
-![HomeLab Blueprint](./visualizations/homelab_blueprint_realistic.jpg)
+![HomeLab Blueprint]
 
 ## High-Level Roadmap
 
@@ -41,7 +41,7 @@ ___
 
 ___
 
-[![Homelab Goals and Purposes](https://mermaid.ink/img/pako:eNp9U8Fu2zAM_RVDpxbwgtpp7NQYBnRp0R7aIViKFRhyoW0mEWKJhix3SYP8eyl7WWonmE4S-chHPZI7kVGOIhFK6lxBOdeeZ4jsxcUjKSwg_Zqabw8EReWBzt1jWpuSKqwuLx3W86ZoKtJQtC93HilNJVZHgzsPoNCFz9C8cUTX-ROtoYYJuI7l0XmvLRoLUivUthvzjLmEJqM12Atrq2gJX1YInMSbTlr_E4LRHfSEKeRCZmAl6V5lP9D-IbN2iW5zJpGVNQ2uC5ttK4vqf6jZWhaFA9zhGxZUnn5oamhpQJ3-5BXTs4EvWNmuWpsSjXSAMyX-ksbWUMj3M74JaScyB_e9XBQtPFq4AhiVYdmr-jtk67ps-kBFfUbBSUF1fui8zA5zcWjPbW1J9UiPrW2GpSdTgZuu5V6l209CKzD2r15HuhPvk1yu7InU_9w8NUZRxUJyAuELxU-QOS_KzkXMhV2hwrlI-JqDWc_FXO8ZB_yd2VZnIrGmRl_UZc7TdyfBtVYkC14ktpagRbITG5F8GYXjwc1VHIZhFEfxMPDFlq1BPB4Mg-s4jEbR6CaIR3tfvBNxhnAQXjXnOo7GwziIfMFqWTLP7R4369ww_G7wDeP-AwexKag?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNp9U8Fu2zAM_RVDpxbwgtpp7NQYBnRp0R7aIViKFRhyoW0mEWKJhix3SYP8eyl7WWonmE4S-chHPZI7kVGOIhFK6lxBOdeeZ4jsxcUjKSwg_Zqabw8EReWBzt1jWpuSKqwuLx3W86ZoKtJQtC93HilNJVZHgzsPoNCFz9C8cUTX-ROtoYYJuI7l0XmvLRoLUivUthvzjLmEJqM12Atrq2gJX1YInMSbTlr_E4LRHfSEKeRCZmAl6V5lP9D-IbN2iW5zJpGVNQ2uC5ttK4vqf6jZWhaFA9zhGxZUnn5oamhpQJ3-5BXTs4EvWNmuWpsSjXSAMyX-ksbWUMj3M74JaScyB_e9XBQtPFq4AhiVYdmr-jtk67ps-kBFfUbBSUF1fui8zA5zcWjPbW1J9UiPrW2GpSdTgZuu5V6l209CKzD2r15HuhPvk1yu7InU_9w8NUZRxUJyAuELxU-QOS_KzkXMhV2hwrlI-JqDWc_FXO8ZB_yd2VZnIrGmRl_UZc7TdyfBtVYkC14ktpagRbITG5F8GYXjwc1VHIZhFEfxMPDFlq1BPB4Mg-s4jEbR6CaIR3tfvBNxhnAQXjXnOo7GwziIfMFqWTLP7R4369ww_G7wDeP-AwexKag)
+[![Homelab Goals and Purposes]
 
 ### Determine Goals and Purpose
 
@@ -60,7 +60,7 @@ ___
 
 ___
 
-![Radar Chart - Assess Current Knowledge and Skills](./visualizations/skill_assessment_radar_chart.jpeg)
+![Radar Chart - Assess Current Knowledge and Skills]
 
 ### Assess Current Knowledge and Skills
 
@@ -72,7 +72,7 @@ ___
 
 ___
 
-![Matrix - Homelab Plan](./visualizations/homelab_plan_matrix.jpg)
+![Matrix - Homelab Plan]
 
 ### Plan and Design the Homelab
 
@@ -100,7 +100,7 @@ ___
 
 ___
 
-![Hardware Selection](./visualizations/hardware_selection.png)
+![Hardware Selection
 
 ### Select and Acquire Hardware
 
@@ -112,7 +112,7 @@ ___
 
 ___
 
-![HomeLab Install](./visualizations/homelab_install.jpeg)
+![HomeLab Install]
 
 ### Install and Configure Hardware
 
@@ -123,7 +123,7 @@ ___
 
 ___
 
-![Networking](./visualizations/homelab_networking.jpeg)
+![Networking]
 
 ### Set Up Networking
 
@@ -140,7 +140,7 @@ ___
 
 ___
 
-![Install and Configure Software](./visualizations/homelab_software_install.jpeg)
+![Install and Configure Software]
 
 ### Install and Configure Software
 
@@ -165,7 +165,7 @@ ___
 
 ___
 
-[![Homelab Security Best Practices](https://mermaid.ink/img/pako:eNp9k01P4zAQhv9K5AOnUqVO048IIfVztVKLEN3dw7o9mGRarCZ25DhAqfrfGccxgkXaXJyJn7zzznh8JqnKgCTkoHn5FKwetjLAZ8IWrwa05HnwS_P9XqS74Pr6Npj22E9pdF0JJW8e9e29hmeQpo02p8pAsWsl3A-U_bm_s5s_uIEXfmp3pxH7XYGu2nDZwLMeuwPzovSxUYNDgdrcqrfYrOc4yiZpClVlsZlCQyoPVqIyXm5GHeeSWGpSmydrNP0iFzXYnM254cFVw5Vl3kJebOqSLpnVUFq8QdaQqRHPwnwU5FIufXmfo4WLFn02yUE3Lt1GVT-6vi-Fxubkuc_oNb2aL9-X5_27dd428ZssnpU7xA2ktUaz_9cBmXmJuXMcsbWSwmDV8hBcBSt1OODbzjM3DYSnIW0vcCyQWcisVEKaj5z_0D025emxLhF9gFQ9gz5978cky4Q9g0_WgzXwqtZQtT1ta1hQ3-N27X-pBRfSIQXogosMx_xsd7cEh6GALUnwNeP6uCVbeUGO10ZtTjIlCc44dEhdZji1c8HRVUGSPc8r_FpySZIzeSVJHHcHvWhEw3BE-3QU9jvkRBI6iLvhsD-kYRRH8WAcXzrkTSkUCLvjOIxG45AO43Ec0w6BzHZ37e5gcxUb_b8Nbk1c3gHayBdT?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNp9k01P4zAQhv9K5AOnUqVO048IIfVztVKLEN3dw7o9mGRarCZ25DhAqfrfGccxgkXaXJyJn7zzznh8JqnKgCTkoHn5FKwetjLAZ8IWrwa05HnwS_P9XqS74Pr6Npj22E9pdF0JJW8e9e29hmeQpo02p8pAsWsl3A-U_bm_s5s_uIEXfmp3pxH7XYGu2nDZwLMeuwPzovSxUYNDgdrcqrfYrOc4yiZpClVlsZlCQyoPVqIyXm5GHeeSWGpSmydrNP0iFzXYnM254cFVw5Vl3kJebOqSLpnVUFq8QdaQqRHPwnwU5FIufXmfo4WLFn02yUE3Lt1GVT-6vi-Fxubkuc_oNb2aL9-X5_27dd428ZssnpU7xA2ktUaz_9cBmXmJuXMcsbWSwmDV8hBcBSt1OODbzjM3DYSnIW0vcCyQWcisVEKaj5z_0D025emxLhF9gFQ9gz5978cky4Q9g0_WgzXwqtZQtT1ta1hQ3-N27X-pBRfSIQXogosMx_xsd7cEh6GALUnwNeP6uCVbeUGO10ZtTjIlCc44dEhdZji1c8HRVUGSPc8r_FpySZIzeSVJHHcHvWhEw3BE-3QU9jvkRBI6iLvhsD-kYRRH8WAcXzrkTSkUCLvjOIxG45AO43Ec0w6BzHZ37e5gcxUb_b8Nbk1c3gHayBdT)
+[![Homelab Security Best Practices]
 
 ### Implement Security Best Practices
 
@@ -209,7 +209,7 @@ ___
 
 ___
 
-![Homelab Services and Applications](./visualizations/homelab_install_configure_services_appsSML.png)
+![Homelab Services and Applications]
 
 ### Install and Configure Homelab Services and Applications
 
@@ -272,7 +272,7 @@ ___
 
 ___
 
-[![Monitoring Diagram](https://mermaid.ink/img/pako:eNqNk8tuwjAQRX_F8iqVYAHZsaiEWtRKQFWVtqtshmQIVvyIHAeJAv_esQnhVVQ2scc-nusZ32x4ajLkA55bKJds8pFoxqp6vg8T_moUSpizGdqVSLFioDM2LEspUnDC6Crh_gRjUJa9iDZ6D23c93H_GMc-jkOMOkv0hdTUaOGMFTpnn8bINjPtL0BD9LIfm3ylpZu5JdZV9N5Om726dEJh9BUGNq4V3BSdmJxNKWuOCrU7SEpTiGhCnxMxB0IGKT9p1lEW0WgyZjMHaXFTYyjROl-W792bcWJx1TxPqNxGAVXhPrbVgMoFIBr5aUDOtXzvWbf7uH1BjRYcsik6K9Jqe9KmBuzfC8b3ghfS1NGG8o36W_VPJr6D2Ws9LTEt2HBF6zAXUrj1tnnzM7l_sfgO7FhugL9FVYMUPycNafzpYe-bC2xfxglzqChwMzL8gfGHr4ChBrlu05DfPNFkC0DwE934YKFgDFmc7R0tlGje4QqtApHRT7_xdMKpPCqWD2iagS28K3fEQe3MbK1TPnC2xg6vy4we5lkA6Ss-WICscPcL2Y95Mw?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNk8tuwjAQRX_F8iqVYAHZsaiEWtRKQFWVtqtshmQIVvyIHAeJAv_esQnhVVQ2scc-nusZ32x4ajLkA55bKJds8pFoxqp6vg8T_moUSpizGdqVSLFioDM2LEspUnDC6Crh_gRjUJa9iDZ6D23c93H_GMc-jkOMOkv0hdTUaOGMFTpnn8bINjPtL0BD9LIfm3ylpZu5JdZV9N5Om726dEJh9BUGNq4V3BSdmJxNKWuOCrU7SEpTiGhCnxMxB0IGKT9p1lEW0WgyZjMHaXFTYyjROl-W792bcWJx1TxPqNxGAVXhPrbVgMoFIBr5aUDOtXzvWbf7uH1BjRYcsik6K9Jqe9KmBuzfC8b3ghfS1NGG8o36W_VPJr6D2Ws9LTEt2HBF6zAXUrj1tnnzM7l_sfgO7FhugL9FVYMUPycNafzpYe-bC2xfxglzqChwMzL8gfGHr4ChBrlu05DfPNFkC0DwE934YKFgDFmc7R0tlGje4QqtApHRT7_xdMKpPCqWD2iagS28K3fEQe3MbK1TPnC2xg6vy4we5lkA6Ss-WICscPcL2Y95Mw)
+[![Monitoring Diagram]
 
 ### Establish a Monitoring and Maintenance Routine
 
@@ -301,7 +301,7 @@ ___
 
 ___
 
-![Learn and Experiment](./visualizations/homelab_learning.jpeg)
+![Learn and Experiment]
 
 ### Learn and Experiment
 
@@ -362,7 +362,7 @@ ___
 
 ___
 
-![Share Your Experience](./visualizations/homelab_share_experience.jpeg)
+![Share Your Experience]
 
 ### Share Your Experience with the Community
 
@@ -379,7 +379,7 @@ ___
 
 ___
 
-![Expand!](./visualizations/homelab_expansion.jpeg)
+![Expand!]
 
 ### Expanding and Upgrading Your Homelab
 
@@ -394,8 +394,7 @@ ___
 
 ## Conclusion
 
- I will continue to update this document as I learn more and as the homelab ecosystem evolves. I hope you found it useful and that it helps you on your homelab journey. If you have any questions or comments, please feel free to reach out to me on [Twitter](https://twitter.com/veteranbv) or [Reddit](https://www.reddit.com/user/veteranbv/).
-
+ 
 ___
 
 ## Special Thanks
