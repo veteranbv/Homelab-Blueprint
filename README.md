@@ -367,8 +367,6 @@ ___
 
 ___
 
-![Expand!](./visualizations/homelab_expansion.jpeg)
-
 ### Expanding and Upgrading Your Homelab
 
 * Identify Areas for Improvement
