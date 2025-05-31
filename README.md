@@ -9,8 +9,6 @@ I'm open to any feedback or suggestions you might have.
 Happy homelabbing, folks!
 ___
 
-![HomeLab Blueprint](./visualizations/homelab_blueprint_realistic.jpg)
-
 ## High-Level Roadmap
 
 1. Determine Goals and Purpose
@@ -112,8 +110,6 @@ ___
 
 ___
 
-![HomeLab Install](./visualizations/homelab_install.jpeg)
-
 ### Install and Configure Hardware
 
 * Assemble and Organize Hardware Components (Rack, Cable Management, etc.)
@@ -122,8 +118,6 @@ ___
 * Configure BIOS/UEFI Settings (Boot Order, RAID, etc.)
 
 ___
-
-![Networking](./visualizations/homelab_networking.jpeg)
 
 ### Set Up Networking
 
@@ -139,8 +133,6 @@ ___
 * Establish Remote Access (VPN, SSH, RDP, etc.)
 
 ___
-
-![Install and Configure Software](./visualizations/homelab_software_install.jpeg)
 
 ### Install and Configure Software
 
@@ -301,8 +293,6 @@ ___
 
 ___
 
-![Learn and Experiment](./visualizations/homelab_learning.jpeg)
-
 ### Learn and Experiment
 
 * Access Study Materials and Resources Online
@@ -361,8 +351,6 @@ ___
   * Wired  
 
 ___
-
-![Share Your Experience](./visualizations/homelab_share_experience.jpeg)
 
 ### Share Your Experience with the Community
 
