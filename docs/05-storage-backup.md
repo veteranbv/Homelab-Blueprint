@@ -1,3 +1,13 @@
+---
+title: Protect storage and prove recovery
+description: Build a recovery chain that crosses failure domains and ends with a dated restore.
+order: 5
+phase: Trust
+decision: How does valuable data survive each failure domain?
+deliverable: A recovery chain and a dated restore-test record.
+gate: A restore has worked somewhere other than the source.
+---
+
 # Protect storage and prove recovery
 
 Storage keeps bytes available. Backup makes independent, recoverable copies.
@@ -22,7 +32,6 @@ decision, not an accident.
 ## Build a recovery chain
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/plate-04-dark.png">
   <img src="images/plate-04.png" alt="Plate 04, a vertical stack of five filing tabs showing the invariant fields of live application data, native export, encrypted repository, off-site copy, and a proven restore. A left rule shows elapsed-time positions. A footer strip repeats the record shape marked example record synthetic." width="900">
 </picture>
 

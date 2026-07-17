@@ -1,0 +1,96 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { chapterHref, repositoryUrl, withBase } from '../../lib/paths'
+import { PLATES } from '../../plates/models'
+import type { PlateId } from '../../plates/types'
+
+export async function getStaticPaths() {
+  const chapters = (await getCollection('chapters')).sort((a, b) => a.data.order - b.data.order)
+  return chapters.map((chapter, index) => ({
+    params: { slug: chapter.id },
+    props: {
+      chapter,
+      previous: chapters[index - 1] ?? null,
+      next: chapters[index + 1] ?? null,
+      chapters,
+    },
+  }))
+}
+
+interface Props {
+  chapter: CollectionEntry<'chapters'>
+  previous: CollectionEntry<'chapters'> | null
+  next: CollectionEntry<'chapters'> | null
+  chapters: CollectionEntry<'chapters'>[]
+}
+
+const { chapter, previous, next, chapters } = Astro.props as Props
+const { Content, headings } = await render(chapter)
+const chapterPlates: Partial<Record<string, PlateId>> = {
+  '01-plan': 'plate-01',
+  '02-hardware': 'plate-02',
+  '03-platform': 'plate-02',
+  '04-networking': 'plate-03',
+  '05-storage-backup': 'plate-04',
+  '06-security': 'plate-03',
+  '09-automation': 'plate-05',
+  '10-ai-agentic': 'plate-05',
+}
+const plateId = chapterPlates[chapter.id]
+const plate = plateId ? PLATES.find((candidate) => candidate.id === plateId) : undefined
+---
+
+<BaseLayout
+  title={chapter.data.title}
+  description={chapter.data.description}
+  canonicalPath={`/chapters/${chapter.id}/`}
+>
+  <div class="chapter-shell">
+    <aside class="chapter-list" aria-label="Chapters">
+      <p>chapters/</p>
+      <ol>
+        {chapters.map((item) => (
+          <li class={item.id === chapter.id ? 'is-current' : undefined}>
+            <a href={chapterHref(item.id)} aria-current={item.id === chapter.id ? 'page' : undefined}>
+              <span>{String(item.data.order).padStart(2, '0')}</span>{item.data.title}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </aside>
+
+    <article class="chapter-article">
+      <header class="chapter-meta">
+        <p class="path-prompt">~/guide/chapters/{chapter.id} $ cat README.md</p>
+        <div><span>{chapter.data.phase}</span><span>chapter {String(chapter.data.order).padStart(2, '0')} of 11</span></div>
+      </header>
+      {plate && (
+        <figure class="chapter-plate">
+          <img src={withBase(`/images/${plate.id}.png`)} alt={plate.a11yDescription} />
+          <figcaption>Plate {plate.number}: {plate.name}. <a href={withBase(`/plates/`)}>Open the interactive drawing.</a></figcaption>
+        </figure>
+      )}
+      <div class="chapter-prose"><Content /></div>
+      <section class="chapter-evidence" aria-labelledby="evidence-title">
+        <p class="eyebrow">Leave with</p>
+        <h2 id="evidence-title">{chapter.data.deliverable}</h2>
+        <p><strong>Done when:</strong> {chapter.data.gate}</p>
+      </section>
+      <a class="edit-source" href={`${repositoryUrl}/edit/master/docs/${chapter.id}.md`}>edit this chapter on GitHub →</a>
+      <nav class="chapter-pager" aria-label="Adjacent chapters">
+        {previous ? <a href={chapterHref(previous.id)}><span>← previous</span>{previous.data.title}</a> : <span></span>}
+        {next ? <a href={chapterHref(next.id)}><span>next →</span>{next.data.title}</a> : <span></span>}
+      </nav>
+    </article>
+
+    <aside class="chapter-toc" aria-label="On this page">
+      <p>on this page</p>
+      <ol>
+        {headings.filter((heading) => heading.depth === 2 || heading.depth === 3).map((heading) => (
+          <li class={`depth-${heading.depth}`}><a href={`#${heading.slug}`}>{heading.text}</a></li>
+        ))}
+      </ol>
+    </aside>
+  </div>
+</BaseLayout>

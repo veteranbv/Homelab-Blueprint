@@ -6,3 +6,5 @@ dist/
 playwright-report/
 test-results/
 *.tsbuildinfo
+.astro/
+site/public/images/

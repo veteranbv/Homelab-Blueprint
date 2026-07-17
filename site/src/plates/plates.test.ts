@@ -53,23 +53,21 @@ describe('plate models', () => {
 describe('plate SSR', () => {
   const rendered = renderAll()
 
-  it('produces one artifact per plate per theme', () => {
-    expect(rendered).toHaveLength(PLATES.length * 2)
+  it('produces one dark artifact per plate', () => {
+    expect(rendered).toHaveLength(PLATES.length)
   })
 
   for (const plate of PLATES) {
-    for (const theme of ['light', 'dark'] as const) {
-      it(`renders ${plate.id} for the ${theme} theme`, () => {
-        const artifact = rendered.find((r) => r.id === plate.id && r.theme === theme)
-        if (!artifact) throw new Error(`${plate.id}/${theme} missing from renderAll output`)
-        const svg = artifact.svg
-        expect(svg).toContain('<svg')
-        expect(svg).toContain('viewBox="0 0 1600 1000"')
-        expect(svg).toContain(`data-plate="${plate.id}"`)
-        expect(svg).toContain(`data-theme="${theme}"`)
-        expect(svg).toContain(`Plate ${plate.number}`)
-      })
-    }
+    it(`renders ${plate.id} in the Homelab Codes theme`, () => {
+      const artifact = rendered.find((r) => r.id === plate.id)
+      if (!artifact) throw new Error(`${plate.id} missing from renderAll output`)
+      const svg = artifact.svg
+      expect(svg).toContain('<svg')
+      expect(svg).toContain('viewBox="0 0 1600 1000"')
+      expect(svg).toContain(`data-plate="${plate.id}"`)
+      expect(svg).toContain('data-theme="dark"')
+      expect(svg).toContain(`Plate ${plate.number}`)
+    })
   }
 
   it('marks example records on the plates that carry them', () => {

@@ -1,3 +1,13 @@
+---
+title: Add local AI and bounded automation
+description: Build an agentic operations harness around typed tools, policy, previews, and live verification.
+order: 10
+phase: Automation
+decision: Which operations should an agent assist?
+deliverable: A tool risk policy and one safe agent workflow.
+gate: The model proposes. Policy and typed tools constrain.
+---
+
 # Add local AI and an agentic operations harness
 
 Local AI can keep sensitive work close to home, reduce latency, and make idle
@@ -42,7 +52,6 @@ The progression looked like this:
     and a human stop condition.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/plate-05-dark.png">
   <img src="images/plate-05.png" alt="Plate 05, a workshop bench drawing. On the left, typed tool cards list the name, input, preview mode, and risk class of each operation. In the middle, a rectangular pipeline runs from observe to reconcile, preview, constrain, verify, and record, with a policy gate diamond in the center stamped human or policy. On the right, a ruled ledger page shows the invariant columns of an audit record." width="900">
 </picture>
 

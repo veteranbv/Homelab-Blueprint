@@ -84,7 +84,7 @@ function AnchorMark({ cx, cy, n }: AnchorMarkProps) {
 }
 
 export function Plate02OneHost({ theme, failure, reducedMotion }: Plate02Props) {
-  const tokens = plateTokens(theme)
+  const tokens = plateTokens()
   const hostFailed = failure === 'host'
   const storageFailed = failure === 'storage'
 

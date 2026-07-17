@@ -29,9 +29,8 @@ function sha256(input) {
   return hash.digest('hex')
 }
 
-function filenameFor(id, theme, extension) {
-  const suffix = theme === 'dark' ? '-dark' : ''
-  return `${id}${suffix}.${extension}`
+function filenameFor(id, _theme, extension) {
+  return `${id}.${extension}`
 }
 
 async function readIfExists(filepath) {

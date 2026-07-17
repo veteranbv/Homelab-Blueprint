@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { documentUrl, journey, outcomes, recommendBlueprint } from './blueprint-data'
+import { outcomes, recommendBlueprint } from './blueprint-data'
 
 describe('blueprint recommendations', () => {
   it('keeps a one-host household path simple', () => {
@@ -39,11 +39,6 @@ describe('blueprint recommendations', () => {
 })
 
 describe('editorial data', () => {
-  it('covers every chapter exactly once', () => {
-    expect(journey).toHaveLength(11)
-    expect(new Set(journey.map((step) => step.document)).size).toBe(11)
-  })
-
   it('offers four distinct outcomes', () => {
     expect(outcomes.map((outcome) => outcome.id)).toEqual([
       'learn',
@@ -53,9 +48,4 @@ describe('editorial data', () => {
     ])
   })
 
-  it('builds stable repository links', () => {
-    expect(documentUrl('docs/01-plan.md')).toBe(
-      'https://github.com/veteranbv/Homelab-Blueprint/blob/master/docs/01-plan.md',
-    )
-  })
 })

@@ -1,0 +1,105 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { chapterHref, repositoryUrl, withBase } from '../lib/paths'
+import { plateSlug } from '../lib/plates'
+import { PLATES } from '../plates/models'
+
+const chapters = (await getCollection('chapters')).sort((a, b) => a.data.order - b.data.order)
+---
+
+<BaseLayout>
+  <section class="hero terminal-hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span>$</span> cat ~/guide/README</p>
+      <h1>A working manual for a useful homelab.</h1>
+      <p class="hero-deck">
+        Start with one outcome. Build the smallest system that serves it. Keep the records that prove it can
+        recover. Add automation only after the operations make sense to a person.
+      </p>
+      <div class="hero-actions">
+        <a href={withBase('/plates/')}>open the architecture plates <span aria-hidden="true">→</span></a>
+        <a href={withBase('/builder/')}>build a starting sequence <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <aside class="hero-aside" aria-label="A useful homelab">
+      <p>One maintained host.</p>
+      <p>One service someone uses.</p>
+      <p>One restore that worked.</p>
+      <span>That is already a real homelab.</span>
+    </aside>
+  </section>
+
+  <section class="guide-section" aria-labelledby="plates-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow"><span>$</span> ls ~/guide/plates</p>
+        <h2 id="plates-title">Five drawings carry the whole design.</h2>
+      </div>
+      <p>Each sheet names a decision, a boundary, or a record you can verify.</p>
+    </div>
+    <div class="plate-grid">
+      {PLATES.map((plate) => (
+        <a class="plate-card" href={withBase(`/plates/${plateSlug(plate.id)}/`)}>
+          <img src={withBase(`/images/${plate.id}.png`)} alt="" loading="lazy" />
+          <span class="plate-card-number">{plate.number}</span>
+          <strong>{plate.name}</strong>
+          <p>{plate.teachingPoint}</p>
+          <span class="card-link">inspect plate →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="guide-section roadmap" aria-labelledby="chapters-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow"><span>$</span> tree ~/guide/chapters</p>
+        <h2 id="chapters-title">Every chapter ends with evidence.</h2>
+      </div>
+      <p>Read in order for a first build. Return to one chapter when the lab gives you a reason.</p>
+    </div>
+    <div class="roadmap-list">
+      {chapters.map((chapter) => (
+        <a class="roadmap-step" href={chapterHref(chapter.id)}>
+          <span class="roadmap-number">{String(chapter.data.order).padStart(2, '0')}</span>
+          <span class="roadmap-phase">{chapter.data.phase}</span>
+          <span class="roadmap-main">
+            <strong>{chapter.data.title}</strong>
+            <small>{chapter.data.decision}</small>
+          </span>
+          <span class="roadmap-proof"><span>Leave with</span>{chapter.data.deliverable}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="guide-section agentic" aria-labelledby="agentic-title">
+    <div class="agentic-copy">
+      <p class="eyebrow"><span>$</span> cat ~/guide/field-notes/agentic-operations</p>
+      <h2 id="agentic-title">The agent came last.</h2>
+      <p>
+        I did not start by giving a model shell access. I made the lab legible first: inventory, structured
+        commands, dry runs, health gates, and recovery paths. Routine work got faster. Failures got easier to
+        explain. The agent could use the same guarded operations I already trusted.
+      </p>
+      <a href={chapterHref('10-ai-agentic')}>read the agentic operations guide →</a>
+    </div>
+    <ul class="agentic-signals">
+      <li><strong>Machine-readable operations first.</strong> A JSON-first CLI helps before AI enters.</li>
+      <li><strong>Preview, approve, verify.</strong> The three moves separating a proposal from a change.</li>
+      <li><strong>Autonomy is a budget.</strong> Every loop has a scope, iteration cap, and human stop.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section closing">
+    <p class="eyebrow"><span>$</span> git status --short</p>
+    <h2>The tools will change. The questions hold up.</h2>
+    <p>The registry tracks project health and review dates. The notes explain the evidence behind each default.</p>
+    <div>
+      <a href={`${repositoryUrl}/blob/master/recommendations.toml`}>browse recommendations →</a>
+      <a href={`${repositoryUrl}/blob/master/docs/research-notes.md`}>read the research notes →</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,6 +1,6 @@
 export type PlateId = 'plate-01' | 'plate-02' | 'plate-03' | 'plate-04' | 'plate-05'
 
-export type Theme = 'light' | 'dark'
+export type Theme = 'dark'
 
 export type FailureId =
   | 'none'

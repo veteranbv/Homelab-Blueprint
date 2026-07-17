@@ -1,3 +1,13 @@
+---
+title: Grow and share responsibly
+description: Expand only for a named capability and publish only after a deliberate privacy review.
+order: 11
+phase: Stewardship
+decision: Has expansion earned its cost?
+deliverable: An expansion gate and a public-sharing redaction check.
+gate: No private identifiers or recovery routes leave the lab.
+---
+
 # Grow, experiment, and share responsibly
 
 Expansion should buy a capability: more memory, a new failure domain, faster

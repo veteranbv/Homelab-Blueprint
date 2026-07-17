@@ -32,11 +32,10 @@ export function renderAll(): RenderedPlate[] {
   const results: RenderedPlate[] = []
   for (const plate of PLATES) {
     const Component = COMPONENTS[plate.id]
-    for (const theme of ['light', 'dark'] as const) {
-      const element = createElement(Component, { theme, failure: 'none', reducedMotion: true })
-      const svg = renderToStaticMarkup(element)
-      results.push({ id: plate.id, theme, svg })
-    }
+    const theme = 'dark' as const
+    const element = createElement(Component, { theme, failure: 'none', reducedMotion: true })
+    const svg = renderToStaticMarkup(element)
+    results.push({ id: plate.id, theme, svg })
   }
   return results
 }

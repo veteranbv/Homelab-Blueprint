@@ -1,3 +1,13 @@
+---
+title: Operate what you install
+description: Detect failure, understand its cause, and preserve a practical recovery path.
+order: 8
+phase: Operations
+decision: How will failure be detected and handled?
+deliverable: Minimum monitoring, maintenance, alerting, and power plans.
+gate: Silence means healthy, not merely unobserved.
+---
+
 # Operate what you install
 
 If a service matters, know when it fails, why it failed, and how to recover it.

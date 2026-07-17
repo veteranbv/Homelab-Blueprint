@@ -13,13 +13,13 @@ diagram families, ten interactive screenshots, one animated GIF, six JSON
 diagram sources, and the interactive `BlueprintCanvas.tsx` were reviewed and
 rejected for looking generated. All of them are retired.
 
-The replacement is a single design language: five architect-style plates. Each
+The replacement is a single design language: five terminal-native architecture plates. Each
 plate is a React component whose source lives under `site/src/plates/`. The
 same source is rendered server-side by `scripts/render_plates.mjs` into
-`docs/images/plate-0N.svg` (light) and `docs/images/plate-0N-dark.svg` (dark),
-then rasterized to matching PNGs through the already-installed Playwright
-Chromium. A SHA-256 manifest at `docs/images/render-manifest.json` makes
-regressions loud.
+`docs/images/plate-0N.svg`, then rasterized to a matching PNG through the
+already-installed Playwright Chromium. The unified site is dark-only, so a
+second theme would add drift without adding information. A SHA-256 manifest at
+`docs/images/render-manifest.json` makes regressions loud.
 
 ## Group A: original 2023 blueprint
 

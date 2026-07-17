@@ -3,6 +3,9 @@
 An opinionated, evidence-backed path from one useful home server to a resilient,
 AI-capable homelab.
 
+Read the maintained guide at [homelab.codes/guide](https://homelab.codes/guide/),
+or use this repository as the complete GitHub-native mirror.
+
 This is a guide to making decisions, not a catalog of every product you could
 install. Start with a problem worth solving. Add the smallest system that
 solves it. Earn every extra layer through a real need: isolation, recovery,
@@ -15,10 +18,7 @@ working sheet. Read them in order, or jump to the one you are about to build.
 
 ### Plate 01. The question sheet
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/images/plate-01-dark.png">
-  <img src="docs/images/plate-01.png" alt="Plate 01, the question sheet. Three pencilled questions on a card ask who the lab is for, what data cannot be recreated, and what must keep working when the owner is away. A four-row destination stack lists learn, create value, add resilience, and add bounded automation, with the condition that adds each one." width="900">
-</picture>
+<img src="docs/images/plate-01.png" alt="Plate 01, the question sheet. Three questions ask who the lab is for, what data cannot be recreated, and what must keep working when the owner is away. A four-row destination stack lists learn, create value, add resilience, and add bounded automation, with the condition that adds each one." width="900">
 
 The lab follows from three answers. If you cannot name a person the service is
 for, a folder that cannot be recreated, or an hour that must keep working, the
@@ -27,10 +27,7 @@ architecture is guessing. Start by writing the three answers down. Read
 
 ### Plate 02. One useful host
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/images/plate-02-dark.png">
-  <img src="docs/images/plate-02.png" alt="Plate 02, an elevation of one useful service host on a shelf with a stick figure tenant above it. A dashed line crosses a failure-domain boundary to a mirrored network-attached storage on a separate shelf. A restore ledger runs across the bottom, marked example record synthetic, showing the invariant fields of a restore record. Right-margin annotations explain the meaning of each element." width="900">
-</picture>
+<img src="docs/images/plate-02.png" alt="Plate 02, an elevation of one useful service host on a shelf with a tenant above it. A dashed line crosses a failure-domain boundary to mirrored network-attached storage on a separate shelf. A restore ledger runs across the bottom, marked example record synthetic, showing the invariant fields of a restore record." width="900">
 
 One box, one owner, one flagship service. One backup on a different failure
 domain. One restore that has worked, dated in a ledger you can find. One alert
@@ -69,10 +66,7 @@ already own.
 
 ### Plate 03. Trust boundaries
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/images/plate-03-dark.png">
-  <img src="docs/images/plate-03.png" alt="Plate 03, a top-down plan view of three rooms. Edge on the left has a thin wall and contains a TLS terminator and a remote-access mesh. Private core in the middle has a thick wall and contains compute, identity, and network. Data on the right has a thick wall with a lock on its door and contains a storage pool. An AI annex with a dashed wall sits beside the core. Door labels name the exact allowed flow at each opening. A default policy line at the bottom reads deny cross-zone, allow named dependencies, log denies with consequence." width="900">
-</picture>
+<img src="docs/images/plate-03.png" alt="Plate 03, a top-down plan view of edge, private core, data, and optional AI zones. Door labels name the exact allowed flow at each opening. A default policy line reads deny cross-zone, allow named dependencies, log denies with consequence." width="900">
 
 A trust boundary is a wall with named doors. Deny cross-zone by default. Allow
 each documented flow with the specific port, direction, and identity that
@@ -82,10 +76,7 @@ private mesh. See [design the network](docs/04-networking.md) and
 
 ### Plate 04. The recovery chain
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/images/plate-04-dark.png">
-  <img src="docs/images/plate-04.png" alt="Plate 04, a vertical stack of five filing tabs. Each tab shows the invariant fields of one stage of a recovery chain: live application data, native export, encrypted repository, off-site copy, and a proven restore. Every tab lists what it holds, whose credential owns it, and what verifies the transition to the next tab. A left rule shows elapsed-time positions. A footer strip repeats the record shape marked example record synthetic." width="900">
-</picture>
+<img src="docs/images/plate-04.png" alt="Plate 04, a vertical stack showing live application data, native export, encrypted repository, off-site copy, and a proven restore. Every stage lists what it holds, whose credential owns it, and what verifies the transition to the next stage." width="900">
 
 A backup is a claim. A restore is evidence. Target 3-2-1-1-0: three copies,
 two media or failure domains, one off-site, one offline or immutable, zero
@@ -95,10 +86,7 @@ checksum-matched ledger row. See
 
 ### Plate 05. The loop, field note
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/images/plate-05-dark.png">
-  <img src="docs/images/plate-05.png" alt="Plate 05, a workshop bench drawing. On the left, a stack of typed tool cards lists the name, input, preview mode, and risk class of the operations an agent may propose. In the middle, a rectangular pipeline runs from observe to reconcile, preview, constrain, verify, and record, with a policy gate diamond in the center stamped human or policy. On the right, a ruled ledger page shows the invariant columns of an audit record. The ledger is marked example record synthetic. A first-person field note runs above." width="900">
-</picture>
+<img src="docs/images/plate-05.png" alt="Plate 05, a workshop bench drawing with typed tool cards, an observe-to-record operating loop, a human or policy gate, and an audit ledger marked example record synthetic." width="900">
 
 The agent came last. I made the lab legible first: inventory, structured
 commands, dry runs, health gates, and recovery paths. Routine work got

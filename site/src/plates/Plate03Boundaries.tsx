@@ -93,7 +93,7 @@ function LabelChip({ cx, cy, lines, width = 220, padding = 10 }: ChipProps) {
 }
 
 export function Plate03Boundaries({ theme, failure, reducedMotion }: Plate03Props) {
-  const tokens = plateTokens(theme)
+  const tokens = plateTokens()
   const identityBroken = failure === 'identity'
   const internetBroken = failure === 'internet'
 

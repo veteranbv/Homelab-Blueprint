@@ -1,0 +1,20 @@
+---
+import { BlueprintBuilder } from '../components/BlueprintBuilder'
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="Build your starting architecture"
+  description="Answer three questions and get a small, defensible starting sequence for your homelab."
+  canonicalPath="/builder/"
+>
+  <section class="page-intro">
+    <p class="path-prompt">~/guide/builder $ ./recommend</p>
+    <h1>Three choices cut through most homelab noise.</h1>
+    <p>
+      This cannot know your rack. It can give you a sensible first sequence and show where more complexity
+      becomes justified.
+    </p>
+  </section>
+  <BlueprintBuilder client:load />
+</BaseLayout>

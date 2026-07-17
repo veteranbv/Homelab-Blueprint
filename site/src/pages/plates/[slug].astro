@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { plateSlug } from '../../lib/plates'
+import { PLATES } from '../../plates/models'
+import { PlateStage } from '../../plates/PlateStage'
+
+export function getStaticPaths() {
+  return PLATES.map((plate) => ({ params: { slug: plateSlug(plate.id) }, props: { plate } }))
+}
+
+const { plate } = Astro.props
+---
+
+<BaseLayout
+  title={`Plate ${plate.number}: ${plate.name}`}
+  description={plate.teachingPoint}
+  canonicalPath={`/plates/${plateSlug(plate.id)}/`}
+  imagePath={`/images/${plate.id}.png`}
+>
+  <PlateStage client:load initialPlateId={plate.id} />
+</BaseLayout>
