@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 620" width="1200" height="620">
+<title id="title">Choose your homelab path</title>
+<desc id="desc">Four progressive homelab paths: learn on existing hardware, run useful household services, add resilience, and add bounded AI operations.</desc>
+<defs>
+<style>
+.eyebrow{font-family:Arial,'Helvetica Neue',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px}
+.heading{font-family:Arial,'Helvetica Neue',sans-serif;font-size:34px;font-weight:700}
+.group-title{font-family:Arial,'Helvetica Neue',sans-serif;font-size:25px;font-weight:700}
+.title{font-family:Arial,'Helvetica Neue',sans-serif;font-size:22px;font-weight:700}
+.body{font-family:Arial,'Helvetica Neue',sans-serif;font-size:18px;font-weight:400}
+.small{font-family:Arial,'Helvetica Neue',sans-serif;font-size:17px;font-weight:400}
+.label{font-family:Menlo,Consolas,monospace;font-size:15px;font-weight:700;letter-spacing:.5px}
+.badge{font-family:Menlo,Consolas,monospace;font-size:14px;font-weight:700;letter-spacing:.8px}
+</style>
+</defs>
+<rect width="1200" height="620" fill="#0d1117"/>
+<text x="52" y="54" class="eyebrow" fill="#58a6ff">START WITH THE OUTCOME</text>
+<text x="52" y="98" class="heading" fill="#e6edf3">Choose the next useful capability</text>
+<line x1="52" y1="126" x2="1148" y2="126" stroke="#30363d"/>
+<rect x="50" y="160" width="1100" height="350" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+<path d="M 51 246 V 174 Q 51 161 64 161 H 1136 Q 1149 161 1149 174 V 246 Z" fill="#161b22"/>
+<line x1="50" y1="246" x2="1150" y2="246" stroke="#30363d"/>
+<circle cx="84" cy="192" r="7" fill="#58a6ff"/>
+<text x="106" y="200" class="group-title" fill="#e6edf3">Four valid destinations</text>
+<text x="106" y="228" class="small" fill="#9198a1">Start anywhere. Add another layer only when a real need earns it.</text>
+<line x1="325" y1="275" x2="325" y2="470" stroke="#30363d" stroke-width="1"/>
+<line x1="595" y1="275" x2="595" y2="470" stroke="#30363d" stroke-width="1"/>
+<line x1="865" y1="275" x2="865" y2="470" stroke="#30363d" stroke-width="1"/>
+<g id="learn">
+<circle cx="87" cy="300" r="5" fill="#58a6ff"/>
+<text x="104" y="307" class="title" fill="#e6edf3">Learn</text>
+<text x="104" y="347" class="body" fill="#9198a1">Use existing hardware</text>
+<text x="104" y="377" class="body" fill="#9198a1">Linux + networking</text>
+<text x="104" y="407" class="body" fill="#9198a1">One service · one restore</text>
+</g>
+<g id="useful">
+<circle cx="357" cy="300" r="5" fill="#3fb950"/>
+<text x="374" y="307" class="title" fill="#e6edf3">Create value</text>
+<text x="374" y="347" class="body" fill="#9198a1">Docker Compose</text>
+<text x="374" y="377" class="body" fill="#9198a1">Private remote access</text>
+<text x="374" y="407" class="body" fill="#9198a1">Backups + useful apps</text>
+</g>
+<g id="resilient">
+<circle cx="627" cy="300" r="5" fill="#d29922"/>
+<text x="644" y="307" class="title" fill="#e6edf3">Add resilience</text>
+<text x="644" y="347" class="body" fill="#9198a1">Separate failure domains</text>
+<text x="644" y="377" class="body" fill="#9198a1">Inventory + automation</text>
+<text x="644" y="407" class="body" fill="#9198a1">Measured recovery</text>
+</g>
+<g id="ai">
+<circle cx="897" cy="300" r="5" fill="#f778ba"/>
+<text x="914" y="307" class="title" fill="#e6edf3">Add bounded AI</text>
+<text x="914" y="347" class="body" fill="#9198a1">Separate inference</text>
+<text x="914" y="377" class="body" fill="#9198a1">Typed, guarded tools</text>
+<text x="914" y="407" class="body" fill="#9198a1">Evidence + hard limits</text>
+</g>
+<text x="600.0" y="596" text-anchor="middle" class="body" fill="#9198a1">Stop at the destination that solves your problem. Complexity is not progress by itself.</text>
+</svg>

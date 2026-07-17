@@ -1,0 +1,17 @@
+{
+  "id": "maturity-tiers",
+  "title": "Homelab maturity tiers",
+  "description": "A layered reference architecture progressing from one useful host through separated storage and compute, resilient operations, and an optional AI workload plane.",
+  "width": 1200,
+  "height": 820,
+  "eyebrow": "REFERENCE ARCHITECTURE",
+  "heading": "Add layers only when they earn their cost",
+  "nodes": [
+    {"id":"foundation","x":90,"y":610,"width":1020,"height":120,"title":"Foundation · one maintained host","lines":["Linux · Compose · private access · security updates · independent backup · restore proof"],"tone":"blue","badge":"START"},
+    {"id":"separate","x":150,"y":445,"width":900,"height":120,"title":"Separated roles","lines":["Compute · storage · DNS and ingress · monitoring · explicit failure boundaries"],"tone":"green","badge":"DATA MATTERS"},
+    {"id":"operate","x":210,"y":280,"width":780,"height":120,"title":"Resilient operations","lines":["Inventory · configuration as code · canary updates · off-site recovery · power plans"],"tone":"amber","badge":"DOWNTIME COSTS"},
+    {"id":"ai","x":270,"y":150,"width":660,"height":95,"title":"Optional AI workload plane","lines":["Separate inference · provider boundary · guarded tools"],"tone":"pink","badge":"WHEN USEFUL"}
+  ],
+  "arrows": [],
+  "footer": "A smaller system with proven recovery is more mature than a larger system without it."
+}

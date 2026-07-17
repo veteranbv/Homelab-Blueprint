@@ -1,0 +1,16 @@
+Attribution 4.0 International
+
+Copyright (c) 2023-2026 VeteranBV
+
+The prose, diagrams, and other documentation assets in this repository are
+licensed under the Creative Commons Attribution 4.0 International License.
+
+You are free to share and adapt the material for any purpose, provided you give
+appropriate credit, provide a link to the license, and indicate if changes were
+made. You may not apply legal terms or technological measures that legally
+restrict others from doing anything the license permits.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Code and automation under `scripts/` and `tests/` are licensed separately under
+the MIT License in `LICENSE-CODE`.

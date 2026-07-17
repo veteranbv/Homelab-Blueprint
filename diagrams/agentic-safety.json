@@ -1,0 +1,40 @@
+{
+  "id": "agentic-safety",
+  "title": "Agentic homelab operations safety loop",
+  "description": "A bounded operations loop that observes, reconciles, plans, passes policy, executes through typed tools, verifies live state, and records evidence.",
+  "width": 1200,
+  "height": 880,
+  "eyebrow": "AGENTIC OPERATIONS",
+  "heading": "Put policy and typed tools between the model and the lab",
+  "groups": [
+    {"x":50,"y":160,"width":1100,"height":500,"title":"Guarded execution path","subtitle":"The model proposes. Policy decides. Tools constrain. Live state proves.","tone":"pink","badge":"BOUNDED"}
+  ],
+  "separators": [
+    {"x1":325,"y1":275,"x2":325,"y2":430},
+    {"x1":595,"y1":275,"x2":595,"y2":430},
+    {"x1":865,"y1":275,"x2":865,"y2":430},
+    {"x1":80,"y1":455,"x2":1120,"y2":455},
+    {"x1":415,"y1":485,"x2":415,"y2":615},
+    {"x1":785,"y1":485,"x2":785,"y2":615}
+  ],
+  "nodes": [
+    {"id":"observe","x":82,"y":292,"width":220,"height":140,"title":"01 · Observe","lines":["Bounded status reads","Logs + health","Untrusted evidence"],"tone":"blue","style":"section"},
+    {"id":"reconcile","x":352,"y":292,"width":220,"height":140,"title":"02 · Reconcile","lines":["Resolve inventory","Cross-check systems","Name uncertainty"],"tone":"green","style":"section"},
+    {"id":"plan","x":622,"y":292,"width":220,"height":140,"title":"03 · Plan","lines":["Typed inputs","Narrow target","Recovery path"],"tone":"amber","style":"section"},
+    {"id":"gate","x":892,"y":292,"width":220,"height":140,"title":"04 · Gate","lines":["Preview parity","Approval policy","Iteration budget"],"tone":"red","style":"section"},
+    {"id":"evidence","x":90,"y":505,"width":290,"height":140,"title":"07 · Record evidence","lines":["Auditable result","Durable state","Feed next decision"],"tone":"blue","style":"section"},
+    {"id":"verify","x":455,"y":505,"width":290,"height":140,"title":"06 · Verify outcome","lines":["Live state proof","Smoke checks","Stop or roll back"],"tone":"green","style":"section"},
+    {"id":"execute","x":825,"y":505,"width":290,"height":140,"title":"05 · Execute via tools","lines":["Least privilege","Timeout + rate limit","No shell by default"],"tone":"pink","style":"section"},
+    {"id":"rule","x":170,"y":710,"width":860,"height":95,"title":"Autonomy is a budget, not a permanent permission grant","lines":["Bound every objective with scope, time, iterations, cost, durable state, and a human stop condition."],"tone":"red","style":"warning"}
+  ],
+  "arrows": [
+    {"points":[[302,350],[346,350]],"tone":"green"},
+    {"points":[[572,350],[616,350]],"tone":"green"},
+    {"points":[[842,350],[886,350]],"tone":"red"},
+    {"points":[[1115,410],[1130,410],[1130,485],[1115,485]],"tone":"pink"},
+    {"points":[[819,560],[751,560]],"tone":"green"},
+    {"points":[[449,560],[386,560]],"tone":"green"},
+    {"points":[[90,615],[70,615],[70,350],[80,350]],"tone":"blue"}
+  ],
+  "footer": "Classify risk by data sensitivity and operational cost as well as mutability."
+}

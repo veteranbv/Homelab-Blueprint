@@ -1,0 +1,62 @@
+{
+  "docs/images/agentic-safety-dark.svg": {
+    "png": "docs/images/agentic-safety-dark.png",
+    "png_sha256": "833be5bdcf97417ac322346dbd9704eda12edbb8a4e59de6e31f59ebb5d19d89",
+    "svg_sha256": "50e779a3ca7840a8c690dbf1402e82d19e45a19fb115988f6c8aaff73879dac5"
+  },
+  "docs/images/agentic-safety.svg": {
+    "png": "docs/images/agentic-safety.png",
+    "png_sha256": "b0366648e60e3a72a07e0885f545c7bfc82be77169a4106736895956aeba7e15",
+    "svg_sha256": "54ac7234a04c68012d2b539a8c3b64915b6128b98bbb77ccd4db907dd579c32d"
+  },
+  "docs/images/automation-loop-dark.svg": {
+    "png": "docs/images/automation-loop-dark.png",
+    "png_sha256": "3608cde08edd35ecf51455b2a996bf7b7361882e5f10a56a1d14c303c281e810",
+    "svg_sha256": "2ff9818179c8312695bd18c096ba4323e9219f45a7e14135860f41b4314cf672"
+  },
+  "docs/images/automation-loop.svg": {
+    "png": "docs/images/automation-loop.png",
+    "png_sha256": "0bd333d0aa074adf4d4b5ab01dac68afaa580e155b41aef599fa1c625aea4a8f",
+    "svg_sha256": "156f0fbf8083dbb13be5f3487fa6b707b956aa9dc9d395f683af57596e26df16"
+  },
+  "docs/images/choose-your-path-dark.svg": {
+    "png": "docs/images/choose-your-path-dark.png",
+    "png_sha256": "9f48ada1425bf2fe250f9f45a2b2b1f98a6404ee443f67cd952b0a4a4cc15379",
+    "svg_sha256": "8aa3b7661e8ee6cb7d964dec29ce36e4b8a2dfa243c3a1c867de133f84036632"
+  },
+  "docs/images/choose-your-path.svg": {
+    "png": "docs/images/choose-your-path.png",
+    "png_sha256": "829f1de637dafda17e483273b88a5cbaad8344edec8cebe2fcf73a0420e5d579",
+    "svg_sha256": "748e920b8067d1bc505f06392062150d1d3837c60de8d312ca8955be056211b2"
+  },
+  "docs/images/maturity-tiers-dark.svg": {
+    "png": "docs/images/maturity-tiers-dark.png",
+    "png_sha256": "0c482da950f4ea41077e8b30768fb4d292a6051682ca545a38bfef49b475aafb",
+    "svg_sha256": "13bb3aebd81b8b8251563b7887e12acb26e6437235ac307fb6b69e65ba8401c2"
+  },
+  "docs/images/maturity-tiers.svg": {
+    "png": "docs/images/maturity-tiers.png",
+    "png_sha256": "9c7b42eac7d61f39d95ff51acc5a12714e17f2ba484b09bba6c4d46568392947",
+    "svg_sha256": "39eefcc6327731be29a0d133e09de2fa537437e4a50f8cc2c1edab3d67e5bac8"
+  },
+  "docs/images/recovery-flow-dark.svg": {
+    "png": "docs/images/recovery-flow-dark.png",
+    "png_sha256": "767db256da7585a3bc9363d9319bccf5865a2dfbd4c78c7174356249bd6cd481",
+    "svg_sha256": "47743f88a088a783d836e653ca200da0ff7ae0d228ae60756f98e1e0fdbaac5e"
+  },
+  "docs/images/recovery-flow.svg": {
+    "png": "docs/images/recovery-flow.png",
+    "png_sha256": "fe5c4b2f58b1be83d500e1a7e30a3bac61a0ecb42a4958d638427b0b38a0898c",
+    "svg_sha256": "b0e34c4685b0800d0ba051e63b7eed44efe8600772ff03f5f332ddb0ebfb2c8c"
+  },
+  "docs/images/trust-boundaries-dark.svg": {
+    "png": "docs/images/trust-boundaries-dark.png",
+    "png_sha256": "41410ea5d0fd1c9f92e0d301ec9c36ef32d196ca33e4f07fe817603b9429ce1d",
+    "svg_sha256": "cc78c5bbda7f7297dbd7f9ed377a9459909d75c960634a26c6da9eb8c7684919"
+  },
+  "docs/images/trust-boundaries.svg": {
+    "png": "docs/images/trust-boundaries.png",
+    "png_sha256": "a6fb012e5785f1cfb76932028d3b888b2321ff9d537f16ee0c975e2942052fc6",
+    "svg_sha256": "6aeedc25e6e75cea55ac058526ee7886c7198ca6623758da420267f102c1884a"
+  }
+}

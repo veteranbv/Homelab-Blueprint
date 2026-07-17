@@ -1,0 +1,259 @@
+schema_version = 1
+reviewed_on = 2026-07-16
+
+[[project]]
+id = "docker-compose"
+name = "Docker Compose"
+category = "applications"
+homepage = "https://docs.docker.com/compose/"
+github = "docker/compose"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "proxmox-ve"
+name = "Proxmox VE"
+category = "virtualization"
+homepage = "https://www.proxmox.com/en/proxmox-virtual-environment/overview"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "k3s"
+name = "K3s"
+category = "kubernetes"
+homepage = "https://docs.k3s.io/"
+github = "k3s-io/k3s"
+classification = "specialist"
+tier = "advanced"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "talos"
+name = "Talos Linux"
+category = "kubernetes"
+homepage = "https://www.talos.dev/"
+github = "siderolabs/talos"
+classification = "specialist"
+tier = "advanced"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "truenas"
+name = "TrueNAS Community Edition"
+category = "storage"
+homepage = "https://www.truenas.com/truenas-community-edition/"
+github = "truenas/middleware"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "unraid"
+name = "Unraid"
+category = "storage"
+homepage = "https://unraid.net/"
+classification = "alternative"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "proxmox-backup-server"
+name = "Proxmox Backup Server"
+category = "backup"
+homepage = "https://www.proxmox.com/en/proxmox-backup-server/overview"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "kopia"
+name = "Kopia"
+category = "backup"
+homepage = "https://kopia.io/"
+github = "kopia/kopia"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "restic"
+name = "restic"
+category = "backup"
+homepage = "https://restic.net/"
+github = "restic/restic"
+classification = "alternative"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "tailscale"
+name = "Tailscale"
+category = "remote-access"
+homepage = "https://tailscale.com/"
+github = "tailscale/tailscale"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "caddy"
+name = "Caddy"
+category = "ingress"
+homepage = "https://caddyserver.com/"
+github = "caddyserver/caddy"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "traefik"
+name = "Traefik Proxy"
+category = "ingress"
+homepage = "https://traefik.io/traefik/"
+github = "traefik/traefik"
+classification = "alternative"
+tier = "intermediate"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "technitium"
+name = "Technitium DNS Server"
+category = "dns"
+homepage = "https://technitium.com/dns/"
+github = "TechnitiumSoftware/DnsServer"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "pihole"
+name = "Pi-hole"
+category = "dns"
+homepage = "https://pi-hole.net/"
+github = "pi-hole/pi-hole"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "authentik"
+name = "authentik"
+category = "identity"
+homepage = "https://goauthentik.io/"
+github = "goauthentik/authentik"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "uptime-kuma"
+name = "Uptime Kuma"
+category = "monitoring"
+homepage = "https://uptime.kuma.pet/"
+github = "louislam/uptime-kuma"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "beszel"
+name = "Beszel"
+category = "monitoring"
+homepage = "https://beszel.dev/"
+github = "henrygd/beszel"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "grafana-alloy"
+name = "Grafana Alloy"
+category = "telemetry"
+homepage = "https://grafana.com/docs/alloy/latest/"
+github = "grafana/alloy"
+classification = "specialist"
+tier = "advanced"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "home-assistant"
+name = "Home Assistant"
+category = "home-automation"
+homepage = "https://www.home-assistant.io/"
+github = "home-assistant/core"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "jellyfin"
+name = "Jellyfin"
+category = "media"
+homepage = "https://jellyfin.org/"
+github = "jellyfin/jellyfin"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "immich"
+name = "Immich"
+category = "photos"
+homepage = "https://immich.app/"
+github = "immich-app/immich"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "paperless-ngx"
+name = "Paperless-ngx"
+category = "documents"
+homepage = "https://docs.paperless-ngx.com/"
+github = "paperless-ngx/paperless-ngx"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "homepage"
+name = "Homepage"
+category = "dashboard"
+homepage = "https://gethomepage.dev/"
+github = "gethomepage/homepage"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "ollama"
+name = "Ollama"
+category = "local-ai"
+homepage = "https://ollama.com/"
+github = "ollama/ollama"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "llama-cpp"
+name = "llama.cpp"
+category = "local-ai"
+homepage = "https://github.com/ggml-org/llama.cpp"
+github = "ggml-org/llama.cpp"
+classification = "alternative"
+tier = "advanced"
+last_reviewed = 2026-07-16
+
+[[project]]
+id = "vllm"
+name = "vLLM"
+category = "local-ai"
+homepage = "https://docs.vllm.ai/"
+github = "vllm-project/vllm"
+classification = "specialist"
+tier = "advanced"
+last_reviewed = 2026-07-16

@@ -1,0 +1,22 @@
+name: monthly recommendation health
+
+on:
+  schedule:
+    - cron: "17 12 8 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Check recommendation health
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/audit_recommendations.py
+      - name: Check external citations
+        run: python3 scripts/check_links.py --external
