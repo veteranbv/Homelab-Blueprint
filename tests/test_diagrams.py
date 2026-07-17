@@ -68,6 +68,36 @@ class DiagramTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             render(source, "light")
 
+    def test_arrow_label_coordinates_reject_svg_injection(self) -> None:
+        source = dict(load_sources()[0][1])
+        source["arrows"] = [
+            {
+                "points": [[0, 0], [10, 10]],
+                "label": "unsafe",
+                "label_at": ['0" onload="alert-1', 0],
+            }
+        ]
+        with self.assertRaises(ValueError):
+            render(source, "light")
+
+    def test_check_reports_missing_svg_without_traceback(self) -> None:
+        source = load_sources()[0][1]
+        output = output_path_for(source, "light")
+        original = output.read_bytes()
+        output.unlink()
+        try:
+            result = subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "render_diagrams.py"), "--check"],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+        finally:
+            output.write_bytes(original)
+        self.assertNotEqual(0, result.returncode)
+        self.assertIn(str(output.relative_to(ROOT)), result.stderr)
+        self.assertNotIn("Traceback", result.stderr)
+
     def test_check_rejects_artifact_without_source(self) -> None:
         orphan = ROOT / "docs" / "images" / "orphan-test.svg"
         orphan.write_text("<svg/>\n", encoding="utf-8")

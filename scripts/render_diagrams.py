@@ -205,19 +205,21 @@ def render_separator(separator: dict[str, object], theme: Theme) -> str:
     )
 
 
+def coordinates(value: object, label: str) -> tuple[int, int]:
+    if (
+        not isinstance(value, list)
+        or len(value) != 2
+        or not all(isinstance(item, int) and not isinstance(item, bool) for item in value)
+    ):
+        raise ValueError(f"{label} must contain exactly two integer coordinates")
+    return value[0], value[1]
+
+
 def render_arrow(arrow: dict[str, object], theme: Theme) -> list[str]:
     raw_points = arrow["points"]
     if not isinstance(raw_points, list) or len(raw_points) < 2:
         raise ValueError("Arrow needs at least two points")
-    points: list[tuple[int, int]] = []
-    for point in raw_points:
-        if (
-            not isinstance(point, list)
-            or len(point) != 2
-            or not all(isinstance(value, int) and not isinstance(value, bool) for value in point)
-        ):
-            raise ValueError("Arrow points must contain exactly two integer coordinates")
-        points.append((point[0], point[1]))
+    points = [coordinates(point, "Arrow point") for point in raw_points]
     path = "M " + " L ".join(f"{x} {y}" for x, y in points)
     tone = str(arrow.get("tone", "green"))
     stroke = color(theme, tone)
@@ -237,7 +239,7 @@ def render_arrow(arrow: dict[str, object], theme: Theme) -> list[str]:
     label = arrow.get("label")
     label_at = arrow.get("label_at")
     if label and label_at:
-        label_x, label_y = cast(list[int], label_at)
+        label_x, label_y = coordinates(label_at, "Arrow label position")
         parts.append(
             f'<text x="{label_x}" y="{label_y}" text-anchor="middle" class="label" '
             f'fill="{color(theme, tone)}">{esc(label)}</text>'
@@ -387,6 +389,8 @@ def main() -> int:
             entry = manifest.get(key, {})
             png_value = entry.get("png")
             png_path = ROOT / png_value if isinstance(png_value, str) else Path()
+            if not output.is_file():
+                continue
             if entry.get("svg_sha256") != digest(output):
                 failures.append(f"{key} (manifest mismatch)")
             if not png_path.is_file() or entry.get("png_sha256") != digest(png_path):
