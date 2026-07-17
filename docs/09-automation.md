@@ -4,8 +4,8 @@ Automation becomes safe when inventory, desired state, execution, and evidence
 have clear ownership.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/automation-loop-dark.png">
-  <img src="images/automation-loop.png" alt="Operations loop from inventory and desired state through planning, approval, narrow execution, live verification, and recorded evidence." width="900">
+  <source media="(prefers-color-scheme: dark)" srcset="images/plate-05-dark.png">
+  <img src="images/plate-05.png" alt="Plate 05, a workshop bench drawing. On the left, typed tool cards list the name, input, preview mode, and risk class of each operation. In the middle, a rectangular pipeline runs from observe to reconcile, preview, constrain, verify, and record, with a policy gate diamond in the center. On the right, a ruled ledger page shows the invariant columns of an audit record." width="900">
 </picture>
 
 ## A practical progression

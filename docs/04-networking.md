@@ -4,8 +4,8 @@ Segmentation should express trust and failure boundaries, not produce an
 impressive VLAN count.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/trust-boundaries-dark.png">
-  <img src="images/trust-boundaries.png" alt="Network trust model separating untrusted devices, services, management, and internet-facing ingress, with administration restricted to a private access path." width="900">
+  <source media="(prefers-color-scheme: dark)" srcset="images/plate-03-dark.png">
+  <img src="images/plate-03.png" alt="Plate 03, a top-down plan view of three rooms. Edge on the left has a thin wall and contains a TLS terminator and a remote-access mesh. Private core in the middle has a thick wall and contains compute, identity, and network. Data on the right has a thick wall with a lock on its door and contains a storage pool. An AI annex with a dashed wall sits beside the core. Door labels name the exact allowed flow at each opening." width="900">
 </picture>
 
 ## Start with semantic zones

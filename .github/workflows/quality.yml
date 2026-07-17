@@ -14,10 +14,27 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: "22.23.1"
+          cache: npm
+      - name: Install site dependencies
+        run: npm ci
+      - name: Install browser for site tests
+        run: npx playwright install --with-deps chromium
+      - name: Lint site
+        run: npm run lint
+      - name: Test site logic
+        run: npm run test
+      - name: Build site
+        run: npm run build
+      - name: Test site experience
+        run: npm run test:e2e
       - name: Run unit tests
         run: python3 -m unittest discover -s tests
-      - name: Check generated diagrams
-        run: python3 scripts/render_diagrams.py --check
+      - name: Check generated plates
+        run: npm run render:plates:check
       - name: Validate recommendation metadata
         run: python3 scripts/audit_recommendations.py --offline
       - name: Check local links

@@ -13,7 +13,7 @@ class PrivacyTests(unittest.TestCase):
             root = Path(directory)
             private_ip = ".".join(("203", "0", "113", "42"))
             email = "owner" + "@" + "example.test"
-            (root / "guide.md").write_text(
+            (root / "App.tsx").write_text(
                 f"host={private_ip}\ncontact={email}\nprivate-codename\n",
                 encoding="utf-8",
             )
@@ -27,6 +27,21 @@ class PrivacyTests(unittest.TestCase):
             root = Path(directory)
             (root / "guide.md").write_text(
                 "Use inventory, narrow tools, and tested recovery.\n",
+                encoding="utf-8",
+            )
+            self.assertEqual([], scan(root, []))
+
+    def test_local_dev_addresses_and_css_pseudo_elements_are_allowed(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            loopback = ".".join(("127", "0", "0", "1"))
+            pseudo_element = ":" + ":before"
+            (root / "playwright.config.ts").write_text(
+                f"export const baseURL = 'http://{loopback}:4173'\n",
+                encoding="utf-8",
+            )
+            (root / "styles.css").write_text(
+                f".label{pseudo_element} {{ content: 'step'; }}\n",
                 encoding="utf-8",
             )
             self.assertEqual([], scan(root, []))
