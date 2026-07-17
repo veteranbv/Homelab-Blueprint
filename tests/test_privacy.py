@@ -31,6 +31,19 @@ class PrivacyTests(unittest.TestCase):
             )
             self.assertEqual([], scan(root, []))
 
+    def test_compressed_ipv6_and_unquoted_secrets_are_reported(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            compressed_ipv6 = "fd00" + ":" + ":" + "1"
+            secret_assignment = "password=" + "correcthorsebatterystaple"
+            (root / "config.txt").write_text(
+                f"host={compressed_ipv6}\n{secret_assignment}\n",
+                encoding="utf-8",
+            )
+            errors = scan(root, [])
+        self.assertTrue(any("literal IP address" in error for error in errors))
+        self.assertTrue(any("assigned secret" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()

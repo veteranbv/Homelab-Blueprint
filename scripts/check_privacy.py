@@ -24,12 +24,13 @@ PATTERNS = {
     "VLAN identifier": re.compile(r"\bVLAN\s*[-:#]?\s*\d{1,4}\b", re.IGNORECASE),
     "assigned secret": re.compile(
         r"\b(?:password|passwd|token|api[_-]?key|secret)\s*[:=]\s*"
-        r"(?:[\"'][A-Za-z0-9_./+=-]{12,}[\"']|(?:gh[pousr]_|sk-|xox[baprs]-)[A-Za-z0-9_-]{8,})",
+        r"(?:[\"'][A-Za-z0-9_./+=-]{12,}[\"']|(?:gh[pousr]_|sk-|xox[baprs]-)[A-Za-z0-9_-]{8,}"
+        r"|[A-Za-z0-9_+=/-]{16,})",
         re.IGNORECASE,
     ),
 }
 IPV4 = re.compile(r"(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])")
-IPV6 = re.compile(r"(?<![0-9A-Fa-f:])(?:[0-9A-Fa-f]{1,4}:){2,7}[0-9A-Fa-f]{0,4}(?![0-9A-Fa-f:])")
+IPV6 = re.compile(r"(?<![0-9A-Fa-f:])(?=[0-9A-Fa-f:]*:)[0-9A-Fa-f:]{2,}(?![0-9A-Fa-f:])")
 SKIP_FILES = {Path(__file__).resolve()}
 
 

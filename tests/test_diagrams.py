@@ -62,6 +62,12 @@ class DiagramTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             render(source, "light")
 
+    def test_arrow_coordinates_reject_svg_injection(self) -> None:
+        source = dict(load_sources()[0][1])
+        source["arrows"] = [{"points": [['0" onload="alert-1', 0], [10, 10]]}]
+        with self.assertRaises(ValueError):
+            render(source, "light")
+
     def test_check_rejects_artifact_without_source(self) -> None:
         orphan = ROOT / "docs" / "images" / "orphan-test.svg"
         orphan.write_text("<svg/>\n", encoding="utf-8")

@@ -206,9 +206,18 @@ def render_separator(separator: dict[str, object], theme: Theme) -> str:
 
 
 def render_arrow(arrow: dict[str, object], theme: Theme) -> list[str]:
-    points = cast(list[list[int]], arrow["points"])
-    if len(points) < 2:
+    raw_points = arrow["points"]
+    if not isinstance(raw_points, list) or len(raw_points) < 2:
         raise ValueError("Arrow needs at least two points")
+    points: list[tuple[int, int]] = []
+    for point in raw_points:
+        if (
+            not isinstance(point, list)
+            or len(point) != 2
+            or not all(isinstance(value, int) and not isinstance(value, bool) for value in point)
+        ):
+            raise ValueError("Arrow points must contain exactly two integer coordinates")
+        points.append((point[0], point[1]))
     path = "M " + " L ".join(f"{x} {y}" for x, y in points)
     tone = str(arrow.get("tone", "green"))
     stroke = color(theme, tone)

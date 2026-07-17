@@ -26,6 +26,12 @@ class RecommendationTests(unittest.TestCase):
         errors = validate([project], dt.date(2026, 7, 16), 120)
         self.assertTrue(any("days old" in error for error in errors))
 
+    def test_datetime_review_value_is_rejected(self) -> None:
+        project = dict(load_registry()[0])
+        project["last_reviewed"] = dt.datetime(2026, 7, 16, tzinfo=dt.UTC)
+        errors = validate([project], dt.date(2026, 7, 16), 120)
+        self.assertTrue(any("must be a TOML date" in error for error in errors))
+
     def test_bot_protection_still_counts_as_reachable(self) -> None:
         error = urllib.error.HTTPError("https://example.test", 403, "Forbidden", {}, None)
         with patch("urllib.request.urlopen", side_effect=error):

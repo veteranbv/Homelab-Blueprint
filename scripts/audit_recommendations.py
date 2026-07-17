@@ -65,7 +65,7 @@ def validate(projects: list[Project], today: dt.date, max_age_days: int) -> list
         if not str(project["homepage"]).startswith("https://"):
             errors.append(f"{project_id}: homepage must use https")
         reviewed = project["last_reviewed"]
-        if not isinstance(reviewed, dt.date):
+        if type(reviewed) is not dt.date:
             errors.append(f"{project_id}: last_reviewed must be a TOML date")
         elif reviewed > today:
             errors.append(f"{project_id}: last_reviewed is in the future")
