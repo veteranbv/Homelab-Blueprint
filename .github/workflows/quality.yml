@@ -11,6 +11,8 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/playwright:v1.61.1-noble@sha256:5b8f294aff9041b7191c34a4bab3ac270157a28774d4b0660e9743297b697e48
     steps:
       - name: Check out repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -21,8 +23,6 @@ jobs:
           cache: npm
       - name: Install site dependencies
         run: npm ci
-      - name: Install browser for site tests
-        run: npx playwright install --with-deps chromium
       - name: Lint site
         run: npm run lint
       - name: Type-check site
