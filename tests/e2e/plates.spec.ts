@@ -32,6 +32,13 @@ test('landing renders the unified guide without console errors', async ({ page }
   expect(errors).toEqual([])
 })
 
+test('unknown routes return a useful 404', async ({ page }) => {
+  const response = await page.goto('/route-that-does-not-exist/')
+  expect(response?.status()).toBe(404)
+  await expect(page.getByRole('heading', { name: 'That page is not in the blueprint.' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'return to the guide' })).toBeVisible()
+})
+
 test('every chapter is static, canonical, and linked to its neighbors', async ({ page }) => {
   await page.goto('/chapters/04-networking/')
   await expect(page.getByRole('heading', { name: 'Design networking and access' })).toBeVisible()

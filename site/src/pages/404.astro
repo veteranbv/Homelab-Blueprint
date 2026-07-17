@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { withBase } from '../lib/paths'
+---
+
+<BaseLayout
+  title="Page not found"
+  description="The requested Homelab Blueprint page does not exist."
+  canonicalPath="/"
+>
+  <section class="hero terminal-hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span>$</span> homelab guide --open</p>
+      <h1>That page is not in the blueprint.</h1>
+      <p class="hero-deck">
+        The path may have changed, or the link may be wrong. Start at the guide overview or inspect the
+        architecture plates.
+      </p>
+      <div class="hero-actions">
+        <a href={withBase('/')}>return to the guide <span aria-hidden="true">→</span></a>
+        <a href={withBase('/plates/')}>open the architecture plates <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <aside class="hero-aside" aria-label="Not found">
+      <p>HTTP 404.</p>
+      <p>No silent redirect.</p>
+      <p>No invented destination.</p>
+      <span>A broken path should fail honestly.</span>
+    </aside>
+  </section>
+</BaseLayout>
