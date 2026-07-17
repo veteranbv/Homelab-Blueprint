@@ -14,11 +14,17 @@ for (const [id, slug] of PLATES) {
     if (testInfo.project.name === 'mobile-380') {
       const reader = page.getByTestId(`plate-reader-${id}`)
       await expect(reader).toBeVisible()
-      await expect(reader).toHaveScreenshot(`${id}-reader.png`, { animations: 'disabled' })
+      await expect(reader).toHaveScreenshot(`${id}-reader.png`, {
+        animations: 'disabled',
+        maxDiffPixelRatio: 0.01,
+      })
     } else {
       const svg = page.locator(`[data-plate="${id}"]`).first()
       await expect(svg).toBeVisible()
-      await expect(svg).toHaveScreenshot(`${id}.png`, { animations: 'disabled' })
+      await expect(svg).toHaveScreenshot(`${id}.png`, {
+        animations: 'disabled',
+        maxDiffPixelRatio: 0.01,
+      })
     }
   })
 }

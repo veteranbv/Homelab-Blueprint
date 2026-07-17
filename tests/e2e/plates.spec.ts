@@ -67,7 +67,9 @@ test.describe('interactive plates', () => {
   test('failure selection changes plate state', async ({ page }) => {
     await page.goto('/plates/02-one-useful-host/')
     await page.getByLabel(/simulate a failure/i).selectOption('host')
-    await expect(page.locator('[data-plate="plate-02"]').first()).toHaveAttribute('data-failure', 'host')
+    await expect(
+      page.getByTestId('plate-canvas-plate-02').locator('[data-plate="plate-02"]'),
+    ).toHaveAttribute('data-failure', 'host')
     await expect(page.locator('.plate-failure-lesson')).toContainText(/lives outside this host/i)
   })
 
