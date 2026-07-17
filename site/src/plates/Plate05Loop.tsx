@@ -56,7 +56,7 @@ function pipelineBoxes(): PipelineBox[] {
 }
 
 export function Plate05Loop({ theme, failure, reducedMotion }: Plate05Props) {
-  const tokens = plateTokens(theme)
+  const tokens = plateTokens()
   const inferenceDown = failure === 'inference'
   const identityDown = failure === 'identity'
   const boxes = pipelineBoxes()

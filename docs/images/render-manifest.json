@@ -1,52 +1,27 @@
 {
-  "docs/images/plate-01-dark.svg": {
-    "svg_sha256": "390dbbdc022b62138821a2a7d17f3fcf9477079546a9a75451e6b55474a725a6",
-    "png": "docs/images/plate-01-dark.png",
-    "png_sha256": "cecadbc00dc3377735e030e751bf07251c317d152ed2f12e59636e5657f82724"
-  },
   "docs/images/plate-01.svg": {
-    "svg_sha256": "8560f7595de8dadac2f3b76eb282aadc7205017f9a10538cce34e2935c4a3651",
+    "svg_sha256": "4e954f3f7987e0e9924956be4104d46ae4b7b4ffc8e7701aa51c61fdcc7c2325",
     "png": "docs/images/plate-01.png",
-    "png_sha256": "06b264510aa5688d5522cb9931f988cfc9a58aeb122f58c1225d17626661c39e"
-  },
-  "docs/images/plate-02-dark.svg": {
-    "svg_sha256": "506a4b70a404d9e2b0e8eeb675475051eac86ab5412aea3447bbe8e03ff30b39",
-    "png": "docs/images/plate-02-dark.png",
-    "png_sha256": "952203185bc2f5bd5677f837c75b4f09517106ee84d2852d1233c168c2b399fe"
+    "png_sha256": "8250fa1031e6fbcaf1dc831625810896043d88856bfbeeebe6f853c30bf36f85"
   },
   "docs/images/plate-02.svg": {
-    "svg_sha256": "1d4add49af5b0ed1b253c7333cea9690287dacd3feac022f452d266f1417beee",
+    "svg_sha256": "2a2b3be44de19920f9607c2a8be0f4436147eb78116fd7d8a2771409dbd1d0c1",
     "png": "docs/images/plate-02.png",
-    "png_sha256": "b5f90d478c7474fede4fe5a754feb94b50321ce5558f04060d421ecfbf63d7d3"
-  },
-  "docs/images/plate-03-dark.svg": {
-    "svg_sha256": "6e2b36dd01f959172d5204fa0db8da09543b9fb6746a8f50c5586e6a511a820c",
-    "png": "docs/images/plate-03-dark.png",
-    "png_sha256": "b1199534488068ea6229bfedf5b609f46c0681080a1b9217868e55e0ff5230ae"
+    "png_sha256": "18052736186a2dd31cb9627bbf5b229d841c3365df46c953248e03efe545d35c"
   },
   "docs/images/plate-03.svg": {
-    "svg_sha256": "06518b5cf6f5b34ccca3b53fe116736ebcf5de054f2d9e3363aacacc7fa3d980",
+    "svg_sha256": "505c15e90df5df432995d2db83c09261b64db0cb8d431854ed2ddabe8d268ef6",
     "png": "docs/images/plate-03.png",
-    "png_sha256": "1e77bfca86b1314520bc83283d4b7eeca050efb7f2460abb96d1ac1c6b0cfdd1"
-  },
-  "docs/images/plate-04-dark.svg": {
-    "svg_sha256": "21717454cebbe294e9a6ebc1a8678a481f7e0dcce8d2c19d487c4098c7bc5037",
-    "png": "docs/images/plate-04-dark.png",
-    "png_sha256": "07e8ebe63e18086cf208ac4359afaad6f9c635bab2f9ca246801eea0e31a15e1"
+    "png_sha256": "027b5813dbb4d166a0ab6574409528d356887362c41dfb9542d8a3fb018774b9"
   },
   "docs/images/plate-04.svg": {
-    "svg_sha256": "ac7cec7118c57fd9da30a7cdbd3d4c6cff3b3711dd664ad31e66cd633dd40a8d",
+    "svg_sha256": "53b0a838f452ec2155f5462c79660c10add407935ee06d113a97803e3fa3569b",
     "png": "docs/images/plate-04.png",
-    "png_sha256": "02e62ab8c280d087e3c820ed3d36aa7abc4b427d10e3598cc2ee9cf5d515c864"
-  },
-  "docs/images/plate-05-dark.svg": {
-    "svg_sha256": "540c2af7cf8704ba5b8395e9c5a923a8ad4402d1043dbb6385a952baa7d413f8",
-    "png": "docs/images/plate-05-dark.png",
-    "png_sha256": "abbb1fec04f0801030bb8064179aafbdf50f108f8366ce58609d4d245902409b"
+    "png_sha256": "e5a03d70e234d9875ea468dbbbf3145da8be1b6918de3a0e0c7f4884fc62ebd6"
   },
   "docs/images/plate-05.svg": {
-    "svg_sha256": "ac95ed7f8b41cd1f2822728cdc3a45d29ebf7d10aa3b9ae667a435249c7c25be",
+    "svg_sha256": "4c28f52f2b41f5bab7bb27b9c459c1a732ebd5983a1798878830d2d5d14059d6",
     "png": "docs/images/plate-05.png",
-    "png_sha256": "5e848124a0fad26041c2b78da498a202d9dd6748e9667d840eceafbb9f8efb58"
+    "png_sha256": "5ffc428d22027545ed526252a1ac3b6e6fc089d0a7a5e3b8166a7155f6449329"
   }
 }

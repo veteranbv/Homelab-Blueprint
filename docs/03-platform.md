@@ -1,3 +1,13 @@
+---
+title: Choose the platform
+description: Pick Linux, Proxmox, or Kubernetes only when the added layer solves a real requirement.
+order: 3
+phase: Foundation
+decision: Linux with Compose, Proxmox, or K3s?
+deliverable: A short platform decision record.
+gate: The added layer solves a requirement you actually have.
+---
+
 # Choose the platform
 
 Use the least complex platform that satisfies the goal.

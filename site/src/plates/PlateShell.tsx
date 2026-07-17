@@ -31,7 +31,7 @@ export function PlateShell({
   const gridId = `grid-${plate.id}`
   const titleId = `title-${plate.id}`
   const descId = `desc-${plate.id}`
-  const t = plateTokens(theme)
+  const t = plateTokens()
   const revisionWidth = 168
   const revisionX = PLATE_WIDTH - SHEET_MARGIN - revisionWidth
   return (

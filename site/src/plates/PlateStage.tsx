@@ -15,9 +15,11 @@ import { Plate03Boundaries } from './Plate03Boundaries'
 import { Plate04Recovery } from './Plate04Recovery'
 import { Plate05Loop } from './Plate05Loop'
 import type { FailureId, PlateId, PlateManifestEntry, Theme } from './types'
+import { chapterHref, withBase } from '../lib/paths'
+import { plateSlug } from '../lib/plates'
 
 interface PlateStageProps {
-  theme: Theme
+  initialPlateId?: PlateId
 }
 
 function useReducedMotion(): boolean {
@@ -28,6 +30,7 @@ function useReducedMotion(): boolean {
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
     const listener = () => setReduced(media.matches)
+    listener()
     media.addEventListener('change', listener)
     return () => media.removeEventListener('change', listener)
   }, [])
@@ -38,16 +41,16 @@ function isPlateId(value: string): value is PlateId {
   return PLATES.some((plate) => plate.id === value)
 }
 
-function usePlateFromHash(): [PlateId, (id: PlateId) => void] {
+function useActivePlate(initialPlateId: PlateId): [PlateId, (id: PlateId) => void] {
   const [id, setId] = useState<PlateId>(() => {
-    if (typeof window === 'undefined') return 'plate-01'
+    if (typeof window === 'undefined') return initialPlateId
     const raw = window.location.hash.replace(/^#/, '')
-    return isPlateId(raw) ? raw : 'plate-01'
+    return isPlateId(raw) ? raw : initialPlateId
   })
   const update = useCallback((next: PlateId) => {
     setId(next)
     if (typeof window !== 'undefined') {
-      history.replaceState(null, '', `#${next}`)
+      history.replaceState(null, '', withBase(`/plates/${plateSlug(next)}/`))
     }
   }, [])
   return [id, update]
@@ -177,9 +180,10 @@ function PlateInspector({ plate, theme, failure, reducedMotion, open, onClose }:
   )
 }
 
-export function PlateStage({ theme }: PlateStageProps) {
+export function PlateStage({ initialPlateId = 'plate-01' }: PlateStageProps) {
+  const theme: Theme = 'dark'
   const reducedMotion = useReducedMotion()
-  const [activeId, setActiveId] = usePlateFromHash()
+  const [activeId, setActiveId] = useActivePlate(initialPlateId)
   const [failure, setFailure] = useState<FailureId>('none')
   const [inspectorOpen, setInspectorOpen] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
@@ -328,12 +332,17 @@ export function PlateStage({ theme }: PlateStageProps) {
         <ol className="plate-chapters">
           {activePlate.chapters.map((chapter) => (
             <li key={chapter}>
-              <a href={`https://github.com/veteranbv/Homelab-Blueprint/blob/master/${chapter}`}>
-                {chapter}
+              <a href={chapterHref(chapter.replace(/^docs\//, '').replace(/\.md$/, ''))}>
+                {chapter.replace(/^docs\//, '').replace(/\.md$/, '')}
               </a>
             </li>
           ))}
         </ol>
+        <ul className="plate-legend" aria-label="Diagram legend">
+          <li><span className="legend-shape legend-ok">●</span> verified or healthy</li>
+          <li><span className="legend-shape legend-warning">▲</span> degraded or needs attention</li>
+          <li><span className="legend-shape legend-failure">■</span> failed dependency</li>
+        </ul>
       </div>
 
       <PlateInspector

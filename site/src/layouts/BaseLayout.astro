@@ -1,0 +1,51 @@
+---
+import GuideFooter from '../components/GuideFooter.astro'
+import GuideHeader from '../components/GuideHeader.astro'
+import { canonicalUrl, withBase } from '../lib/paths'
+import '../styles/homelab-tokens.css'
+import '../styles.css'
+
+interface Props {
+  title?: string
+  description?: string
+  canonicalPath?: string
+  imagePath?: string
+}
+
+const {
+  title = 'Homelab Blueprint',
+  description = 'A maintained, evidence-first guide to building and operating a useful homelab.',
+  canonicalPath = '/',
+  imagePath = '/images/plate-01.png',
+} = Astro.props
+const fullTitle = title === 'Homelab Blueprint' ? title : `${title} | Homelab Blueprint`
+const canonical = canonicalUrl(canonicalPath)
+const socialImage = canonicalUrl(imagePath)
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#21f28f" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Homelab Blueprint" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <GuideHeader />
+    <main id="main-content">
+      <slot />
+    </main>
+    <GuideFooter />
+  </body>
+</html>

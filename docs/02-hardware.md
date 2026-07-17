@@ -1,3 +1,13 @@
+---
+title: Choose hardware by role
+description: Buy hardware for a named workload, interface, capacity, or failure domain.
+order: 2
+phase: Foundation
+decision: What role can existing hardware not fill?
+deliverable: A role-based hardware plan and an idle-power budget.
+gate: A purchase buys a named capability.
+---
+
 # Choose hardware by role
 
 Buy for workloads, interfaces, memory, and failure domains. Model numbers age

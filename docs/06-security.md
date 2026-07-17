@@ -1,3 +1,13 @@
+---
+title: Build security into the design
+description: Give identity, secrets, patches, and emergency access clear owners and recovery paths.
+order: 6
+phase: Trust
+decision: What needs protection, and how is access recovered?
+deliverable: A threat model, identity plan, and break-glass path.
+gate: Secrets, patches, and recovery access have owners.
+---
+
 # Build security into the design
 
 Homelab security is mostly disciplined identity, patching, network boundaries,

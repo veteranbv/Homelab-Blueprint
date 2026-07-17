@@ -54,7 +54,7 @@ function noteAt(index: number): MarginNote {
 }
 
 export function Plate04Recovery({ theme, failure, reducedMotion }: Plate04Props) {
-  const tokens = plateTokens(theme)
+  const tokens = plateTokens()
   const internetBroken = failure === 'internet'
   const storageBroken = failure === 'storage'
 

@@ -1,0 +1,40 @@
+---
+import { withBase } from '../lib/paths'
+
+const pathname = Astro.url.pathname
+const localLinks = [
+  { href: withBase('/'), label: 'overview', section: null },
+  { href: withBase('/plates/'), label: 'plates', section: '/plates/' },
+  { href: withBase('/builder/'), label: 'builder', section: '/builder/' },
+  { href: withBase('/chapters/01-plan/'), label: 'chapters', section: '/chapters/' },
+]
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '')
+const relativePath = pathname.slice(basePath.length) || '/'
+---
+
+<header class="global-header">
+  <nav class="global-nav" aria-label="Homelab Codes">
+    <a class="terminal-wordmark" href="https://homelab.codes/">
+      <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><b>henry@homelab</b>:~$</span><i class="cursor" aria-hidden="true"></i>
+    </a>
+    <div class="global-links">
+      <a class="is-active" href={withBase('/')}>./guide</a>
+      <a href="https://homelab.codes/tools">./tools</a>
+      <a href="https://homelab.codes/blog">./blog</a>
+    </div>
+  </nav>
+  <nav class="guide-nav" aria-label="Guide">
+    <span class="guide-path">~/guide $</span>
+    <div>
+      {localLinks.map((link) => (
+        <a
+          href={link.href}
+          aria-current={link.section ? relativePath.startsWith(link.section) ? 'page' : undefined : relativePath === '/' ? 'page' : undefined}
+        >
+          {link.label}/
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>

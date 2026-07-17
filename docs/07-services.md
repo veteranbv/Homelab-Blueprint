@@ -1,3 +1,13 @@
+---
+title: Choose services that create value
+description: Run fewer services, assign ownership, and keep only what earns its operating cost.
+order: 7
+phase: Value
+decision: What improves life outside the dashboard?
+deliverable: One service contract covering users, data, exposure, backup, and ownership.
+gate: The service earns more value than it costs to maintain.
+---
+
 # Choose services that create value
 
 Install fewer things and use them. A valuable service survives updates, gets

@@ -25,9 +25,13 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Lint site
         run: npm run lint
+      - name: Type-check site
+        run: npm run typecheck
       - name: Test site logic
         run: npm run test
       - name: Build site
+        env:
+          DEPLOY_TARGET: cloudflare
         run: npm run build
       - name: Test site experience
         run: npm run test:e2e

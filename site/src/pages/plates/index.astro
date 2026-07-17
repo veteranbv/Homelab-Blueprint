@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { plateSlug } from '../../lib/plates'
+import { withBase } from '../../lib/paths'
+import { PLATES } from '../../plates/models'
+---
+
+<BaseLayout
+  title="Architecture plates"
+  description="Five accurate, interactive architecture drawings for homelab planning, recovery, and bounded automation."
+  canonicalPath="/plates/"
+>
+  <section class="page-intro">
+    <p class="path-prompt">~/guide/plates $ ls -1</p>
+    <h1>The architecture set.</h1>
+    <p>Open a plate, inspect the full drawing, and simulate the failures it was designed to survive.</p>
+  </section>
+  <div class="plate-index">
+    {PLATES.map((plate) => (
+      <a class="plate-index-row" href={withBase(`/plates/${plateSlug(plate.id)}/`)}>
+        <span>{plate.number}</span>
+        <img src={withBase(`/images/${plate.id}.png`)} alt="" loading="lazy" />
+        <div><strong>{plate.name}</strong><p>{plate.teachingPoint}</p></div>
+        <span aria-hidden="true">→</span>
+      </a>
+    ))}
+  </div>
+</BaseLayout>

@@ -9,38 +9,26 @@ export const SAFE_RIGHT = PLATE_WIDTH - SHEET_MARGIN
 export const BODY_TOP = TITLE_BLOCK_HEIGHT + 32
 export const BODY_BOTTOM = PLATE_HEIGHT - SHEET_MARGIN
 
-const LIGHT_TOKENS = {
-  paper: '#F1EBDD',
-  paperTint: '#E6DECA',
-  paperElevated: '#F7F1E1',
-  ink: '#181613',
-  inkSoft: '#7A7261',
-  hairline: '#BFB49B',
-  warn: '#A83521',
-  verify: '#2B5D4A',
-}
-
 const DARK_TOKENS = {
-  paper: '#12141A',
-  paperTint: '#191C24',
-  paperElevated: '#20242E',
-  ink: '#F0EAD8',
-  inkSoft: '#95917E',
-  hairline: '#40434D',
-  warn: '#E6704F',
-  verify: '#7AC0A0',
+  paper: '#070B09',
+  paperTint: '#0D1410',
+  paperElevated: '#131C17',
+  ink: '#E6EFE8',
+  inkSoft: '#8BA695',
+  hairline: '#22302A',
+  warn: '#F87171',
+  verify: '#2CEB8D',
 }
 
-export function plateTokens(theme: Theme) {
-  return theme === 'dark' ? DARK_TOKENS : LIGHT_TOKENS
+export function plateTokens() {
+  return DARK_TOKENS
 }
 
-const SERIF = "'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, ui-serif, Georgia, serif"
 const SANS = "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
-const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace"
+const MONO = "'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace"
 
 export function plateStyleBlock(theme: Theme, reducedMotion: boolean) {
-  const t = plateTokens(theme)
+  const t = plateTokens()
   return `
     .plate-paper { fill: ${t.paper}; }
     .plate-paper-tint { fill: ${t.paperTint}; }
@@ -62,25 +50,25 @@ export function plateStyleBlock(theme: Theme, reducedMotion: boolean) {
     .w15 { stroke-width: 1.6; }
     .w25 { stroke-width: 2.4; }
     .w4  { stroke-width: 3.6; }
-    .t-plate-number { font-family: ${SERIF}; font-size: 44px; font-weight: 600; letter-spacing: -0.02em; fill: ${t.ink}; }
-    .t-plate-name   { font-family: ${SANS};  font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; fill: ${t.inkSoft}; }
-    .t-plate-title  { font-family: ${SERIF}; font-size: 36px; font-weight: 500; letter-spacing: -0.02em; fill: ${t.ink}; }
-    .t-teaching     { font-family: ${SERIF}; font-style: italic; font-size: 19px; fill: ${t.ink}; }
+    .t-plate-number { font-family: ${MONO}; font-size: 42px; font-weight: 650; letter-spacing: -0.04em; fill: ${t.ink}; }
+    .t-plate-name   { font-family: ${MONO}; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; fill: ${t.inkSoft}; }
+    .t-plate-title  { font-family: ${MONO}; font-size: 32px; font-weight: 600; letter-spacing: -0.03em; fill: ${t.ink}; }
+    .t-teaching     { font-family: ${SANS}; font-size: 19px; fill: ${t.ink}; }
     .t-revision     { font-family: ${MONO};  font-size: 11px; letter-spacing: 0.08em; fill: ${t.inkSoft}; }
-    .t-callout      { font-family: ${SERIF}; font-style: italic; font-size: 15px; fill: ${t.ink}; }
-    .t-label        { font-family: ${SANS};  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; fill: ${t.ink}; }
-    .t-label-soft   { font-family: ${SANS};  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; fill: ${t.inkSoft}; }
+    .t-callout      { font-family: ${SANS}; font-size: 15px; fill: ${t.ink}; }
+    .t-label        { font-family: ${MONO}; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; fill: ${t.ink}; }
+    .t-label-soft   { font-family: ${MONO}; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; fill: ${t.inkSoft}; }
     .t-body         { font-family: ${SANS};  font-size: 13px; fill: ${t.ink}; }
     .t-body-soft    { font-family: ${SANS};  font-size: 13px; fill: ${t.inkSoft}; }
     .t-mono         { font-family: ${MONO};  font-size: 12px; fill: ${t.ink}; }
     .t-mono-soft    { font-family: ${MONO};  font-size: 12px; fill: ${t.inkSoft}; }
     .t-mono-small   { font-family: ${MONO};  font-size: 10px; fill: ${t.inkSoft}; letter-spacing: 0.06em; }
     .t-stamp        { font-family: ${MONO};  font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
-    .t-question     { font-family: ${SERIF}; font-style: italic; font-size: 28px; fill: ${t.ink}; }
+    .t-question     { font-family: ${MONO}; font-size: 25px; font-weight: 600; fill: ${t.ink}; }
     .t-question-hint{ font-family: ${SANS};  font-size: 12px; letter-spacing: 0.02em; fill: ${t.inkSoft}; }
     .t-destination  { font-family: ${SANS};  font-size: 15px; font-weight: 700; letter-spacing: 0.06em; fill: ${t.ink}; }
-    .t-consequence  { font-family: ${SERIF}; font-style: italic; font-size: 13px; fill: ${t.inkSoft}; }
-    .t-footer       { font-family: ${SERIF}; font-style: italic; font-size: 17px; fill: ${t.ink}; }
+    .t-consequence  { font-family: ${SANS}; font-size: 13px; fill: ${t.inkSoft}; }
+    .t-footer       { font-family: ${SANS}; font-size: 17px; fill: ${t.ink}; }
     .t-anchor       { font-family: ${MONO};  font-size: 11px; font-weight: 700; fill: ${t.ink}; letter-spacing: 0.02em; }
     .fade-in        { opacity: ${reducedMotion ? '1' : '0'}; ${reducedMotion ? '' : 'animation: plate-fade 380ms ease-out 200ms forwards;'} }
     .fade-in.d-1    { animation-delay: 260ms; }

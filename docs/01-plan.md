@@ -1,3 +1,13 @@
+---
+title: Plan before you buy
+description: Define who benefits, what must survive, and what working means before choosing hardware.
+order: 1
+phase: Intent
+decision: What outcome justifies this lab?
+deliverable: A first workload, constraints, and a recovery target.
+gate: You can name who benefits and what working means.
+---
+
 # Plan before you buy
 
 A homelab is a tool for learning, household services, experimentation, or all

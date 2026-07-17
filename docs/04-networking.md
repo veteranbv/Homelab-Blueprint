@@ -1,10 +1,19 @@
+---
+title: Design networking and access
+description: Turn trust and failure boundaries into zones with named, documented flows.
+order: 4
+phase: Boundaries
+decision: Who may talk to what?
+deliverable: Semantic zones and a map of allowed flows.
+gate: Administration remains private and exceptions are explicit.
+---
+
 # Design networking and access
 
 Segmentation should express trust and failure boundaries, not produce an
 impressive VLAN count.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/plate-03-dark.png">
   <img src="images/plate-03.png" alt="Plate 03, a top-down plan view of three rooms. Edge on the left has a thin wall and contains a TLS terminator and a remote-access mesh. Private core in the middle has a thick wall and contains compute, identity, and network. Data on the right has a thick wall with a lock on its door and contains a storage pool. An AI annex with a dashed wall sits beside the core. Door labels name the exact allowed flow at each opening." width="900">
 </picture>
 
