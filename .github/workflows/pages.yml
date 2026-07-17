@@ -28,10 +28,6 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Install browser for plate render
-        run: npx playwright install --with-deps chromium
-      - name: Render plates
-        run: npm run render:plates
       - name: Build site
         run: npm run build
       - name: Configure Pages

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// Deterministic renderer for the five plates.
-// Loads the same React source used by the site, produces standalone SVG files
-// with an XML declaration, then rasterizes to PNG through the already-installed
-// Playwright Chromium. Writes docs/images/render-manifest.json with SHA-256s.
+// Renderer for the five plates.
+// Loads the same React source used by the site, produces deterministic standalone
+// SVG files, then rasterizes to PNG through the already-installed Playwright
+// Chromium. Writes docs/images/render-manifest.json with SHA-256s.
 
 import { createServer } from 'vite'
 import { chromium } from '@playwright/test'
@@ -22,7 +22,6 @@ const RENDER_HEIGHT = 1000
 
 const args = process.argv.slice(2)
 const CHECK = args.includes('--check')
-const SKIP_PNG = args.includes('--skip-png')
 
 function sha256(input) {
   const hash = crypto.createHash('sha256')
@@ -155,7 +154,7 @@ async function writeArtifacts(artifacts, pngBuffers) {
   return { manifest: sorted, writtenSvgs, writtenPngs }
 }
 
-async function checkArtifacts(artifacts, pngBuffers) {
+async function checkArtifacts(artifacts) {
   const errors = []
   const expectedSvgs = new Set()
   const expectedPngs = new Set()
@@ -173,25 +172,14 @@ async function checkArtifacts(artifacts, pngBuffers) {
     } else if (existingSvg !== artifact.svg) {
       errors.push(`${path.relative(ROOT, svgPath)} stale`)
     }
-    if (pngBuffers) {
-      const expected = pngBuffers.get(`${artifact.id}:${artifact.theme}`)
-      const existingPng = await readIfExists(pngPath)
-      if (!existingPng) {
-        errors.push(`${path.relative(ROOT, pngPath)} missing`)
-      } else if (expected && sha256(expected) !== sha256(existingPng)) {
-        errors.push(`${path.relative(ROOT, pngPath)} stale`)
-      }
-      expectedManifest[path.relative(ROOT, svgPath)] = {
-        svg_sha256: sha256(artifact.svg),
-        png: path.relative(ROOT, pngPath),
-        png_sha256: sha256(expected),
-      }
-    } else {
-      expectedManifest[path.relative(ROOT, svgPath)] = {
-        svg_sha256: sha256(artifact.svg),
-        png: path.relative(ROOT, pngPath),
-        png_sha256: null,
-      }
+    const existingPng = await readIfExists(pngPath)
+    if (!existingPng) {
+      errors.push(`${path.relative(ROOT, pngPath)} missing`)
+    }
+    expectedManifest[path.relative(ROOT, svgPath)] = {
+      svg_sha256: sha256(artifact.svg),
+      png: path.relative(ROOT, pngPath),
+      png_sha256: existingPng ? sha256(existingPng) : null,
     }
   }
 
@@ -216,7 +204,7 @@ async function checkArtifacts(artifacts, pngBuffers) {
       if (existing.svg_sha256 !== expected.svg_sha256) {
         errors.push(`${key}: manifest SVG digest mismatch`)
       }
-      if (pngBuffers && existing.png_sha256 !== expected.png_sha256) {
+      if (existing.png_sha256 !== expected.png_sha256) {
         errors.push(`${key}: manifest PNG digest mismatch`)
       }
     }
@@ -244,10 +232,9 @@ async function checkArtifacts(artifacts, pngBuffers) {
 
 async function main() {
   const artifacts = await renderArtifacts()
-  const pngBuffers = SKIP_PNG ? null : await rasterize(artifacts)
 
   if (CHECK) {
-    const errors = await checkArtifacts(artifacts, pngBuffers)
+    const errors = await checkArtifacts(artifacts)
     if (errors.length > 0) {
       console.error('Plate artifacts are stale:')
       for (const error of errors) console.error(`  - ${error}`)
@@ -257,6 +244,7 @@ async function main() {
     return
   }
 
+  const pngBuffers = await rasterize(artifacts)
   await writeArtifacts(artifacts, pngBuffers)
 }
 

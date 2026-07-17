@@ -40,8 +40,7 @@ local or private CI environments; never commit that denylist.
 Every visual in this repository is one of five architect-style plates.
 Sources live under `site/src/plates/`. Each plate is a React component that
 reads a small typed model from `site/src/plates/models.ts`. The same source
-renders in the interactive site and in the deterministic build that produces
-the README images.
+renders in the interactive site and produces the README images.
 
 ```bash
 npm run render:plates          # write light and dark SVGs and PNGs
@@ -50,8 +49,10 @@ npm run render:plates:check    # verify the working tree matches the source
 
 The renderer uses the already-installed Playwright Chromium to rasterize each
 SVG. Output goes to `docs/images/plate-0N.svg`, `docs/images/plate-0N-dark.svg`,
-and matching PNGs. A SHA-256 manifest at `docs/images/render-manifest.json`
-makes CI reject stale pairs.
+and matching PNGs. SVG output is byte-stable across platforms; browser font
+rasterization is not. CI therefore reproduces and compares the SVGs, requires
+every PNG, and checks each committed PNG against its SHA-256 in
+`docs/images/render-manifest.json`.
 
 Plates must carry useful information: direction, trust, responsibility,
 failure domains, decision paths, or evidence shapes. Decorative art is not a
