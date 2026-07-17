@@ -1,62 +1,52 @@
 {
-  "docs/images/agentic-safety-dark.svg": {
-    "png": "docs/images/agentic-safety-dark.png",
-    "png_sha256": "833be5bdcf97417ac322346dbd9704eda12edbb8a4e59de6e31f59ebb5d19d89",
-    "svg_sha256": "50e779a3ca7840a8c690dbf1402e82d19e45a19fb115988f6c8aaff73879dac5"
+  "docs/images/plate-01-dark.svg": {
+    "svg_sha256": "390dbbdc022b62138821a2a7d17f3fcf9477079546a9a75451e6b55474a725a6",
+    "png": "docs/images/plate-01-dark.png",
+    "png_sha256": "cecadbc00dc3377735e030e751bf07251c317d152ed2f12e59636e5657f82724"
   },
-  "docs/images/agentic-safety.svg": {
-    "png": "docs/images/agentic-safety.png",
-    "png_sha256": "b0366648e60e3a72a07e0885f545c7bfc82be77169a4106736895956aeba7e15",
-    "svg_sha256": "54ac7234a04c68012d2b539a8c3b64915b6128b98bbb77ccd4db907dd579c32d"
+  "docs/images/plate-01.svg": {
+    "svg_sha256": "8560f7595de8dadac2f3b76eb282aadc7205017f9a10538cce34e2935c4a3651",
+    "png": "docs/images/plate-01.png",
+    "png_sha256": "06b264510aa5688d5522cb9931f988cfc9a58aeb122f58c1225d17626661c39e"
   },
-  "docs/images/automation-loop-dark.svg": {
-    "png": "docs/images/automation-loop-dark.png",
-    "png_sha256": "3608cde08edd35ecf51455b2a996bf7b7361882e5f10a56a1d14c303c281e810",
-    "svg_sha256": "2ff9818179c8312695bd18c096ba4323e9219f45a7e14135860f41b4314cf672"
+  "docs/images/plate-02-dark.svg": {
+    "svg_sha256": "506a4b70a404d9e2b0e8eeb675475051eac86ab5412aea3447bbe8e03ff30b39",
+    "png": "docs/images/plate-02-dark.png",
+    "png_sha256": "952203185bc2f5bd5677f837c75b4f09517106ee84d2852d1233c168c2b399fe"
   },
-  "docs/images/automation-loop.svg": {
-    "png": "docs/images/automation-loop.png",
-    "png_sha256": "0bd333d0aa074adf4d4b5ab01dac68afaa580e155b41aef599fa1c625aea4a8f",
-    "svg_sha256": "156f0fbf8083dbb13be5f3487fa6b707b956aa9dc9d395f683af57596e26df16"
+  "docs/images/plate-02.svg": {
+    "svg_sha256": "1d4add49af5b0ed1b253c7333cea9690287dacd3feac022f452d266f1417beee",
+    "png": "docs/images/plate-02.png",
+    "png_sha256": "b5f90d478c7474fede4fe5a754feb94b50321ce5558f04060d421ecfbf63d7d3"
   },
-  "docs/images/choose-your-path-dark.svg": {
-    "png": "docs/images/choose-your-path-dark.png",
-    "png_sha256": "9f48ada1425bf2fe250f9f45a2b2b1f98a6404ee443f67cd952b0a4a4cc15379",
-    "svg_sha256": "8aa3b7661e8ee6cb7d964dec29ce36e4b8a2dfa243c3a1c867de133f84036632"
+  "docs/images/plate-03-dark.svg": {
+    "svg_sha256": "6e2b36dd01f959172d5204fa0db8da09543b9fb6746a8f50c5586e6a511a820c",
+    "png": "docs/images/plate-03-dark.png",
+    "png_sha256": "b1199534488068ea6229bfedf5b609f46c0681080a1b9217868e55e0ff5230ae"
   },
-  "docs/images/choose-your-path.svg": {
-    "png": "docs/images/choose-your-path.png",
-    "png_sha256": "829f1de637dafda17e483273b88a5cbaad8344edec8cebe2fcf73a0420e5d579",
-    "svg_sha256": "748e920b8067d1bc505f06392062150d1d3837c60de8d312ca8955be056211b2"
+  "docs/images/plate-03.svg": {
+    "svg_sha256": "06518b5cf6f5b34ccca3b53fe116736ebcf5de054f2d9e3363aacacc7fa3d980",
+    "png": "docs/images/plate-03.png",
+    "png_sha256": "1e77bfca86b1314520bc83283d4b7eeca050efb7f2460abb96d1ac1c6b0cfdd1"
   },
-  "docs/images/maturity-tiers-dark.svg": {
-    "png": "docs/images/maturity-tiers-dark.png",
-    "png_sha256": "0c482da950f4ea41077e8b30768fb4d292a6051682ca545a38bfef49b475aafb",
-    "svg_sha256": "13bb3aebd81b8b8251563b7887e12acb26e6437235ac307fb6b69e65ba8401c2"
+  "docs/images/plate-04-dark.svg": {
+    "svg_sha256": "21717454cebbe294e9a6ebc1a8678a481f7e0dcce8d2c19d487c4098c7bc5037",
+    "png": "docs/images/plate-04-dark.png",
+    "png_sha256": "07e8ebe63e18086cf208ac4359afaad6f9c635bab2f9ca246801eea0e31a15e1"
   },
-  "docs/images/maturity-tiers.svg": {
-    "png": "docs/images/maturity-tiers.png",
-    "png_sha256": "9c7b42eac7d61f39d95ff51acc5a12714e17f2ba484b09bba6c4d46568392947",
-    "svg_sha256": "39eefcc6327731be29a0d133e09de2fa537437e4a50f8cc2c1edab3d67e5bac8"
+  "docs/images/plate-04.svg": {
+    "svg_sha256": "ac7cec7118c57fd9da30a7cdbd3d4c6cff3b3711dd664ad31e66cd633dd40a8d",
+    "png": "docs/images/plate-04.png",
+    "png_sha256": "02e62ab8c280d087e3c820ed3d36aa7abc4b427d10e3598cc2ee9cf5d515c864"
   },
-  "docs/images/recovery-flow-dark.svg": {
-    "png": "docs/images/recovery-flow-dark.png",
-    "png_sha256": "767db256da7585a3bc9363d9319bccf5865a2dfbd4c78c7174356249bd6cd481",
-    "svg_sha256": "47743f88a088a783d836e653ca200da0ff7ae0d228ae60756f98e1e0fdbaac5e"
+  "docs/images/plate-05-dark.svg": {
+    "svg_sha256": "540c2af7cf8704ba5b8395e9c5a923a8ad4402d1043dbb6385a952baa7d413f8",
+    "png": "docs/images/plate-05-dark.png",
+    "png_sha256": "abbb1fec04f0801030bb8064179aafbdf50f108f8366ce58609d4d245902409b"
   },
-  "docs/images/recovery-flow.svg": {
-    "png": "docs/images/recovery-flow.png",
-    "png_sha256": "fe5c4b2f58b1be83d500e1a7e30a3bac61a0ecb42a4958d638427b0b38a0898c",
-    "svg_sha256": "b0e34c4685b0800d0ba051e63b7eed44efe8600772ff03f5f332ddb0ebfb2c8c"
-  },
-  "docs/images/trust-boundaries-dark.svg": {
-    "png": "docs/images/trust-boundaries-dark.png",
-    "png_sha256": "41410ea5d0fd1c9f92e0d301ec9c36ef32d196ca33e4f07fe817603b9429ce1d",
-    "svg_sha256": "cc78c5bbda7f7297dbd7f9ed377a9459909d75c960634a26c6da9eb8c7684919"
-  },
-  "docs/images/trust-boundaries.svg": {
-    "png": "docs/images/trust-boundaries.png",
-    "png_sha256": "a6fb012e5785f1cfb76932028d3b888b2321ff9d537f16ee0c975e2942052fc6",
-    "svg_sha256": "6aeedc25e6e75cea55ac058526ee7886c7198ca6623758da420267f102c1884a"
+  "docs/images/plate-05.svg": {
+    "svg_sha256": "ac95ed7f8b41cd1f2822728cdc3a45d29ebf7d10aa3b9ae667a435249c7c25be",
+    "png": "docs/images/plate-05.png",
+    "png_sha256": "5e848124a0fad26041c2b78da498a202d9dd6748e9667d840eceafbb9f8efb58"
   }
 }

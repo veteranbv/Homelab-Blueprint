@@ -22,8 +22,8 @@ decision, not an accident.
 ## Build a recovery chain
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/recovery-flow-dark.png">
-  <img src="images/recovery-flow.png" alt="Recovery chain from application-consistent exports through encrypted backups and an independent off-site copy to restore tests and disaster-recovery proof." width="900">
+  <source media="(prefers-color-scheme: dark)" srcset="images/plate-04-dark.png">
+  <img src="images/plate-04.png" alt="Plate 04, a vertical stack of five filing tabs showing the invariant fields of live application data, native export, encrypted repository, off-site copy, and a proven restore. A left rule shows elapsed-time positions. A footer strip repeats the record shape marked example record synthetic." width="900">
 </picture>
 
 Target 3-2-1-1-0: three copies, two media or failure domains, one off-site, one

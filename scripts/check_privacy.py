@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {".md", ".toml", ".json", ".svg", ".yml", ".yaml", ".py", ".sh", ".txt"}
+SKIP_DIRECTORIES = {"node_modules", "dist", "playwright-report", "test-results", "__pycache__", ".git"}
 PATTERNS = {
     "local user path": re.compile(r"/Users/[A-Za-z0-9._-]+/"),
     "1Password reference": re.compile(r"op://"),
@@ -46,7 +47,7 @@ def scan(root: Path = ROOT, private_terms: list[str] | None = None) -> list[str]
         if (
             not path.is_file()
             or path.suffix not in TEXT_SUFFIXES
-            or ".git" in path.parts
+            or any(part in SKIP_DIRECTORIES for part in path.parts)
             or path.resolve() in SKIP_FILES
         ):
             continue

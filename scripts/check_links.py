@@ -14,6 +14,7 @@ from urllib.parse import unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SKIP_DIRECTORIES = {".git", "dist", "node_modules", "playwright-report", "test-results"}
 MARKDOWN_LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
 HTML_SRC = re.compile(r"\bsrc=\"([^\"]+)\"")
 HTML_SRCSET = re.compile(r"\bsrcset=\"([^\"]+)\"")
@@ -29,28 +30,32 @@ def targets(text: str) -> list[str]:
     return MARKDOWN_LINK.findall(text) + HTML_SRC.findall(text) + srcset_targets
 
 
-def check() -> list[str]:
+def markdown_files(root: Path = ROOT) -> list[Path]:
+    return [
+        path
+        for path in sorted(root.rglob("*.md"))
+        if not any(part in SKIP_DIRECTORIES for part in path.parts)
+    ]
+
+
+def check(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
-    for markdown in sorted(ROOT.rglob("*.md")):
-        if ".git" in markdown.parts:
-            continue
+    for markdown in markdown_files(root):
         for raw_target in targets(markdown.read_text(encoding="utf-8")):
             target = raw_target.split()[0]
             parsed = urlsplit(target)
             if parsed.scheme or target.startswith("#") or target.startswith("mailto:"):
                 continue
             local = unquote(parsed.path)
-            resolved = ROOT / local.lstrip("/") if local.startswith("/") else markdown.parent / local
+            resolved = root / local.lstrip("/") if local.startswith("/") else markdown.parent / local
             if not resolved.exists():
-                errors.append(f"{markdown.relative_to(ROOT)}: missing {target}")
+                errors.append(f"{markdown.relative_to(root)}: missing {target}")
     return errors
 
 
-def external_urls() -> list[str]:
+def external_urls(root: Path = ROOT) -> list[str]:
     urls: set[str] = set()
-    for markdown in sorted(ROOT.rglob("*.md")):
-        if ".git" in markdown.parts:
-            continue
+    for markdown in markdown_files(root):
         for target in targets(markdown.read_text(encoding="utf-8")):
             parsed = urlsplit(target.split()[0])
             if parsed.scheme in {"http", "https"}:
@@ -77,9 +82,9 @@ def check_external_url(url: str) -> str | None:
     return None
 
 
-def check_external() -> list[str]:
+def check_external(root: Path = ROOT) -> list[str]:
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
-        results = executor.map(check_external_url, external_urls())
+        results = executor.map(check_external_url, external_urls(root))
     return sorted(result for result in results if result is not None)
 
 

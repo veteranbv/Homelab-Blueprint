@@ -35,30 +35,41 @@ The automated privacy scan is defense in depth, not proof of anonymization.
 Set `BLUEPRINT_PRIVATE_TERMS` to a comma-separated owner denylist in trusted
 local or private CI environments; never commit that denylist.
 
-## Diagrams
+## Plates
 
-Diagram sources live in `diagrams/`; generated light and dark SVGs live in
-`docs/images/`.
+Every visual in this repository is one of five architect-style plates.
+Sources live under `site/src/plates/`. Each plate is a React component that
+reads a small typed model from `site/src/plates/models.ts`. The same source
+renders in the interactive site and in the deterministic build that produces
+the README images.
 
 ```bash
-python3 scripts/render_diagrams.py
-python3 scripts/render_diagrams.py --png
-python3 scripts/render_diagrams.py --check
+npm run render:plates          # write light and dark SVGs and PNGs
+npm run render:plates:check    # verify the working tree matches the source
 ```
 
-The README uses PNGs so typography is stable across GitHub renderers; the SVGs
-remain the accessible vector artifacts. PNG rendering uses macOS `sips` or the
-optional `cairosvg` package. A hash manifest makes CI reject stale pairs.
+The renderer uses the already-installed Playwright Chromium to rasterize each
+SVG. Output goes to `docs/images/plate-0N.svg`, `docs/images/plate-0N-dark.svg`,
+and matching PNGs. A SHA-256 manifest at `docs/images/render-manifest.json`
+makes CI reject stale pairs.
 
-Diagrams must show useful relationships: direction, trust, responsibility,
-failure domains, or a decision path. Decorative generated art is not a
-substitute for technical information.
+Plates must carry useful information: direction, trust, responsibility,
+failure domains, decision paths, or evidence shapes. Decorative art is not a
+substitute for technical information. No plate ever contains a real hostname,
+address, personal name, or any value that would only be true of a specific
+homelab. Where a concrete record teaches the shape of evidence, mark the whole
+element `EXAMPLE RECORD, SYNTHETIC` and use placeholders or RFC documentation
+ranges only. See [`docs/visual-replacement-ledger.md`](docs/visual-replacement-ledger.md)
+for the full retirement history and the invariants the ledger enforces.
 
 ## Validation
 
 ```bash
+npm run lint
+npm run test
+npm run test:e2e
+npm run render:plates:check
 python3 -m unittest discover -s tests
-python3 scripts/render_diagrams.py --check
 python3 scripts/audit_recommendations.py --offline
 python3 scripts/check_links.py
 python3 scripts/check_privacy.py

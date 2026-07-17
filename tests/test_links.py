@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import unittest
 import urllib.error
+from pathlib import Path
+from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
-from scripts.check_links import check_external_url, targets
+from scripts.check_links import check, check_external_url, targets
 
 
 class LinkTests(unittest.TestCase):
@@ -27,6 +29,17 @@ class LinkTests(unittest.TestCase):
         error = urllib.error.HTTPError("https://example.test", 404, "Not Found", {}, None)
         with patch("urllib.request.urlopen", side_effect=error):
             self.assertIn("HTTP 404", check_external_url("https://example.test") or "")
+
+    def test_generated_and_dependency_trees_are_skipped(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "README.md").write_text("[guide](guide.md)\n", encoding="utf-8")
+            (root / "guide.md").write_text("# Guide\n", encoding="utf-8")
+            dependency = root / "node_modules" / "package"
+            dependency.mkdir(parents=True)
+            (dependency / "README.md").write_text("[missing](missing.md)\n", encoding="utf-8")
+
+            self.assertEqual([], check(root))
 
 
 if __name__ == "__main__":
