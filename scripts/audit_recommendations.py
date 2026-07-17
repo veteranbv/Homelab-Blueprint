@@ -142,7 +142,7 @@ def main() -> int:
     try:
         projects = load_registry()
         errors = validate(projects, today, args.max_age_days)
-        if not args.offline:
+        if not args.offline and not errors:
             errors.extend(audit_live(projects, today, args.max_activity_age_days))
     except (OSError, ValueError, tomllib.TOMLDecodeError) as exc:
         print(f"registry error: {exc}", file=sys.stderr)

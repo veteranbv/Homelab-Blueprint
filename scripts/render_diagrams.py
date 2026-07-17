@@ -330,10 +330,14 @@ def main() -> int:
         parser.error("--check and --png cannot be combined")
     failures: list[str] = []
     rendered: dict[str, dict[str, str]] = {}
+    expected_svgs: set[Path] = set()
+    expected_pngs: set[Path] = set()
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     for source_path, source in load_sources():
         for theme in THEMES:
             output_path = output_path_for(source, theme)
+            expected_svgs.add(output_path)
+            expected_pngs.add(output_path.with_suffix(".png"))
             expected = render(source, theme)
             if args.check:
                 if not output_path.exists() or output_path.read_text(encoding="utf-8") != expected:
@@ -358,7 +362,18 @@ def main() -> int:
         except (OSError, json.JSONDecodeError) as exc:
             failures.append(f"{MANIFEST.relative_to(ROOT)} ({exc})")
             manifest = {}
-        for output in sorted(OUTPUT_DIR.glob("*.svg")):
+        actual_svgs = {path.resolve() for path in OUTPUT_DIR.glob("*.svg")}
+        actual_pngs = {path.resolve() for path in OUTPUT_DIR.glob("*.png")}
+        manifest_paths = {(ROOT / key).resolve() for key in manifest}
+        for extra in sorted(actual_svgs - expected_svgs):
+            failures.append(f"{extra.relative_to(ROOT)} (no diagram source)")
+        for extra in sorted(actual_pngs - expected_pngs):
+            failures.append(f"{extra.relative_to(ROOT)} (no diagram source)")
+        for extra in sorted(manifest_paths - expected_svgs):
+            failures.append(f"{extra.relative_to(ROOT)} (orphaned manifest entry)")
+        for missing in sorted(expected_svgs - manifest_paths):
+            failures.append(f"{missing.relative_to(ROOT)} (missing manifest entry)")
+        for output in sorted(expected_svgs):
             key = str(output.relative_to(ROOT))
             entry = manifest.get(key, {})
             png_value = entry.get("png")

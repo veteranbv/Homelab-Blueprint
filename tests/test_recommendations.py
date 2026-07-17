@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import datetime as dt
+import io
 import unittest
 import urllib.error
+from contextlib import redirect_stderr
 from unittest.mock import patch
 
-from scripts.audit_recommendations import audit_live, check_url, load_registry, validate
+from scripts.audit_recommendations import audit_live, check_url, load_registry, main, validate
 
 
 class RecommendationTests(unittest.TestCase):
@@ -46,6 +48,15 @@ class RecommendationTests(unittest.TestCase):
         }
         errors = audit_live([project], dt.date(2026, 7, 16), 365)
         self.assertTrue(any("last GitHub push" in error for error in errors))
+
+    @patch("scripts.audit_recommendations.audit_live")
+    @patch("scripts.audit_recommendations.load_registry")
+    def test_metadata_errors_skip_live_audit(self, load_registry_mock, audit_live_mock) -> None:
+        load_registry_mock.return_value = [{"name": "Incomplete"}]
+        with patch("sys.argv", ["audit_recommendations.py"]):
+            with redirect_stderr(io.StringIO()):
+                self.assertEqual(1, main())
+        audit_live_mock.assert_not_called()
 
 
 if __name__ == "__main__":

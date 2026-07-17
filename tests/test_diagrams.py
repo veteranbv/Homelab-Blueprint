@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -59,6 +61,21 @@ class DiagramTests(unittest.TestCase):
         source["id"] = 'diagram\" onload=\"alert-1'
         with self.assertRaises(ValueError):
             render(source, "light")
+
+    def test_check_rejects_artifact_without_source(self) -> None:
+        orphan = ROOT / "docs" / "images" / "orphan-test.svg"
+        orphan.write_text("<svg/>\n", encoding="utf-8")
+        try:
+            result = subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "render_diagrams.py"), "--check"],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+        finally:
+            orphan.unlink()
+        self.assertNotEqual(0, result.returncode)
+        self.assertIn("no diagram source", result.stderr)
 
 
 if __name__ == "__main__":

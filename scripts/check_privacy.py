@@ -19,7 +19,7 @@ PATTERNS = {
     "private 10/8 address": re.compile(r"\b10(?:\.\d{1,3}){3}\b"),
     "private 172.16/12 address": re.compile(r"\b172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2}\b"),
     "private 192.168/16 address": re.compile(r"\b192\.168(?:\.\d{1,3}){2}\b"),
-    "email address": re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE),
+    "email address": re.compile(r"(?<!/)\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE),
     "local hostname": re.compile(r"\b[A-Za-z0-9][A-Za-z0-9.-]*\.(?:local|lan|home\.arpa)\b", re.IGNORECASE),
     "VLAN identifier": re.compile(r"\bVLAN\s*[-:#]?\s*\d{1,4}\b", re.IGNORECASE),
     "assigned secret": re.compile(

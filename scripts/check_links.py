@@ -15,11 +15,18 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 MARKDOWN_LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
-HTML_SOURCE = re.compile(r"(?:src|srcset)=\"([^\"]+)\"")
+HTML_SRC = re.compile(r"\bsrc=\"([^\"]+)\"")
+HTML_SRCSET = re.compile(r"\bsrcset=\"([^\"]+)\"")
 
 
 def targets(text: str) -> list[str]:
-    return MARKDOWN_LINK.findall(text) + HTML_SOURCE.findall(text)
+    srcset_targets = [
+        candidate.strip().split()[0]
+        for srcset in HTML_SRCSET.findall(text)
+        for candidate in srcset.split(",")
+        if candidate.strip()
+    ]
+    return MARKDOWN_LINK.findall(text) + HTML_SRC.findall(text) + srcset_targets
 
 
 def check() -> list[str]:
