@@ -68,18 +68,18 @@ function BlueprintBuilder() {
   const [copied, setCopied] = useState(false)
   const recommendation = useMemo(() => recommendBlueprint(choice), [choice])
 
-  useEffect(() => {
+  const updateChoice = (nextChoice: BlueprintChoice) => {
     const params = new URLSearchParams()
-    params.set('goal', choice.outcome)
-    params.set('workload', choice.workload)
-    params.set('data', choice.irreplaceableData ? 'valuable' : 'disposable')
+    params.set('goal', nextChoice.outcome)
+    params.set('workload', nextChoice.workload)
+    params.set('data', nextChoice.irreplaceableData ? 'valuable' : 'disposable')
     window.history.replaceState(
       null,
       '',
       `${window.location.pathname}?${params.toString()}#build`,
     )
-    window.localStorage.setItem('blueprint-choice', JSON.stringify(choice))
-  }, [choice])
+    setChoice(nextChoice)
+  }
 
   const copyLink = async () => {
     await navigator.clipboard.writeText(window.location.href)
@@ -112,9 +112,7 @@ function BlueprintBuilder() {
                   name="outcome"
                   value={outcome.id}
                   checked={choice.outcome === outcome.id}
-                  onChange={() =>
-                    setChoice((current) => ({ ...current, outcome: outcome.id }))
-                  }
+                  onChange={() => updateChoice({ ...choice, outcome: outcome.id })}
                 />
                 <span>{outcome.eyebrow}</span>
                 <strong>{outcome.title}</strong>
@@ -132,9 +130,7 @@ function BlueprintBuilder() {
                 type="radio"
                 name="workload"
                 checked={choice.workload === 'one-host'}
-                onChange={() =>
-                  setChoice((current) => ({ ...current, workload: 'one-host' }))
-                }
+                onChange={() => updateChoice({ ...choice, workload: 'one-host' })}
               />
               Containers on one host
             </label>
@@ -143,9 +139,7 @@ function BlueprintBuilder() {
                 type="radio"
                 name="workload"
                 checked={choice.workload === 'mixed'}
-                onChange={() =>
-                  setChoice((current) => ({ ...current, workload: 'mixed' }))
-                }
+                onChange={() => updateChoice({ ...choice, workload: 'mixed' })}
               />
               Mixed VMs, passthrough, or isolation
             </label>
@@ -154,9 +148,7 @@ function BlueprintBuilder() {
                 type="radio"
                 name="workload"
                 checked={choice.workload === 'cluster'}
-                onChange={() =>
-                  setChoice((current) => ({ ...current, workload: 'cluster' }))
-                }
+                onChange={() => updateChoice({ ...choice, workload: 'cluster' })}
               />
               Explicit multi-node or Kubernetes goal
             </label>
@@ -168,9 +160,7 @@ function BlueprintBuilder() {
                 type="radio"
                 name="data"
                 checked={choice.irreplaceableData}
-                onChange={() =>
-                  setChoice((current) => ({ ...current, irreplaceableData: true }))
-                }
+                onChange={() => updateChoice({ ...choice, irreplaceableData: true })}
               />
               No. Recovery is part of day one.
             </label>
@@ -179,9 +169,7 @@ function BlueprintBuilder() {
                 type="radio"
                 name="data"
                 checked={!choice.irreplaceableData}
-                onChange={() =>
-                  setChoice((current) => ({ ...current, irreplaceableData: false }))
-                }
+                onChange={() => updateChoice({ ...choice, irreplaceableData: false })}
               />
               Yes. Document how to rebuild it.
             </label>

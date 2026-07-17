@@ -11,7 +11,23 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TEXT_SUFFIXES = {".md", ".toml", ".json", ".svg", ".yml", ".yaml", ".py", ".sh", ".txt"}
+TEXT_SUFFIXES = {
+    ".css",
+    ".html",
+    ".js",
+    ".json",
+    ".md",
+    ".mjs",
+    ".py",
+    ".sh",
+    ".svg",
+    ".toml",
+    ".ts",
+    ".tsx",
+    ".txt",
+    ".yaml",
+    ".yml",
+}
 SKIP_DIRECTORIES = {"node_modules", "dist", "playwright-report", "test-results", "__pycache__", ".git"}
 PATTERNS = {
     "local user path": re.compile(r"/Users/[A-Za-z0-9._-]+/"),
@@ -31,7 +47,7 @@ PATTERNS = {
     ),
 }
 IPV4 = re.compile(r"(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])")
-IPV6 = re.compile(r"(?<![0-9A-Fa-f:])(?=[0-9A-Fa-f:]*:)[0-9A-Fa-f:]{2,}(?![0-9A-Fa-f:])")
+IPV6 = re.compile(r"(?<![0-9A-Za-z_:])(?=[0-9A-Fa-f:]*:)[0-9A-Fa-f:]{2,}(?![0-9A-Za-z_:])")
 SKIP_FILES = {Path(__file__).resolve()}
 
 
@@ -59,8 +75,10 @@ def scan(root: Path = ROOT, private_terms: list[str] | None = None) -> list[str]
         for pattern in (IPV4, IPV6):
             for match in pattern.finditer(text):
                 try:
-                    ipaddress.ip_address(match.group())
+                    address = ipaddress.ip_address(match.group())
                 except ValueError:
+                    continue
+                if address.is_loopback or address.is_unspecified:
                     continue
                 line = text.count("\n", 0, match.start()) + 1
                 errors.append(f"{path.relative_to(root)}:{line}: literal IP address")

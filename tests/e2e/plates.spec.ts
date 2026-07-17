@@ -83,6 +83,12 @@ test.describe('plate stage', () => {
     await expect(page.getByRole('button', { name: 'Link copied' })).toBeVisible()
   })
 
+  test('an incoming deep link survives initial builder state', async ({ page }) => {
+    await page.goto('/#roadmap')
+    await expect(page).toHaveURL(/#roadmap$/)
+    await expect(page.getByRole('heading', { name: 'Every chapter ends with evidence.' })).toBeVisible()
+  })
+
   test('the page is usable under reduced motion', async ({ page }, testInfo) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
     await page.goto('/')
