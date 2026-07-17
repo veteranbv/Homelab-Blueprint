@@ -1,0 +1,29 @@
+{
+  "id": "trust-boundaries",
+  "title": "Homelab network trust boundaries",
+  "description": "A network model separating public ingress, private administration, household clients, untrusted devices, services, and management systems.",
+  "width": 1200,
+  "height": 920,
+  "eyebrow": "NETWORK AND ACCESS",
+  "heading": "Permit named dependencies, not entire networks",
+  "groups": [
+    {"x":50,"y":160,"width":1100,"height":280,"title":"Access edge","subtitle":"Public traffic terminates here. Administration enters through a private path.","tone":"green"},
+    {"x":50,"y":485,"width":1100,"height":280,"title":"Internal trust zones","subtitle":"Segment by authority and consequence, then allow only documented flows.","tone":"blue","style":"dashed"}
+  ],
+  "separators": [
+    {"x1":415,"y1":275,"x2":415,"y2":400},
+    {"x1":785,"y1":275,"x2":785,"y2":400},
+    {"x1":415,"y1":600,"x2":415,"y2":725},
+    {"x1":785,"y1":600,"x2":785,"y2":725}
+  ],
+  "nodes": [
+    {"id":"internet","x":90,"y":292,"width":290,"height":105,"title":"Internet","lines":["Untrusted by default","HTTPS and VPN only"],"tone":"blue","style":"section"},
+    {"id":"edge","x":455,"y":292,"width":290,"height":105,"title":"Ingress + VPN edge","lines":["TLS termination + routing","No application authority"],"tone":"green","style":"section"},
+    {"id":"services","x":825,"y":292,"width":290,"height":105,"title":"Published services","lines":["Explicit routes only","No management plane"],"tone":"green","style":"section"},
+    {"id":"clients","x":90,"y":617,"width":290,"height":105,"title":"Trusted clients","lines":["Household devices","Named service access"],"tone":"blue","style":"section"},
+    {"id":"iot","x":455,"y":617,"width":290,"height":105,"title":"IoT + guests","lines":["Internet + narrow local flows","No administrative access"],"tone":"amber","style":"section"},
+    {"id":"management","x":825,"y":617,"width":290,"height":105,"title":"Management zone","lines":["Hypervisor · storage · network","VPN or admin identity only"],"tone":"pink","style":"section"}
+  ],
+  "arrows": [],
+  "footer": "Default policy: deny new cross-zone flows · allow named dependencies · log consequential denies."
+}

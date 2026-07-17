@@ -1,0 +1,23 @@
+name: quarterly editorial review
+
+on:
+  schedule:
+    - cron: "31 12 1 1,4,7,10 *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Open one review reminder
+        run: |
+          existing="$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'Quarterly recommendation review in:title' --json number --jq 'length')"
+          if [ "$existing" -eq 0 ]; then
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "Quarterly recommendation review" --body "Review project health, practitioner evidence, dated examples, retired projects, privacy, and diagram accuracy. Update last_reviewed only after completing the human review."
+          fi

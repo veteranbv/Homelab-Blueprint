@@ -1,0 +1,25 @@
+{
+  "id": "choose-your-path",
+  "title": "Choose your homelab path",
+  "description": "Four progressive homelab paths: learn on existing hardware, run useful household services, add resilience, and add bounded AI operations.",
+  "width": 1200,
+  "height": 620,
+  "eyebrow": "START WITH THE OUTCOME",
+  "heading": "Choose the next useful capability",
+  "groups": [
+    {"x":50,"y":160,"width":1100,"height":350,"title":"Four valid destinations","subtitle":"Start anywhere. Add another layer only when a real need earns it.","tone":"blue"}
+  ],
+  "separators": [
+    {"x1":325,"y1":275,"x2":325,"y2":470},
+    {"x1":595,"y1":275,"x2":595,"y2":470},
+    {"x1":865,"y1":275,"x2":865,"y2":470}
+  ],
+  "nodes": [
+    {"id":"learn","x":82,"y":292,"width":220,"height":210,"title":"Learn","lines":["Use existing hardware","Linux + networking","One service · one restore"],"tone":"blue","style":"section"},
+    {"id":"useful","x":352,"y":292,"width":220,"height":210,"title":"Create value","lines":["Docker Compose","Private remote access","Backups + useful apps"],"tone":"green","style":"section"},
+    {"id":"resilient","x":622,"y":292,"width":220,"height":210,"title":"Add resilience","lines":["Separate failure domains","Inventory + automation","Measured recovery"],"tone":"amber","style":"section"},
+    {"id":"ai","x":892,"y":292,"width":220,"height":210,"title":"Add bounded AI","lines":["Separate inference","Typed, guarded tools","Evidence + hard limits"],"tone":"pink","style":"section"}
+  ],
+  "arrows": [],
+  "footer": "Stop at the destination that solves your problem. Complexity is not progress by itself."
+}

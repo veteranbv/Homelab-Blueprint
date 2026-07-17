@@ -1,0 +1,26 @@
+name: quality
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Run unit tests
+        run: python3 -m unittest discover -s tests
+      - name: Check generated diagrams
+        run: python3 scripts/render_diagrams.py --check
+      - name: Validate recommendation metadata
+        run: python3 scripts/audit_recommendations.py --offline
+      - name: Check local links
+        run: python3 scripts/check_links.py
+      - name: Scan for private identifiers
+        run: python3 scripts/check_privacy.py
