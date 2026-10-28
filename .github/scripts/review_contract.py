@@ -616,6 +616,16 @@ def _page_query(key: str) -> str:
     )
 
 
+def _final_query() -> str:
+    """Identity plus the lifecycle count and newest event, re-read after pagination."""
+    args, nodes = _CONNECTIONS["timelineItems"]
+    return (
+        "query($owner: String!, $repo: String!, $pr: Int!) { repository(owner: $owner, "
+        f"name: $repo) {{ pullRequest(number: $pr) {{ {_PR_FIELDS} "
+        f"timelineItems(last: 1{args}) {{ totalCount nodes {{ {nodes} }} }} }} }} }}"
+    )
+
+
 class EvidenceError(Exception):
     """Live evidence could not be collected consistently."""
 
@@ -679,6 +689,7 @@ def collect(gh: GhRunner, repo: str, number: int) -> Snapshot:
     identity = _identity(pull)
     incomplete: list[str] = []
     nodes: dict[str, list[JsonDict]] = {}
+    paginated = False
     if pull.get("state") not in {"OPEN", "CLOSED", "MERGED"} or not isinstance(
         pull.get("isDraft"), bool
     ):
@@ -692,6 +703,7 @@ def collect(gh: GhRunner, repo: str, number: int) -> Snapshot:
             if not isinstance(cursor, str) or not cursor:
                 incomplete.append(f"{key}_cursor_missing")
                 break
+            paginated = True
             later = _obj(_graphql(gh, repo, number, _page_query(key), cursor).get("pullRequest"))
             if _identity(later) != identity:
                 raise EvidenceError(f"PR #{number} changed while reading {key}")
@@ -699,6 +711,22 @@ def collect(gh: GhRunner, repo: str, number: int) -> Snapshot:
             collected += _nodes(more, key, incomplete)
             page = _obj(_obj(more).get("pageInfo"))
         nodes[key] = collected
+    if paginated and not incomplete:
+        # Incomplete evidence already blocks with its own reason. Identity
+        # alone cannot see a draft/ready flip or a force-push away and back
+        # while later pages were read; the lifecycle count and newest event can.
+        final = _obj(_graphql(gh, repo, number, _final_query(), None).get("pullRequest"))
+        timeline = _obj(final.get("timelineItems"))
+        listed = timeline.get("nodes")
+        latest = [_obj(n) for n in listed][-1:] if isinstance(listed, list) else []
+        seen = nodes["timelineItems"][-1:]
+        if (
+            _identity(final) != identity
+            or timeline.get("totalCount") != len(nodes["timelineItems"])
+            or [(n.get("__typename"), n.get("createdAt")) for n in latest]
+            != [(n.get("__typename"), n.get("createdAt")) for n in seen]
+        ):
+            raise EvidenceError(f"PR #{number} lifecycle changed while reading evidence")
     owner = _obj(repository.get("owner"))
     reviews = [
         Review(
