@@ -1,0 +1,60 @@
+{
+  "base_ref": "main",
+  "base_sha": "fedcba9876543210fedcba9876543210fedcba98",
+  "body": "",
+  "comments": [
+    {
+      "author": "chatgpt-codex-connector[bot]",
+      "author_type": "Bot",
+      "body": "<!-- codex-pull-request-review-summary -->\n<!-- codex-review-state:v1 {\"code_review\":{\"commit_sha\":\"0123456789abcdef0123456789abcdef01234567\",\"has_any_findings\":false,\"has_unresolved_findings\":false,\"status\":\"completed\"},\"security_review\":{\"commit_sha\":\"0123456789abcdef0123456789abcdef01234567\",\"has_any_findings\":false,\"has_unresolved_findings\":false,\"status\":\"completed\"}} -->\n<!-- codex-security-review:v1 {\"blockingSeverityThreshold\":\"P0\",\"headSha\":\"0123456789abcdef0123456789abcdef01234567\",\"mergeGateEnabled\":false,\"pullRequestNumber\":1,\"repository\":\"example-owner/example-repo\",\"status\":\"completed\"} -->\n## Codex Review Summary\n\nThis comment shows the latest Codex review activity on this pull request.\n\n| Review | Status | Commit | Review trigger |\n| --- | --- | --- | --- |\n| \ud83d\udcdd **Code Review** | \u2705 **Completed** <relative-time datetime=\"2026-10-27T05:12:38.822039Z\">2026-10-27T05:12:38.822039Z</relative-time> | `0123456` | Manual request |\n| \ud83d\udd12 **Security Review** | \u2705 **Completed** <relative-time datetime=\"2026-10-27T05:13:33.587046Z\">2026-10-27T05:13:33.587046Z</relative-time> | `0123456` | Manual request |\n\n\n\n<details> <summary>\u2139\ufe0f About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://example.test/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\" or \"@codex security review\".\n\nCodex reacts with \ud83d\udc40 while any review is running, comments if it has suggestions, and reacts with \ud83d\udc4d once all reviews finish with no findings.\n\n</details>",
+      "created_at": "2026-10-27T05:10:37Z",
+      "edited": true,
+      "id": 1001
+    },
+    {
+      "author": "example-owner",
+      "author_type": "User",
+      "body": "@codex review 0123456789abcdef0123456789abcdef01234567",
+      "created_at": "2026-10-27T05:10:39Z",
+      "edited": false,
+      "id": 1002
+    },
+    {
+      "author": "chatgpt-codex-connector[bot]",
+      "author_type": "Bot",
+      "body": "<!-- codex-review-receipt:v1 -->\n\nCodex Review: Didn't find any major issues. :rocket:\n\n**Reviewed commit:** `0123456789`\n\n<details> <summary>\u2139\ufe0f About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://example.test/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with \ud83d\udc4d.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+      "created_at": "2026-10-27T05:12:37Z",
+      "edited": false,
+      "id": 1003
+    },
+    {
+      "author": "chatgpt-codex-connector[bot]",
+      "author_type": "Bot",
+      "body": "<!-- codex-review-receipt:v1 -->\n\n### \ud83d\udee1\ufe0f Codex Security Review \u00b7 _Automatically triggered_\n\nSecurity review completed. No security issues were found in this pull request.\n\n**Reviewed commit:** `0123456789`\n\n[View security finding report](https://example.test/codex/cloud/tasks/task_e_REDACTED)\n\n_Only the user who started this review can view the report in Codex._\n\n<details> <summary>\u2139\ufe0f About Codex security reviews in GitHub</summary>\n<br/>\n\nThis is an experimental Codex feature. Security reviews are triggered when:\n- You comment \"@codex security review\"\n- A regular code review gets triggered (for example, \"@codex review\" or when a PR is opened), and you\u2019re opted in so security review runs alongside code review\n\nOnce complete, Codex will leave suggestions, or a comment if no findings are found.\n\n\n</details>",
+      "created_at": "2026-10-27T05:13:32Z",
+      "edited": false,
+      "id": 1004
+    }
+  ],
+  "commits": [
+    {
+      "author_email": "1+example-owner@users.noreply.github.com",
+      "committer_email": "1+example-owner@users.noreply.github.com",
+      "message": "Example change",
+      "sha": "0123456789abcdef0123456789abcdef01234567"
+    }
+  ],
+  "complete": true,
+  "draft": false,
+  "head_sha": "0123456789abcdef0123456789abcdef01234567",
+  "incomplete_reasons": [],
+  "lifecycle_events": [],
+  "number": 1,
+  "owner": "example-owner",
+  "owner_type": "User",
+  "repository": "example-owner/example-repo",
+  "reviews": [],
+  "state": "OPEN",
+  "title": "Example change",
+  "unresolved_threads": 0
+}

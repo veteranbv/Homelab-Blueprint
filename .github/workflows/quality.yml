@@ -37,6 +37,9 @@ jobs:
         run: npm run test:e2e
       - name: Run unit tests
         run: python3 -m unittest discover -s tests
+      - name: Test the review evaluator
+        # Stdlib-only smoke test of the vendored review gate evaluator.
+        run: python3 -I .github/scripts/test_review_contract.py
       - name: Check generated plates
         run: npm run render:plates:check
       - name: Validate recommendation metadata
