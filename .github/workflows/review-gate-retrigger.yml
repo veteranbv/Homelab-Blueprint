@@ -72,6 +72,7 @@ jobs:
           select_pr='[.workflow_runs[] | select(
             any(.pull_requests[]; .number == ($ENV.PR_NUMBER | tonumber))
             or (.event == "pull_request_target" and (.pull_requests | length) == 0))]'
+          # Observed: a pull_request_target run's head_sha is the PR head (veteranbv/homelab run 40709397525), so the head_sha filter finds it.
           trusted=$(gh api \
             "repos/${REPO}/actions/workflows/review-gate-trusted.yml/runs?head_sha=${head_sha}&event=pull_request_target&per_page=100" \
             --jq "${select_pr}")
