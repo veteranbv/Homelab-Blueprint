@@ -11,11 +11,14 @@ review before asking for remote review. The owner requests Codex review for
 the exact pushed head. Address every finding on the same pull request and
 resolve its thread; after three rounds that still find substantive issues,
 stop and reconsider the change. Required checks on `master` are `validate`
-and `review-gate`. `review-gate` loads its evaluator from the base commit with
-a read-only token, but its workflow file comes from the pull request, so a
-pull request that edits it could report a passing check without evaluating.
-The check is therefore a signal, not the merge decision: the owner merges only
-after the maintainer's `qualify`, which reads the review receipts, threads
+and `review-gate`. `review-gate` comes from
+`.github/workflows/review-gate-trusted.yml` on `pull_request_target`, which
+runs the `master` copy of that workflow and of the evaluator with a read-only
+token and never checks out or runs pull request code, so a pull request cannot
+rewrite it. Protection pins the check to the GitHub Actions app, not to that
+workflow, so a pull request could still add its own job named `review-gate`:
+the owner merges only with the maintainer's `homelab pr merge`, whose
+`qualify` counts the trusted run alone and reads the review receipts, threads
 and checks itself, and reviews any change to `.github/` by hand. Pull requests
 from forks run on GitHub-hosted runners with no secrets, and first-time
 contributors' runs wait for owner approval. Deployment runs only from
@@ -32,8 +35,10 @@ Reviewers (Codex, Claude Code, humans) apply these to every pull request.
   content or plates; recommendations without the evidence CONTRIBUTING.md
   requires, or `last_reviewed` changed without a human review; committed
   plates drifting from their source or render manifest; workflows that run
-  pull request code with secrets, write tokens or `pull_request_target`, or
-  deploy from anything but `master`; unpinned actions. Prioritize these.
+  pull request code with secrets, write tokens or `pull_request_target` (the
+  metadata-only trusted review gate is the one `pull_request_target`
+  workflow, and must never touch pull request code), or deploy from anything
+  but `master`; unpinned actions. Prioritize these.
 - Report only issues the change introduces or makes worse; mark pre-existing
   problems as pre-existing.
 - Every finding needs file:line evidence and a concrete failure scenario.

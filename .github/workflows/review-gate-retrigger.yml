@@ -9,18 +9,26 @@ name: review-gate-retrigger
 # while advisory security review is still running. It never runs the gate itself, which would add a
 # second same-named check suite on the head. Not a required check.
 #
+# `issue_comment` workflows always run the default branch's copy of this
+# file, so a pull request cannot change what runs here with `actions: write`.
+# (A `pull_request_review` trigger would run the PR's own copy; it was
+# removed for that reason, Codex P1 on veteranbv/Homelab-Blueprint#13.)
+#
+# The canonical gate is the trusted `review-gate-trusted.yml` run
+# (`pull_request_target`). A branch cut before the legacy `review-gate.yml`
+# was removed still produces that check too, so its run is re-run as well and
+# stays current.
+#
 # The `if:` below admits only the exact Codex bot before any runner starts or
 # API call is made, so other commenters cannot trigger billed reruns. Comment
-# and review bodies are never interpolated into shell. Thread resolution,
-# ready/reopen and missed events have no trigger here: the maintainer's
-# tooling re-runs the gate in place (`homelab pr recheck <n> --repo
-# veteranbv/Homelab-Blueprint --yes`).
+# bodies are never interpolated into shell. Thread resolution, ready/reopen
+# and missed events have no trigger here: the maintainer's tooling re-runs the
+# gate in place (`homelab pr recheck <n> --repo veteranbv/Homelab-Blueprint --yes`).
 
-# Only `issue_comment`, which always runs this file from the default branch:
-# a `pull_request_review` trigger would run the PR's own copy of these steps
-# with the write token below.
 on:
-  issue_comment:
+  # Intentional: runs the default branch's copy and only re-runs the gate for
+  # the exact Codex bot; no PR code or comment text is executed.
+  issue_comment:  # zizmor: ignore[dangerous-triggers]
     types: [created, edited]
 
 permissions:
@@ -42,47 +50,65 @@ jobs:
       )
     # Job-level, not workflow-level: a workflow-level group lets an event whose
     # job is skipped by `if:` (e.g. a still-running summary edit) cancel the
-    # real rerun. Later admitted events supersede earlier ones; the survivor
-    # reads all evidence.
+    # real rerun, as observed on PR549 (runs 40576244215/40576247488). Later
+    # admitted events supersede earlier ones; the survivor reads all evidence.
     concurrency:
       group: review-gate-retrigger-${{ github.event.issue.number }}
       cancel-in-progress: true
     runs-on: ubuntu-24.04
     timeout-minutes: 2
     steps:
-      - name: Re-run the canonical review-gate job for the current head
+      - name: Re-run the review-gate jobs for the current head
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.issue.number }}
         run: |
           set -euo pipefail
-          pr_json=$(gh api "repos/${REPO}/pulls/${PR_NUMBER}")
-          if [ "$(jq -r '.head.repo.full_name' <<<"${pr_json}")" != "${REPO}" ]; then
-            echo "Fork PR: its read-only token cannot re-run jobs; use homelab pr recheck --repo veteranbv/Homelab-Blueprint."
-            exit 0
-          fi
-          head_sha=$(jq -r '.head.sha' <<<"${pr_json}")
+          head_sha=$(gh api "repos/${REPO}/pulls/${PR_NUMBER}" --jq '.head.sha')
+          # A run belongs to this PR when it lists it; fork runs of
+          # pull_request_target list no PRs and match by head SHA alone.
           # shellcheck disable=SC2016  # $ENV is a jq variable, not shell expansion
-          runs=$(gh api \
+          select_pr='[.workflow_runs[] | select(
+            any(.pull_requests[]; .number == ($ENV.PR_NUMBER | tonumber))
+            or (.event == "pull_request_target" and (.pull_requests | length) == 0))]'
+          trusted=$(gh api \
+            "repos/${REPO}/actions/workflows/review-gate-trusted.yml/runs?head_sha=${head_sha}&event=pull_request_target&per_page=100" \
+            --jq "${select_pr}")
+          # Only a missing workflow (404) means no legacy gate; anything else fails.
+          errors=$(mktemp)
+          if ! legacy=$(gh api \
             "repos/${REPO}/actions/workflows/review-gate.yml/runs?head_sha=${head_sha}&event=pull_request&per_page=100" \
-            --jq '[.workflow_runs[] | select(any(.pull_requests[]; .number == ($ENV.PR_NUMBER | tonumber)))]')
-          count=$(jq 'length' <<<"${runs}")
-          if [ "${count}" -ne 1 ]; then
-            echo "::error::Expected one canonical review-gate run for ${head_sha}, found ${count}."
+            --jq "${select_pr}" 2>"${errors}"); then
+            if ! grep -q "HTTP 404" "${errors}"; then
+              cat "${errors}" >&2
+              exit 1
+            fi
+            legacy='[]'
+          fi
+          trusted_runs=$(jq 'length' <<<"${trusted}")
+          if [ "${trusted_runs}" -gt 1 ] || [ "$(jq 'length' <<<"${legacy}")" -gt 1 ]; then
+            echo "::error::Expected at most one trusted and one legacy review-gate run for ${head_sha}."
             exit 1
           fi
-          run_id=$(jq -r '.[0].id' <<<"${runs}")
-          if [ "$(jq -r '.[0].status' <<<"${runs}")" != "completed" ]; then
-            # Never cancel or wait on a running gate; it reads live evidence.
-            echo "Run ${run_id} is still running; if it missed this receipt, run homelab pr recheck --repo veteranbv/Homelab-Blueprint."
-            exit 0
+          if [ "${trusted_runs}" -eq 0 ]; then
+            # Opened before the trusted gate landed: only a push starts its run.
+            echo "::warning::No trusted review-gate run for ${head_sha}; push to the PR to start one."
           fi
-          job_id=$(gh api "repos/${REPO}/actions/runs/${run_id}/jobs?filter=latest&per_page=100" \
-            --jq '[.jobs[] | select(.name == "review-gate")] | if length == 1 then .[0].id else empty end')
-          if [ -z "${job_id}" ]; then
-            echo "::error::Run ${run_id} has no single review-gate job."
-            exit 1
-          fi
-          gh api -X POST "repos/${REPO}/actions/jobs/${job_id}/rerun"
-          echo "Re-ran review-gate job ${job_id} (run ${run_id}) for ${head_sha}."
+          jq -nr --argjson t "${trusted}" --argjson l "${legacy}" \
+            '($t + $l)[] | "\(.id) \(.status)"' |
+          while read -r run_id status; do
+            if [ "${status}" != "completed" ]; then
+              # Never cancel or wait on a running gate; it reads live evidence.
+              echo "Run ${run_id} is still running; if it missed this receipt, run homelab pr recheck."
+              continue
+            fi
+            job_id=$(gh api "repos/${REPO}/actions/runs/${run_id}/jobs?filter=latest&per_page=100" \
+              --jq '[.jobs[] | select(.name == "review-gate")] | if length == 1 then .[0].id else empty end')
+            if [ -z "${job_id}" ]; then
+              echo "::error::Run ${run_id} has no single review-gate job."
+              exit 1
+            fi
+            gh api -X POST "repos/${REPO}/actions/jobs/${job_id}/rerun"
+            echo "Re-ran review-gate job ${job_id} (run ${run_id}) for ${head_sha}."
+          done

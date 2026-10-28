@@ -1,0 +1,80 @@
+name: review-gate-trusted
+
+# Required check `review-gate`: exact-version Codex review qualification
+# (vendored `.github/scripts/review_contract.py`; see AGENTS.md).
+# The job answers once from current evidence in seconds and never waits for a
+# model. It fails until the owner's `@codex review` for this head has a typed
+# code-review completion and receipt and every review thread is resolved.
+# Security review is advisory; its findings block when reported.
+#
+# Trust: `pull_request_target` runs in the context of the default branch
+# (this file and `github.sha` come from its tip), so a pull request cannot
+# rewrite this job, whatever branch it targets. That event also carries a
+# privileged context, so the job never checks out, builds or runs
+# pull-request code: it reads review metadata through the API with a
+# read-only token and checks out only the evaluator at the default-branch
+# tip, never the PR's base branch, which a PR may point at any branch. PR
+# text reaches the evaluator as data, never as shell.
+#
+# Limit: rulesets pin a check to the GitHub Actions app, not to this
+# workflow, so a PR can still add its own `pull_request` job named
+# `review-gate`. Merge only through the maintainer's `homelab pr merge`, whose `qualify`
+# counts this workflow's run alone; GitHub's merge button trusts any
+# Actions check of that name.
+#
+# Later evidence re-runs this job IN PLACE (same check suite):
+# `review-gate-retrigger.yml` on Codex receipts, and the maintainer's tooling
+# (`homelab pr recheck <n> --repo veteranbv/Homelab-Blueprint --yes`) for events Actions cannot see (thread resolution, ready/reopen, late or missed
+# events). It runs only on opened/synchronize: a same-head reopen/ready run
+# would add a second same-named check suite.
+
+on:
+  # Intentional; see Trust above. zizmor's warning is about checking out or
+  # running PR code under this event, which this workflow never does.
+  pull_request_target:  # zizmor: ignore[dangerous-triggers]
+    types: [opened, synchronize]
+
+# One run per head SHA, never cancelled: a cancelled conclusion on the current
+# head would block required-status evaluation.
+concurrency:
+  group: review-gate-trusted-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  review-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: read
+    steps:
+      # The evaluator at the default-branch tip: never the PR head, and never
+      # the PR's base branch, which the PR chooses. No persisted credentials.
+      - name: Check out trusted evaluator
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          path: trusted
+          persist-credentials: false
+          sparse-checkout: |
+            .github/scripts/review_qualification.py
+            .github/scripts/review_contract.py
+          sparse-checkout-cone-mode: false
+
+      - name: Evaluate exact-version review evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          TRUSTED_SHA: ${{ github.sha }}
+        run: |
+          script=trusted/.github/scripts/review_qualification.py
+          if [ ! -f "$script" ] || [ ! -f trusted/.github/scripts/review_contract.py ]; then
+            echo "::error::Default-branch tip ${TRUSTED_SHA} has no trusted evaluator."
+            exit 1
+          fi
+          python3 -I "$script"
