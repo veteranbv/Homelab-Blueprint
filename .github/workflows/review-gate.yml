@@ -1,0 +1,66 @@
+name: review-gate
+
+# Required check: exact-version Codex review qualification (vendored
+# `.github/scripts/review_contract.py`; see AGENTS.md).
+# The job answers once from current evidence in seconds and never waits for a
+# model. It fails until the owner's `@codex review` for this head has a typed
+# code-review completion and receipt and every review thread is resolved.
+# Security review is advisory; its findings block when reported.
+#
+# Later evidence re-runs this job IN PLACE (same check suite):
+# `review-gate-retrigger.yml` on Codex receipts, and the maintainer's tooling
+# for events Actions cannot see (thread resolution, ready/reopen, late or
+# missed events). The gate runs only on opened/synchronize: a same-head
+# reopen/ready run would add a second same-named check suite.
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+# One run per head SHA, never cancelled: a cancelled conclusion on the current
+# head would block required-status evaluation.
+concurrency:
+  group: review-gate-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  review-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: read
+    steps:
+      # Reviewed base-branch code only: the evaluator is checked out at the
+      # PR's base SHA, never from the PR, with no persisted credentials.
+      - name: Check out trusted base evaluator
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          persist-credentials: false
+          sparse-checkout: |
+            .github/scripts/review_qualification.py
+            .github/scripts/review_contract.py
+          sparse-checkout-cone-mode: false
+
+      - name: Evaluate exact-version review evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          script=trusted/.github/scripts/review_qualification.py
+          if [ ! -f "$script" ] || [ ! -f trusted/.github/scripts/review_contract.py ]; then
+            echo "::error::Base ${PR_BASE_SHA} has no trusted evaluator."
+            exit 1
+          fi
+          python3 -I "$script"
