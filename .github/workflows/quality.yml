@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
@@ -47,6 +49,30 @@ jobs:
       - name: Test the review evaluator
         # Stdlib-only smoke test of the vendored review gate evaluator.
         run: python3 -I .github/scripts/test_review_contract.py
+
+      - name: Install zizmor
+        # This job runs in a container, whose default shell is sh.
+        shell: bash
+        env:
+          # Version and checksum are from the upstream v1.31.1 release assets.
+          ZIZMOR_VERSION: "1.31.1"
+          ZIZMOR_SHA256: "d185f726bdaf92df78273217dfdd24ebcd6b0ef48cf3ce776ff5762b6e138c99"
+        run: |
+          set -euo pipefail
+          # Outside the workspace, so later clean-tree checks are unaffected.
+          archive="$RUNNER_TEMP/zizmor.tar.gz"
+          curl -fsSL -o "$archive" \
+            "https://github.com/zizmorcore/zizmor/releases/download/v${ZIZMOR_VERSION}/zizmor-x86_64-unknown-linux-gnu.tar.gz"
+          printf '%s  %s\n' "$ZIZMOR_SHA256" "$archive" | sha256sum -c -
+          tar -xzf "$archive" -C "$RUNNER_TEMP" zizmor
+
+      - name: Audit workflow security
+        shell: bash
+        # Offline static audit: privileged triggers, injection, credential
+        # persistence, cache poisoning and permissions. Intentional exceptions
+        # carry an inline reason.
+        run: '"$RUNNER_TEMP/zizmor" --offline .github/workflows'
+
       - name: Check generated plates
         run: npm run render:plates:check
       - name: Validate recommendation metadata
