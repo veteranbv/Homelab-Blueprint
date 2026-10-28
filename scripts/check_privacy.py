@@ -49,6 +49,14 @@ PATTERNS = {
 IPV4 = re.compile(r"(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])")
 IPV6 = re.compile(r"(?<![0-9A-Za-z_:])(?=[0-9A-Fa-f:]*:)[0-9A-Fa-f:]{2,}(?![0-9A-Za-z_:])")
 SKIP_FILES = {Path(__file__).resolve()}
+# The vendored review evaluator's test and fixture model commit metadata with
+# synthetic addresses (`example.test`, a numeric-id GitHub noreply form), and
+# its source repository rejects real identities in them. Only the email check
+# is relaxed, only for these exact files; every other check still applies.
+SYNTHETIC_EMAIL_FILES = {
+    Path(".github/scripts/fixtures/codex_review/synthetic_review.json"),
+    Path(".github/scripts/test_review_contract.py"),
+}
 
 
 def configured_terms() -> list[str]:
@@ -68,10 +76,13 @@ def scan(root: Path = ROOT, private_terms: list[str] | None = None) -> list[str]
         ):
             continue
         text = path.read_text(encoding="utf-8")
+        relative = path.relative_to(root)
         for label, pattern in PATTERNS.items():
+            if label == "email address" and relative in SYNTHETIC_EMAIL_FILES:
+                continue
             for match in pattern.finditer(text):
                 line = text.count("\n", 0, match.start()) + 1
-                errors.append(f"{path.relative_to(root)}:{line}: {label}")
+                errors.append(f"{relative}:{line}: {label}")
         for pattern in (IPV4, IPV6):
             for match in pattern.finditer(text):
                 try:
@@ -81,13 +92,13 @@ def scan(root: Path = ROOT, private_terms: list[str] | None = None) -> list[str]
                 if address.is_loopback or address.is_unspecified:
                     continue
                 line = text.count("\n", 0, match.start()) + 1
-                errors.append(f"{path.relative_to(root)}:{line}: literal IP address")
+                errors.append(f"{relative}:{line}: literal IP address")
         lowered = text.casefold()
         for term in terms:
             index = lowered.find(term.casefold())
             if index >= 0:
                 line = text.count("\n", 0, index) + 1
-                errors.append(f"{path.relative_to(root)}:{line}: configured private term")
+                errors.append(f"{relative}:{line}: configured private term")
     return errors
 
 

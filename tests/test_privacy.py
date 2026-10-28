@@ -59,6 +59,25 @@ class PrivacyTests(unittest.TestCase):
         self.assertTrue(any("literal IP address" in error for error in errors))
         self.assertTrue(any("assigned secret" in error for error in errors))
 
+    def test_vendored_review_fixtures_relax_only_the_email_check(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            fixture = root / ".github/scripts/fixtures/codex_review/synthetic_review.json"
+            fixture.parent.mkdir(parents=True)
+            email = "1+example-owner" + "@" + "users.noreply.github.com"
+            private_ip = ".".join(("203", "0", "113", "42"))
+            fixture.write_text(
+                f'{{"author_email": "{email}", "host": "{private_ip}", "note": "private-codename"}}\n',
+                encoding="utf-8",
+            )
+            (root / "elsewhere.json").write_text(f'{{"author_email": "{email}"}}\n', encoding="utf-8")
+            errors = scan(root, ["private-codename"])
+        fixture_errors = [error for error in errors if error.startswith(".github/")]
+        self.assertFalse(any("email address" in error for error in fixture_errors))
+        self.assertTrue(any("literal IP address" in error for error in fixture_errors))
+        self.assertTrue(any("configured private term" in error for error in fixture_errors))
+        self.assertTrue(any(error.startswith("elsewhere.json") and "email address" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()
