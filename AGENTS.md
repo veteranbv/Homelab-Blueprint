@@ -11,10 +11,15 @@ review before asking for remote review. The owner requests Codex review for
 the exact pushed head. Address every finding on the same pull request and
 resolve its thread; after three rounds that still find substantive issues,
 stop and reconsider the change. Required checks on `master` are `validate`
-and `review-gate`; `review-gate` runs only base-branch code with a read-only
-token. Pull requests from forks run on GitHub-hosted runners with no secrets,
-and first-time contributors' runs wait for owner approval. Deployment runs only
-from `master`. No AI attribution in commits, titles, or descriptions, and
+and `review-gate`. `review-gate` loads its evaluator from the base commit with
+a read-only token, but its workflow file comes from the pull request, so a
+pull request that edits it could report a passing check without evaluating.
+The check is therefore a signal, not the merge decision: the owner merges only
+after the maintainer's `qualify`, which reads the review receipts, threads
+and checks itself, and reviews any change to `.github/` by hand. Pull requests
+from forks run on GitHub-hosted runners with no secrets, and first-time
+contributors' runs wait for owner approval. Deployment runs only from
+`master`. No AI attribution in commits, titles, or descriptions, and
 commits come from a person's identity, not an app or bot account (Dependabot
 excepted); `review-gate` rejects both.
 
