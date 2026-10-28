@@ -8,9 +8,16 @@ on:
 permissions:
   contents: read
 
+# Supersede obsolete pull request validation only; every master run completes.
+concurrency:
+  group: quality-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   validate:
     runs-on: ubuntu-24.04
+    # Successful runs take about two minutes.
+    timeout-minutes: 15
     container:
       image: mcr.microsoft.com/playwright:v1.61.1-noble@sha256:5b8f294aff9041b7191c34a4bab3ac270157a28774d4b0660e9743297b697e48
     steps:
