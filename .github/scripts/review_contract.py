@@ -63,15 +63,15 @@ _RECEIPT_MARKER = "<!-- codex-review-receipt:v1 -->"
 _RECEIPT_ANY_VERSION_RE = re.compile(r"<!-- codex-review-receipt:(v\d+) -->")
 _REVIEWED_COMMIT_RE = re.compile(r"\*\*Reviewed commit:\*\*\s*`([0-9a-f]{10,40})`")
 # Codex's explicit clean security result, as a whole line of its own receipt.
-# Observed on real PRs with typed `has_unresolved_findings: null`.
+# Codex can send it with a typed `has_unresolved_findings: null`.
 _SECURITY_CLEAN_RE = re.compile(
     r"^Security review completed\. No security issues were found in this pull request\.[ \t]*$",
     re.MULTILINE,
 )
 _SECURITY_MARKER_RE = re.compile(r"<!-- codex-security-review:(v\d+) (\{[^\n]*?\}) -->")
 _SECURITY_MARKER_ANY_RE = re.compile(r"<!-- codex-security-review:")
-# The typed entry Codex writes for a review that never ran on this PR. Observed
-# on every PR reviewed while automatic security review was off.
+# The typed entry Codex writes for a review that never ran on this PR, as it
+# does on every PR while automatic security review is off.
 _NOT_RUN_ENTRY = {
     "commit_sha": None,
     "has_any_findings": None,
