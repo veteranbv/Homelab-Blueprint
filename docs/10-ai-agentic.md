@@ -87,6 +87,6 @@ constrained, inspectable operations so an agent can help and prove the result.
 - [llama.cpp repository](https://github.com/ggml-org/llama.cpp)
 - [vLLM documentation](https://docs.vllm.ai/)
 - [Model Context Protocol: tools](https://modelcontextprotocol.io/specification/2025-11-25/server/tools)
-- [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+- [OWASP Top 10 for LLM Applications](https://owasp.org/projects/top-10-for-large-language-model-applications)
 
 Next: [Grow and share responsibly](11-grow-share.md).

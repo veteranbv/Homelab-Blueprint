@@ -12,7 +12,10 @@ from scripts.audit_recommendations import audit_live, check_url, load_registry, 
 
 class RecommendationTests(unittest.TestCase):
     def test_registry_is_valid_at_review_date(self) -> None:
-        errors = validate(load_registry(), dt.date(2026, 7, 16), 120)
+        # Validate as of the newest review so the test survives each re-review.
+        projects = load_registry()
+        review_date = max(project["last_reviewed"] for project in projects)
+        errors = validate(projects, review_date, 120)
         self.assertEqual([], errors)
 
     def test_duplicate_ids_are_rejected(self) -> None:
