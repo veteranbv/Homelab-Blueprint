@@ -72,6 +72,6 @@ to make discovery work.
 - [Pi-hole documentation](https://docs.pi-hole.net/)
 - [Technitium DNS Server documentation](https://technitium.com/dns/)
 - [Caddy automatic HTTPS](https://caddyserver.com/docs/automatic-https)
-- [Tailscale access-control policies](https://tailscale.com/kb/1018/acls)
+- [Tailscale access-control policies](https://tailscale.com/docs/features/access-control/acls)
 
 Next: [Protect storage and prove recovery](05-storage-backup.md).

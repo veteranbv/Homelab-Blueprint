@@ -75,7 +75,7 @@ Write down what you protect, from whom, and what failure costs. For most homes:
 
 - [Authentik documentation](https://docs.goauthentik.io/)
 - [SOPS documentation](https://getsops.io/docs/)
-- [GitHub Actions security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
+- [GitHub Actions secure use reference](https://docs.github.com/en/actions/reference/security/secure-use)
 - [CISA Secure by Design](https://www.cisa.gov/securebydesign)
 
 Next: [Choose services that create value](07-services.md).
