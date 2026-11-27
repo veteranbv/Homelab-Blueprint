@@ -19,7 +19,13 @@ A PR qualifies only when all of these hold for the live head:
   agrees and completed after that request, and an unedited, immutable receipt
   of the same kind and commit arrived after the request;
 * security review is advisory: it is never required or awaited, but unresolved
-  findings it reports on the current head block;
+  findings it reports on the current head block. A security entry that is all
+  null with no security row or marker means it never ran and does not block;
+  any other unrecognized or contradictory security entry blocks. A completed
+  security review whose typed state leaves `has_unresolved_findings` null
+  counts as clean only when Codex's own unedited receipt for the head states
+  the exact clean result and the summary's security marker confirms
+  completion on the full head;
 * zero unresolved review threads from any author.
 
 Reactions, request echoes, clean prose, response counts and the summary's
@@ -56,6 +62,27 @@ _STATE_RE = re.compile(r"<!-- codex-review-state:(v\d+) (\{[^\n]*?\}) -->")
 _RECEIPT_MARKER = "<!-- codex-review-receipt:v1 -->"
 _RECEIPT_ANY_VERSION_RE = re.compile(r"<!-- codex-review-receipt:(v\d+) -->")
 _REVIEWED_COMMIT_RE = re.compile(r"\*\*Reviewed commit:\*\*\s*`([0-9a-f]{10,40})`")
+# Codex's explicit clean security result, as a whole line of its own receipt.
+# Observed on real PRs with typed `has_unresolved_findings: null`.
+_SECURITY_CLEAN_RE = re.compile(
+    r"^Security review completed\. No security issues were found in this pull request\.[ \t]*$",
+    re.MULTILINE,
+)
+_SECURITY_MARKER_RE = re.compile(r"<!-- codex-security-review:(v\d+) (\{[^\n]*?\}) -->")
+_SECURITY_MARKER_ANY_RE = re.compile(r"<!-- codex-security-review:")
+# The typed entry Codex writes for a review that never ran on this PR. Observed
+# on every PR reviewed while automatic security review was off.
+_NOT_RUN_ENTRY = {
+    "commit_sha": None,
+    "has_any_findings": None,
+    "has_unresolved_findings": None,
+    "status": None,
+}
+# Advisory kinds are never awaited, but these say the typed entry is not one we
+# understand or contradicts the summary, so it could be hiding findings.
+_ADVISORY_BLOCKING = frozenset(
+    {"summary_kind_missing", "summary_kind_unknown", "summary_row_contradicts_state"}
+)
 _ROW_RE = re.compile(
     r"^\|[^|]*\*\*(Code Review|Security Review)\*\*\s*\|(?P<status>[^|]*)\|"
     r"\s*`(?P<sha>[0-9a-f]{7,40})`\s*\|",
@@ -288,6 +315,8 @@ def _lifecycle_epoch(snapshot: Snapshot) -> datetime | None:
 class _Summary:
     state: dict[str, object]
     rows: dict[Kind, tuple[str, str, datetime | None]]
+    security_head: str | None = None  # full head of a single completed v1 security marker
+    security_marker: bool = False  # any codex-security-review marker, any version or status
 
 
 def _parse_summary(snapshot: Snapshot, reasons: list[str]) -> _Summary | None:
@@ -326,7 +355,34 @@ def _parse_summary(snapshot: Snapshot, reasons: list[str]) -> _Summary | None:
         times = _ROW_TIME_RE.findall(status_cell)
         status = "completed" if "**Completed**" in status_cell else "other"
         rows[kind] = (status, match.group("sha"), parse_time(times[0]) if len(times) == 1 else None)
-    return _Summary(state=cast(dict[str, object], state), rows=rows)
+    return _Summary(
+        state=cast(dict[str, object], state),
+        rows=rows,
+        security_head=_security_head(body),
+        security_marker=_SECURITY_MARKER_ANY_RE.search(body) is not None,
+    )
+
+
+def _not_run(kind: Kind, entry: dict[str, object], summary: _Summary) -> bool:
+    """Whether the typed entry is Codex's exact never-ran shape with nothing contradicting it."""
+    if entry != _NOT_RUN_ENTRY or kind in summary.rows:
+        return False
+    return kind != "security_review" or not summary.security_marker
+
+
+def _security_head(body: str) -> str | None:
+    """Full head of the summary's one `codex-security-review:v1` completed marker."""
+    markers = _SECURITY_MARKER_RE.findall(body)
+    if len(markers) != 1 or markers[0][0] != "v1":
+        return None
+    try:
+        marker = json.loads(markers[0][1])
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(marker, dict) or marker.get("status") != "completed":
+        return None
+    head = marker.get("headSha")
+    return head if isinstance(head, str) and re.fullmatch(r"[0-9a-f]{40}", head) else None
 
 
 def _latest_request(
@@ -350,6 +406,12 @@ def _latest_request(
 
 def _receipt(snapshot: Snapshot, kind: Kind, after: datetime, until: datetime) -> Comment | None:
     """Latest unedited bot receipt of exactly `kind` for the head in (after, until]."""
+    matches = _receipts(snapshot, kind, after, until)
+    return matches[-1] if matches else None
+
+
+def _receipts(snapshot: Snapshot, kind: Kind, after: datetime, until: datetime) -> list[Comment]:
+    """Unedited bot receipts of exactly `kind` for the head in (after, until], oldest first."""
     head = snapshot["head_sha"]
     candidates: list[Comment] = []
     for comment in snapshot["comments"]:
@@ -371,7 +433,7 @@ def _receipt(snapshot: Snapshot, kind: Kind, after: datetime, until: datetime) -
             and after < created <= until
         ):
             matches.append((created, item))
-    return max(matches, key=lambda match: match[0])[1] if matches else None
+    return [item for _, item in sorted(matches, key=lambda match: match[0])]
 
 
 def _failures(snapshot: Snapshot, after: datetime) -> list[datetime]:
@@ -407,6 +469,10 @@ def _evaluate_kind(
         return result, None
     status, sha = entry.get("status"), entry.get("commit_sha")
     unresolved = entry.get("has_unresolved_findings")
+    if _not_run(kind, cast(dict[str, object], entry), summary):
+        result.state = "not_run"
+        result.reasons.append("summary_kind_not_run")
+        return result, None
     if status not in _STATUSES or not isinstance(sha, str):
         result.state = "blocked"
         result.reasons.append("summary_kind_unknown")
@@ -430,11 +496,14 @@ def _evaluate_kind(
         result.state = "stale"
         result.reasons.append("completed_before_request")
         return result, None
-    if unresolved is not False:
+    window = (requested_at, completed_at + RECEIPT_SKEW)
+    if unresolved is not False and not (
+        unresolved is None and _explicit_security_clean(snapshot, kind, entry, summary, *window)
+    ):
         result.state = "findings"
         result.reasons.append("unresolved_findings")
         return result, None
-    receipt = _receipt(snapshot, kind, requested_at, completed_at + RECEIPT_SKEW)
+    receipt = _receipt(snapshot, kind, *window)
     if receipt is None:
         result.state = "blocked"
         result.reasons.append("receipt_missing")
@@ -451,6 +520,30 @@ def _evaluate_kind(
     # Freshness must cover the receipt that made this kind qualify, which can
     # follow the summary's completion time by up to RECEIPT_SKEW.
     return result, max(completed_at, receipt_at) if receipt_at else completed_at
+
+
+def _explicit_security_clean(
+    snapshot: Snapshot,
+    kind: Kind,
+    entry: dict[str, object],
+    summary: _Summary,
+    after: datetime,
+    until: datetime,
+) -> bool:
+    """Whether a null-findings security completion is Codex's explicit clean result.
+
+    Codex's security review can finish with typed `has_unresolved_findings: null`
+    yet state the clean result in its receipt. That counts only when the summary
+    claims no findings, its security marker confirms completion on the full head,
+    and every unedited bot security receipt for the head in this request's window
+    states the exact clean line. Anything else stays unknown and blocks.
+    """
+    if kind != "security_review" or entry.get("has_any_findings") not in (None, False):
+        return False
+    if summary.security_head != snapshot["head_sha"]:
+        return False
+    receipts = _receipts(snapshot, kind, after, until)
+    return bool(receipts) and all(_SECURITY_CLEAN_RE.search(r["body"]) for r in receipts)
 
 
 def has_attribution(text: str) -> bool:
@@ -535,6 +628,9 @@ def evaluate(snapshot: Snapshot) -> Verdict:
             # Advisory kinds never gate on completion, but findings they report
             # for this head block even when a newer request superseded them.
             reasons.append(f"{kind}:unresolved_findings")
+        elif result.state == "blocked" and _ADVISORY_BLOCKING.intersection(result.reasons):
+            # An entry we cannot read could carry findings: block, never pass.
+            reasons.extend(f"{kind}:{reason}" for reason in result.reasons)
         elif completed is not None:
             completions.append(completed)  # the gate must also be newer than these
 
