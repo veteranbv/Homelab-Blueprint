@@ -21,7 +21,7 @@ and current `docker compose` are understandable, portable, and well documented.
 Keep Compose files in Git and persistent data outside the repository.
 
 Do not begin new instructions with the legacy standalone `docker-compose` v1
-binary. Docker keeps it only for backward compatibility.
+binary. Docker no longer supports it.
 
 ### Proxmox VE
 
@@ -69,7 +69,7 @@ may feel convenient until recovery day.
 - [Docker Compose production guidance](https://docs.docker.com/compose/how-tos/production/)
 - [Proxmox VE documentation](https://pve.proxmox.com/pve-docs/)
 - [K3s documentation](https://docs.k3s.io/)
-- [Talos Linux documentation](https://www.talos.dev/)
+- [Talos Linux documentation](https://docs.siderolabs.com/talos/)
 - [Incus documentation](https://linuxcontainers.org/incus/docs/main/)
 
 Next: [Design networking and access](04-networking.md).

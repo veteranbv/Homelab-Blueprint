@@ -54,7 +54,7 @@ matches execution, and proof of the final live state.
 
 ## Primary references
 
-- [Ansible documentation](https://docs.ansible.com/ansible/latest/index.html)
+- [Ansible documentation](https://docs.ansible.com/projects/ansible/latest/index.html)
 - [OpenTofu documentation](https://opentofu.org/docs/)
 - [NetBox documentation](https://netboxlabs.com/docs/netbox/)
 - [GitHub Actions documentation](https://docs.github.com/en/actions)

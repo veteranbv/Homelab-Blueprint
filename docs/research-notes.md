@@ -1,7 +1,9 @@
 # Research notes for the 2026 rebuild
 
-Reviewed 2026-07-16. These notes make the evidence trail visible without
-turning the guide into a link dump.
+Reviewed 2026-07-16. Project health and primary sources were rechecked on
+2026-11-27; the practitioner examples below are from the July review. These
+notes make the evidence trail visible without turning the guide into a link
+dump.
 
 ## Method
 
