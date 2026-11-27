@@ -74,7 +74,7 @@ when possible. Heat, drivers, and experiments should not take the house offline.
 ## Primary references
 
 - [Ollama: context length and memory](https://docs.ollama.com/context-length)
-- [vLLM: GPU installation requirements](https://docs.vllm.ai/en/latest/getting_started/installation/gpu.html)
+- [vLLM: GPU installation requirements](https://docs.vllm.ai/en/latest/getting_started/installation/gpu/)
 - [TrueNAS hardware guide](https://www.truenas.com/docs/scale/gettingstarted/scalehardwareguide/)
 
 Next: [Choose the platform](03-platform.md).

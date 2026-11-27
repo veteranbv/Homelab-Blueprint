@@ -1,5 +1,5 @@
 schema_version = 1
-reviewed_on = 2026-07-16
+reviewed_on = 2026-11-27
 
 [[project]]
 id = "docker-compose"
@@ -9,16 +9,16 @@ homepage = "https://docs.docker.com/compose/"
 github = "docker/compose"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "proxmox-ve"
 name = "Proxmox VE"
 category = "virtualization"
-homepage = "https://www.proxmox.com/en/proxmox-virtual-environment/overview"
+homepage = "https://www.proxmox.com/en/products/proxmox-virtual-environment/overview"
 classification = "default"
 tier = "intermediate"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "k3s"
@@ -28,17 +28,17 @@ homepage = "https://docs.k3s.io/"
 github = "k3s-io/k3s"
 classification = "specialist"
 tier = "advanced"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "talos"
 name = "Talos Linux"
 category = "kubernetes"
-homepage = "https://www.talos.dev/"
+homepage = "https://www.siderolabs.com/talos-linux"
 github = "siderolabs/talos"
 classification = "specialist"
 tier = "advanced"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "truenas"
@@ -48,7 +48,7 @@ homepage = "https://www.truenas.com/truenas-community-edition/"
 github = "truenas/middleware"
 classification = "default"
 tier = "intermediate"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "unraid"
@@ -57,16 +57,16 @@ category = "storage"
 homepage = "https://unraid.net/"
 classification = "alternative"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "proxmox-backup-server"
 name = "Proxmox Backup Server"
 category = "backup"
-homepage = "https://www.proxmox.com/en/proxmox-backup-server/overview"
+homepage = "https://www.proxmox.com/en/products/proxmox-backup-server/overview"
 classification = "default"
 tier = "intermediate"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "kopia"
@@ -76,7 +76,7 @@ homepage = "https://kopia.io/"
 github = "kopia/kopia"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "restic"
@@ -86,7 +86,7 @@ homepage = "https://restic.net/"
 github = "restic/restic"
 classification = "alternative"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "tailscale"
@@ -96,7 +96,7 @@ homepage = "https://tailscale.com/"
 github = "tailscale/tailscale"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "caddy"
@@ -106,7 +106,7 @@ homepage = "https://caddyserver.com/"
 github = "caddyserver/caddy"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "traefik"
@@ -116,7 +116,7 @@ homepage = "https://traefik.io/traefik/"
 github = "traefik/traefik"
 classification = "alternative"
 tier = "intermediate"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "technitium"
@@ -126,7 +126,7 @@ homepage = "https://technitium.com/dns/"
 github = "TechnitiumSoftware/DnsServer"
 classification = "default"
 tier = "intermediate"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "pihole"
@@ -136,7 +136,7 @@ homepage = "https://pi-hole.net/"
 github = "pi-hole/pi-hole"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "authentik"
@@ -146,7 +146,7 @@ homepage = "https://goauthentik.io/"
 github = "goauthentik/authentik"
 classification = "default"
 tier = "intermediate"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "uptime-kuma"
@@ -156,7 +156,7 @@ homepage = "https://uptime.kuma.pet/"
 github = "louislam/uptime-kuma"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "beszel"
@@ -166,7 +166,7 @@ homepage = "https://beszel.dev/"
 github = "henrygd/beszel"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "grafana-alloy"
@@ -176,7 +176,7 @@ homepage = "https://grafana.com/docs/alloy/latest/"
 github = "grafana/alloy"
 classification = "specialist"
 tier = "advanced"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "home-assistant"
@@ -186,7 +186,7 @@ homepage = "https://www.home-assistant.io/"
 github = "home-assistant/core"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "jellyfin"
@@ -196,7 +196,7 @@ homepage = "https://jellyfin.org/"
 github = "jellyfin/jellyfin"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "immich"
@@ -206,7 +206,7 @@ homepage = "https://immich.app/"
 github = "immich-app/immich"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "paperless-ngx"
@@ -216,7 +216,7 @@ homepage = "https://docs.paperless-ngx.com/"
 github = "paperless-ngx/paperless-ngx"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "homepage"
@@ -226,7 +226,7 @@ homepage = "https://gethomepage.dev/"
 github = "gethomepage/homepage"
 classification = "default"
 tier = "starter"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "ollama"
@@ -236,7 +236,7 @@ homepage = "https://ollama.com/"
 github = "ollama/ollama"
 classification = "default"
 tier = "intermediate"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "llama-cpp"
@@ -246,7 +246,7 @@ homepage = "https://github.com/ggml-org/llama.cpp"
 github = "ggml-org/llama.cpp"
 classification = "alternative"
 tier = "advanced"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
 
 [[project]]
 id = "vllm"
@@ -256,4 +256,4 @@ homepage = "https://docs.vllm.ai/"
 github = "vllm-project/vllm"
 classification = "specialist"
 tier = "advanced"
-last_reviewed = 2026-07-16
+last_reviewed = 2026-11-27
