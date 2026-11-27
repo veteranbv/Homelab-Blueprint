@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
       - name: Check recommendation health
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
