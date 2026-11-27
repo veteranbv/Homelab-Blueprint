@@ -25,7 +25,18 @@ unbounded model a shell and hope.
 - **vLLM:** advanced multi-user throughput, batching, accelerator support, and
   API serving.
 - **Open WebUI:** optional interface, not the inference layer. Treat imported
-  functions as executable code with access to the host and data.
+  functions as executable code with access to the host and data. Since v0.6.6
+  it ships under its own license with a branding clause, which is not
+  OSI-approved.
+
+Ollama binds to `127.0.0.1:11434` by default, and its documentation describes no
+built-in authentication. If other machines need it, put a TLS proxy with access
+control in front instead of setting `OLLAMA_HOST=0.0.0.0` on an open network.
+
+For remote MCP servers, use the Streamable HTTP transport, which replaced
+HTTP+SSE in the 2025-03-26 specification. Servers must validate the `Origin`
+header and should authenticate every connection; publish them behind the same
+verified TLS ingress as other services.
 
 Start with a direct runtime API. Add a provider-neutral gateway only when there
 are multiple backends, users, quotas, or cost controls to manage.
@@ -84,6 +95,9 @@ constrained, inspectable operations so an agent can help and prove the result.
 ## Primary references
 
 - [Ollama documentation](https://docs.ollama.com/)
+- [Ollama FAQ: exposing the server](https://docs.ollama.com/faq)
+- [Open WebUI license](https://docs.openwebui.com/license)
+- [Model Context Protocol: transports](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports)
 - [llama.cpp repository](https://github.com/ggml-org/llama.cpp)
 - [vLLM documentation](https://docs.vllm.ai/)
 - [Model Context Protocol: tools](https://modelcontextprotocol.io/specification/2025-11-25/server/tools)

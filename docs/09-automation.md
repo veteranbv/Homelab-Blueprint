@@ -32,6 +32,19 @@ OpenTofu or Terraform can provision resources. Ansible can configure hosts.
 Neither should become an undocumented shell-script bucket for every service API.
 Keep service-specific operations close to typed clients and stable output.
 
+### Make runs reproducible
+
+- Install `ansible-core` the same way on every machine that runs playbooks, and
+  pin collections to exact versions in `requirements.yml`
+  (`version: "==1.2.3"`). A lower bound alone lets a new major change module
+  behavior between machines.
+- Pin OpenTofu providers and upgrade them in small steps. Gate each bump on a
+  plan that shows no changes for resources you already manage, and read each
+  release's breaking notes.
+- OpenTofu can encrypt state and plan files client-side, with a passphrase or a
+  KMS key. Migrate with a `fallback` block. Back up the key separately; state
+  encrypted with a lost key cannot be recovered.
+
 ## Machine-readable operations
 
 A JSON-first CLI is valuable even before AI enters the picture:
@@ -56,6 +69,8 @@ matches execution, and proof of the final live state.
 
 - [Ansible documentation](https://docs.ansible.com/projects/ansible/latest/index.html)
 - [OpenTofu documentation](https://opentofu.org/docs/)
+- [OpenTofu state and plan encryption](https://opentofu.org/docs/language/state/encryption/)
+- [Ansible: installing collections from requirements files](https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html)
 - [NetBox documentation](https://netboxlabs.com/docs/netbox/)
 - [GitHub Actions documentation](https://docs.github.com/en/actions)
 

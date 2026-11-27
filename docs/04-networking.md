@@ -48,6 +48,23 @@ automatic HTTPS is built in. Traefik earns its extra moving parts in dynamic
 Docker or Kubernetes environments. Nginx Proxy Manager remains a reasonable
 UI-first entry point when its database and configuration are backed up.
 
+Caddy also works as a small host-local TLS gateway for an app that has no
+native TLS: the app listens on loopback only and Caddy serves the certificate.
+With `admin off`, every Caddy config change needs a full restart. An admin
+endpoint on a Unix socket keeps graceful reloads possible while file
+permissions control who can use it.
+
+Traefik does not rotate its access log file. Rotate it externally and send
+`USR1` so Traefik reopens the file, or log to stdout and let the container log
+driver rotate it. An unrotated access log on the edge proxy will eventually
+fill its disk.
+
+If you own a public domain, publish a CAA record that names the one
+certificate authority you use. Anyone who can edit your DNS can pass a DNS-01
+challenge at any CA; CAA narrows that to the CA you chose. Let's Encrypt checks
+CAA before every issuance and fails if the lookup fails, so confirm the record
+before a renewal is due.
+
 Keep administrative services private even when a reverse proxy can publish
 them. A valid certificate does not make an admin panel safe for the internet.
 
@@ -55,7 +72,8 @@ them. A valid certificate does not make an admin panel safe for the internet.
 
 Tailscale is the default because it makes a WireGuard-based private network
 approachable and adds policy controls. Test grants and preserve recovery access.
-Plain WireGuard is excellent for a small static peer set. Headscale is for
+Plain WireGuard is excellent for a small static peer set, including
+encrypting storage or backup traffic between fixed hosts on the LAN. Headscale is for
 people who explicitly want to operate the coordination plane too.
 
 Do not forward raw SSH, RDP, hypervisor, NAS, or router administration ports.
@@ -72,6 +90,10 @@ to make discovery work.
 - [Pi-hole documentation](https://docs.pi-hole.net/)
 - [Technitium DNS Server documentation](https://technitium.com/dns/)
 - [Caddy automatic HTTPS](https://caddyserver.com/docs/automatic-https)
+- [Caddy global options: admin endpoint](https://caddyserver.com/docs/caddyfile/options)
+- [Traefik logs and access logs](https://doc.traefik.io/traefik/reference/install-configuration/observability/logs-and-accesslogs/)
+- [Let's Encrypt: CAA](https://letsencrypt.org/docs/caa/)
+- [WireGuard](https://www.wireguard.com/)
 - [Tailscale access-control policies](https://tailscale.com/docs/features/access-control/acls)
 
 Next: [Protect storage and prove recovery](05-storage-backup.md).

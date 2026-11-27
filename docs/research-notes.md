@@ -43,6 +43,16 @@ Community sources can be noisy, promotional, or wrong. The guide uses them to
 find questions and recurring operational costs, then checks consequential facts
 against primary sources linked in each chapter.
 
+## 2026-11-27 registry additions
+
+Fourteen tools that the chapters already recommended in prose gained registry
+entries: OpenTofu, Ansible, NetBox, Gatus, Grafana Loki, Dozzle, Network UPS
+Tools, WireGuard, SOPS, Syncthing, n8n, Node-RED, Seerr and Open WebUI. Each
+was checked for an official homepage, an active, unarchived repository and a
+release within the last year. Their classifications follow the existing chapter text. The
+same pass added cited guidance on off-site immutable copies, dump restore
+drills, container engine settings, pinned updaters and reproducible automation.
+
 ## Retirement checks
 
 The rebuild explicitly rechecked names and lifecycle status that had aged out
