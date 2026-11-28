@@ -60,10 +60,13 @@ driver rotate it. An unrotated access log on the edge proxy will eventually
 fill its disk.
 
 If you own a public domain, publish a CAA record that names the one
-certificate authority you use. Anyone who can edit your DNS can pass a DNS-01
-challenge at any CA; CAA narrows that to the CA you chose. Let's Encrypt checks
-CAA before every issuance and fails if the lookup fails, so confirm the record
-before a renewal is due.
+certificate authority you use. Other CAs must then refuse to issue for the
+domain, which cuts off unintended issuance while your DNS stays trusted. It
+does not stop someone who can edit your DNS: they can change or remove the CAA
+record too ([RFC 8659 section 5.4](https://www.rfc-editor.org/rfc/rfc8659.html#section-5.4)).
+Protect the DNS account itself with MFA and narrowly scoped API tokens. Let's
+Encrypt checks CAA before every issuance and fails if the lookup fails, so
+confirm the record before a renewal is due.
 
 Keep administrative services private even when a reverse proxy can publish
 them. A valid certificate does not make an admin panel safe for the internet.
