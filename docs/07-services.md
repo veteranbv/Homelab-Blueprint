@@ -49,7 +49,12 @@ not the archived original repository.
 ## Automation
 
 n8n is the broad workflow-automation default. Node-RED is especially good for
-device and event flows. Activepieces is a simpler alternative. Keep household-
+device and event flows. Activepieces is a simpler alternative. n8n encrypts stored
+credentials with a key it generates on first launch, so back up that key with
+the database; a database restored without it cannot use its credentials. n8n
+3.0 is a breaking major: self-hosting is Docker-only, legacy nodes are removed
+and encryption key rotation is on by default. Back up first and run its
+migration report before upgrading. Keep household-
 critical automations local-first and define what happens when the internet or AI
 provider is unavailable.
 
@@ -78,5 +83,9 @@ most people than implying self-hosting is automatically safer.
 - [Seerr repository](https://github.com/seerr-team/seerr)
 - [Active NZBGet continuation](https://github.com/NZBGetCom/nzbget)
 - [Homepage documentation](https://gethomepage.dev/)
+- [n8n encryption key](https://docs.n8n.io/hosting/configuration/configuration-examples/encryption-key/)
+- [n8n 3.0 breaking changes](https://docs.n8n.io/changelog/v30-breaking-changes)
+- [Node-RED](https://nodered.org/)
+- [Seerr documentation](https://docs.seerr.dev/)
 
 Next: [Operate what you install](08-operations.md).

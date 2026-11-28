@@ -89,6 +89,16 @@ tier = "starter"
 last_reviewed = 2026-11-27
 
 [[project]]
+id = "syncthing"
+name = "Syncthing"
+category = "files"
+homepage = "https://syncthing.net/"
+github = "syncthing/syncthing"
+classification = "alternative"
+tier = "starter"
+last_reviewed = 2026-11-27
+
+[[project]]
 id = "tailscale"
 name = "Tailscale"
 category = "remote-access"
@@ -96,6 +106,15 @@ homepage = "https://tailscale.com/"
 github = "tailscale/tailscale"
 classification = "default"
 tier = "starter"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "wireguard"
+name = "WireGuard"
+category = "remote-access"
+homepage = "https://www.wireguard.com/"
+classification = "alternative"
+tier = "intermediate"
 last_reviewed = 2026-11-27
 
 [[project]]
@@ -149,6 +168,16 @@ tier = "intermediate"
 last_reviewed = 2026-11-27
 
 [[project]]
+id = "sops"
+name = "SOPS"
+category = "secrets"
+homepage = "https://getsops.io/"
+github = "getsops/sops"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-11-27
+
+[[project]]
 id = "uptime-kuma"
 name = "Uptime Kuma"
 category = "monitoring"
@@ -156,6 +185,16 @@ homepage = "https://uptime.kuma.pet/"
 github = "louislam/uptime-kuma"
 classification = "default"
 tier = "starter"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "gatus"
+name = "Gatus"
+category = "monitoring"
+homepage = "https://gatus.io/"
+github = "TwiN/gatus"
+classification = "alternative"
+tier = "intermediate"
 last_reviewed = 2026-11-27
 
 [[project]]
@@ -179,6 +218,66 @@ tier = "advanced"
 last_reviewed = 2026-11-27
 
 [[project]]
+id = "loki"
+name = "Grafana Loki"
+category = "telemetry"
+homepage = "https://grafana.com/docs/loki/latest/"
+github = "grafana/loki"
+classification = "specialist"
+tier = "advanced"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "dozzle"
+name = "Dozzle"
+category = "logs"
+homepage = "https://dozzle.dev/"
+github = "amir20/dozzle"
+classification = "alternative"
+tier = "starter"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "network-ups-tools"
+name = "Network UPS Tools"
+category = "power"
+homepage = "https://networkupstools.org/"
+github = "networkupstools/nut"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "netbox"
+name = "NetBox"
+category = "inventory"
+homepage = "https://netboxlabs.com/docs/netbox/"
+github = "netbox-community/netbox"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "opentofu"
+name = "OpenTofu"
+category = "iac"
+homepage = "https://opentofu.org/"
+github = "opentofu/opentofu"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "ansible"
+name = "Ansible"
+category = "configuration"
+homepage = "https://docs.ansible.com/"
+github = "ansible/ansible"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-11-27
+
+[[project]]
 id = "home-assistant"
 name = "Home Assistant"
 category = "home-automation"
@@ -194,6 +293,16 @@ name = "Jellyfin"
 category = "media"
 homepage = "https://jellyfin.org/"
 github = "jellyfin/jellyfin"
+classification = "default"
+tier = "starter"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "seerr"
+name = "Seerr"
+category = "media-requests"
+homepage = "https://docs.seerr.dev/"
+github = "seerr-team/seerr"
 classification = "default"
 tier = "starter"
 last_reviewed = 2026-11-27
@@ -229,6 +338,26 @@ tier = "starter"
 last_reviewed = 2026-11-27
 
 [[project]]
+id = "n8n"
+name = "n8n"
+category = "automation"
+homepage = "https://n8n.io/"
+github = "n8n-io/n8n"
+classification = "default"
+tier = "intermediate"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "node-red"
+name = "Node-RED"
+category = "automation"
+homepage = "https://nodered.org/"
+github = "node-red/node-red"
+classification = "alternative"
+tier = "intermediate"
+last_reviewed = 2026-11-27
+
+[[project]]
 id = "ollama"
 name = "Ollama"
 category = "local-ai"
@@ -256,4 +385,14 @@ homepage = "https://docs.vllm.ai/"
 github = "vllm-project/vllm"
 classification = "specialist"
 tier = "advanced"
+last_reviewed = 2026-11-27
+
+[[project]]
+id = "open-webui"
+name = "Open WebUI"
+category = "ai-interface"
+homepage = "https://docs.openwebui.com/"
+github = "open-webui/open-webui"
+classification = "alternative"
+tier = "intermediate"
 last_reviewed = 2026-11-27

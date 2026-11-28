@@ -53,7 +53,17 @@ system.
 - Inspect community scripts before execution. Avoid `curl | sh` as an operating
   model.
 - Use Dependabot for simple GitHub-native repositories and Renovate when grouped
-  updates or custom ecosystems justify it.
+  updates or custom ecosystems justify it. Dependabot's ecosystems include
+  `docker-compose` and `opentofu`. Point it only at files that a merge actually
+  deploys; a bump merged into a Compose file that only mirrors a host leaves
+  Git ahead of the host.
+- Pin the image updater itself. An updater holds the Docker socket on every
+  host it runs on. The original `containrrr/watchtower` repository was archived
+  on 2025-12-17 and is no longer maintained; if you use Watchtower, use a
+  maintained fork pinned to an exact release and update it by reviewed change.
+- For apps whose upgrades run one-way database migrations, use an exact
+  version or a floating major tag instead of `:latest`, so a new major arrives
+  as a reviewed change with a backup taken first.
 - Keep a rollback or restore path for consequential upgrades.
 
 CrowdSec can add useful behavior-based blocking at a public edge when paired
@@ -76,6 +86,8 @@ Write down what you protect, from whom, and what failure costs. For most homes:
 - [Authentik documentation](https://docs.goauthentik.io/)
 - [SOPS documentation](https://getsops.io/docs/)
 - [GitHub Actions secure use reference](https://docs.github.com/en/actions/reference/security/secure-use)
+- [Dependabot supported ecosystems](https://docs.github.com/en/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories)
+- [Archived containrrr/watchtower repository](https://github.com/containrrr/watchtower)
 - [CISA Secure by Design](https://www.cisa.gov/securebydesign)
 
 Next: [Choose services that create value](07-services.md).

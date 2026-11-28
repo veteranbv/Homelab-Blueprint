@@ -19,20 +19,38 @@ If a service matters, know when it fails, why it failed, and how to recover it.
 2. **Jobs:** dead-man heartbeats for backups, renewals, syncs, and scheduled
    maintenance.
 3. **Systems:** Beszel for lightweight host and container metrics.
-4. **Logs:** local service logs first; centralized Loki with Grafana Alloy when
+4. **Patches:** which hosts have pending updates or need a reboot. Without
+   this, a stuck or failing updater goes unnoticed.
+5. **Logs:** local service logs first; centralized Loki with Grafana Alloy when
    cross-host search and retention solve a real problem.
-5. **Traces:** OpenTelemetry only after distributed request paths create a
+6. **Traces:** OpenTelemetry only after distributed request paths create a
    question metrics and logs cannot answer.
 
 Promtail reached end of life; use Grafana Alloy for that collection path.
 Dozzle is useful for live container troubleshooting, not durable log retention
-or audit.
+or audit. When you do centralize container logs, admit stacks one at a time
+after checking that the app does not write secrets to its output. For syslog
+between hosts, prefer TLS transport (RFC 5425) to plain UDP, and check that
+messages actually arrive; an open port does not prove delivery.
+
+Upgrade monitoring agents and their hub together. Since Beszel 0.19.0, agents
+verify the hub's HTTPS certificate and need `CA_CERT_FILE` for a private CA.
+Uptime Kuma 3.0 is in beta as of late November 2026 and moves authentication
+and API keys to a new library; retest anything that logs in to Kuma by script
+on a copy of its database before upgrading.
 
 ## Alert the symptom and the cause
 
 An alert should say what failed, when it began, what depends on it, and where to
 start. Test notification delivery. Run at least one critical check outside the
 primary failure domain so a total local outage can still be seen.
+
+Watch the watcher. Send a dead-man heartbeat from the monitor to a check hosted
+somewhere else, or run a second small monitor in another failure domain that
+probes the first. Otherwise one host failure silences every alert at once, and
+silence reads as healthy. For push (heartbeat) monitors, make the expected
+interval longer than the producer's period plus its run time, or the monitor
+will flap.
 
 ## Maintenance loop
 
@@ -60,6 +78,12 @@ that has never reached powered-off hardware is still a hypothesis.
 ## Primary references
 
 - [Uptime Kuma repository](https://github.com/louislam/uptime-kuma)
+- [Uptime Kuma releases](https://github.com/louislam/uptime-kuma/releases)
+- [Gatus documentation](https://gatus.io/)
+- [Beszel 0.19.0 release notes](https://github.com/henrygd/beszel/releases/tag/v0.19.0)
+- [Dozzle documentation](https://dozzle.dev/)
+- [Grafana Loki documentation](https://grafana.com/docs/loki/latest/)
+- [RFC 5425: TLS transport mapping for syslog](https://www.rfc-editor.org/rfc/rfc5425)
 - [Beszel documentation](https://beszel.dev/guide/what-is-beszel)
 - [Grafana Alloy documentation](https://grafana.com/docs/alloy/latest/)
 - [Loki release notes documenting Promtail removal](https://grafana.com/docs/loki/latest/release-notes/v3-7/)
